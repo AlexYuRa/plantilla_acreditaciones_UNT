@@ -1,26 +1,63 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import { Card } from '../../components/ui/Card';
 import { lineasInvestigacion } from '../../constants/investigacion';
+import { ArrowRight } from 'lucide-react';
 
 export default function Lineas() {
   return (
-    <div className="bg-light py-10 lg:py-8">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionTitle title="Líneas de Investigación" center subtitle="Nuestras áreas prioritarias para la generación de conocimiento e innovación educativa." />
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+    <div className="bg-gray-50 py-16 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
+        <SectionTitle
+          title="Líneas de **Investigación**"
+          subtitle="Áreas prioritarias para la generación de conocimiento e innovación educativa."
+          center
+          badge="Investigación"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">
           {lineasInvestigacion.map((linea, idx) => (
-            <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
-              <Card className="h-full p-8 border-t-4 border-t-primary hover:shadow-lg transition-shadow flex flex-col">
-                <h3 className="text-xl font-display font-bold text-primary mb-4">{linea.nombre}</h3>
-                <p className="text-gray-600 font-body text-sm mb-8 flex-grow">{linea.descripcion}</p>
-                <div className="mt-auto bg-gray-50 p-4 rounded-lg">
-                  <span className="block text-xs font-bold text-gray-500 uppercase mb-1">Responsable de línea</span>
-                  <span className="text-sm font-semibold text-secondary">{linea.responsable}</span>
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.4 }}
+              whileHover={{ y: -6 }}
+              className="group h-full"
+            >
+              <div className="h-full bg-white rounded-2xl border border-gray-100 hover:border-[#F58220]/40 hover:shadow-[0_8px_32px_rgba(245,130,32,0.1)] transition-all duration-300 overflow-hidden flex flex-col">
+                {/* Cabecera coloreada */}
+                <div className="bg-[#002D62] px-6 pt-6 pb-8 relative overflow-hidden">
+                  {/* Patrón de fondo */}
+                  <div className="absolute inset-0 opacity-[0.06]"
+                    style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }}
+                  />
+                  {/* Número */}
+                  <span className="absolute top-4 right-4 text-5xl font-display font-black text-white/10 leading-none select-none">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <div className="w-8 h-0.5 bg-[#F58220] rounded-full mb-3 relative" />
+                  <h3 className="text-lg font-display font-black text-white leading-snug relative">
+                    {linea.nombre}
+                  </h3>
                 </div>
-              </Card>
+
+                {/* Contenido */}
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+                    {linea.descripcion}
+                  </p>
+                  <div className="bg-gray-50 rounded-xl p-4">
+                    <span className="block text-[10px] font-black uppercase tracking-[0.15em] text-gray-400 mb-1">
+                      Responsable de línea
+                    </span>
+                    <span className="text-sm font-bold text-[#002D62]">
+                      {linea.responsable}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

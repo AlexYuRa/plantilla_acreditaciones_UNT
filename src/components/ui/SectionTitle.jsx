@@ -2,26 +2,68 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
-export function SectionTitle({ title, subtitle, center = false, className }) {
+/**
+ * SectionTitle - Título de sección más expresivo y energético.
+ * Props:
+ *  - title: string — puede incluir `**palabra**` para resaltar en naranja
+ *  - subtitle: string
+ *  - center: boolean
+ *  - badge: string — texto pequeño de etiqueta encima del título (opcional)
+ *  - className: string
+ */
+export function SectionTitle({ title, subtitle, center = false, badge, className }) {
+  // Procesa **texto** → span naranja
+  const renderTitle = (text) => {
+    const parts = text.split(/\*\*(.*?)\*\*/g);
+    return parts.map((part, i) =>
+      i % 2 === 1
+        ? <span key={i} className="text-[#F58220]">{part}</span>
+        : part
+    );
+  };
+
   return (
-    <div className={clsx('mb-10', center && 'text-center flex flex-col items-center', className)}>
-      <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-3">
-        {title}
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={clsx('mb-10', center && 'text-center flex flex-col items-center', className)}
+    >
+      {/* Badge opcional */}
+      {badge && (
+        <span className="inline-block mb-3 text-xs font-black uppercase tracking-[0.18em] text-[#F58220] bg-[#F58220]/10 px-3 py-1 rounded-full border border-[#F58220]/20">
+          {badge}
+        </span>
+      )}
+
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-[#002D62] leading-tight mb-3">
+        {renderTitle(title)}
       </h2>
-      
-      <motion.div 
-        initial={{ width: 0 }}
-        whileInView={{ width: '80px' }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={clsx("h-1 bg-[#F58220] rounded-full", center ? "mx-auto" : "")}
-      />
+
+      {/* Línea decorativa doble */}
+      <div className={clsx('flex items-center gap-1 mb-4', center && 'justify-center')}>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="h-1 w-14 bg-[#F58220] rounded-full origin-left"
+        />
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
+          className="h-1 w-4 bg-[#002D62] rounded-full origin-left"
+        />
+      </div>
 
       {subtitle && (
-        <p className="mt-4 text-gray-600 font-body text-lg max-w-2xl">
+        <p className="text-gray-500 font-body text-base md:text-lg max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }

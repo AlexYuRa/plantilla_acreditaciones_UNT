@@ -1,30 +1,71 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '../ui/Card';
-import { Badge } from '../ui/Badge';
+import { Users, Calendar } from 'lucide-react';
 
+/**
+ * ProyectoCard — Tarjeta premium para proyectos de investigación.
+ * Franja de color según estado, año destacado, lista de investigadores limpia.
+ */
 export default function ProyectoCard({ proyecto }) {
+  const isActive = proyecto.estado === 'En ejecución';
+
   return (
-    <motion.div whileHover={{ y: -5 }} className="h-full">
-      <Card className="h-full p-6 flex flex-col hover:border-secondary transition-colors">
-        <div className="flex justify-between items-start mb-4">
-          <Badge variant={proyecto.estado === 'En ejecución' ? 'success' : 'gray'}>
-            {proyecto.estado}
-          </Badge>
-          <span className="text-sm font-bold text-gray-500">{proyecto.año}</span>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3 }}
+      className="group h-full"
+    >
+      <div className="h-full flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#F58220]/30 hover:shadow-lg transition-all duration-300 overflow-hidden">
+        {/* Franja superior de estado */}
+        <div className={`h-1.5 w-full ${isActive ? 'bg-emerald-400' : 'bg-gray-300'}`} />
+
+        <div className="p-6 flex flex-col flex-1">
+          {/* Estado + año */}
+          <div className="flex items-center justify-between mb-4">
+            <span className={`inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full ${
+              isActive
+                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                : 'bg-gray-100 text-gray-500 border border-gray-200'
+            }`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-emerald-400' : 'bg-gray-400'}`} />
+              {proyecto.estado}
+            </span>
+            <span className="inline-flex items-center gap-1 text-xs text-gray-400 font-semibold">
+              <Calendar className="w-3 h-3" />
+              {proyecto.año}
+            </span>
+          </div>
+
+          {/* Título */}
+          <h3 className="font-display font-bold text-[#002D62] text-base leading-snug mb-3 group-hover:text-[#F58220] transition-colors">
+            {proyecto.titulo}
+          </h3>
+
+          {/* Descripción */}
+          <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+            {proyecto.descripcion}
+          </p>
+
+          {/* Investigadores */}
+          <div className="bg-gray-50 rounded-xl p-4 mt-auto">
+            <div className="flex items-center gap-1.5 mb-2">
+              <Users className="w-3 h-3 text-[#F58220]" />
+              <span className="text-[10px] font-black uppercase tracking-[0.15em] text-gray-400">Investigadores</span>
+            </div>
+            <ul className="space-y-1">
+              {proyecto.investigadores.map((inv, idx) => (
+                <li key={idx} className="text-xs text-gray-600 font-medium flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#F58220] shrink-0" />
+                  {inv}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <h3 className="text-xl font-display font-bold text-primary mb-3">{proyecto.titulo}</h3>
-        <p className="text-gray-600 font-body text-sm mb-6 flex-grow">{proyecto.descripcion}</p>
-        
-        <div className="border-t border-gray-100 pt-4 mt-auto">
-          <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Investigadores:</h4>
-          <ul className="text-sm text-gray-700 font-medium space-y-1">
-            {proyecto.investigadores.map((inv, idx) => (
-              <li key={idx}>• {inv}</li>
-            ))}
-          </ul>
-        </div>
-      </Card>
+      </div>
     </motion.div>
   );
 }

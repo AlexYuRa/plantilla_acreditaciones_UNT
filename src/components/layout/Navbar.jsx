@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Phone, Mail, Search, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../../assets/logo.png';
 import Breadcrumbs from './Breadcrumbs';
+import AnnouncementBanner from './AnnouncementBanner';
 
 const NAV_LINKS = [
   { name: 'Inicio', path: '/' },
@@ -97,6 +98,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Banner de Avisos Institucionales */}
+      <AnnouncementBanner />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">

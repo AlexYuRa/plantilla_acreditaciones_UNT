@@ -1,23 +1,25 @@
 import React from 'react';
 import PageWrapper from '../components/layout/PageWrapper';
-import { SectionTitle } from '../components/ui/SectionTitle';
+import PageHero from '../components/layout/PageHero';
 import FormContacto from '../components/contacto/FormContacto';
 import MapaUbicacion from '../components/contacto/MapaUbicacion';
 import RedesSociales from '../components/contacto/RedesSociales';
 import { informacionContacto } from '../constants/contacto';
+import { MessageSquare } from 'lucide-react';
 
 export default function Contacto() {
   return (
     <PageWrapper>
-      <div className="bg-light py-10 lg:py-8 min-h-screen">
+      <PageHero
+        title="Contacto y Ubicación"
+        subtitle="Estamos aquí para resolver tus dudas. Escríbenos o visítanos en nuestro campus."
+        icon={MessageSquare}
+        breadcrumbs={[{ label: 'Contacto' }]}
+      />
+
+      <div className="bg-gray-50 py-12 min-h-screen">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionTitle 
-            title="Contacto y Ubicación" 
-            center 
-            subtitle="Estamos aquí para resolver tus dudas. Escríbenos o visítanos en nuestro campus." 
-          />
-          
-          <div className="max-w-6xl mx-auto mt-12 bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+          <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
             
             {/* Info y Formulario */}
             <div className="w-full lg:w-1/2 p-8 md:p-12 flex flex-col">

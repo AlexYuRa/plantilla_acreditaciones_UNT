@@ -1,18 +1,21 @@
 import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
+import PageHero from '../../components/layout/PageHero';
 import MisionVision from './MisionVision';
 import ConveniosEscuelas from './ConveniosEscuelas';
 import Historia from './Historia';
+import { BookHeart } from 'lucide-react';
 
 export default function NosotrosIndex() {
   return (
     <PageWrapper>
       <div className="flex flex-col">
-        {/* Cabecera */}
-        <div className="bg-pucp-blue-dark text-white py-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-black tracking-tight">Sobre Nosotros</h1>
-          <p className="mt-4 text-white/80 font-body max-w-2xl mx-auto">Conoce la identidad, valores e historia de la Escuela de Educación Primaria.</p>
-        </div>
+        <PageHero
+          title="Sobre Nosotros"
+          subtitle="Conoce la identidad, valores e historia de la Escuela de Educación Primaria."
+          icon={BookHeart}
+          breadcrumbs={[{ label: 'Nosotros' }]}
+        />
 
         <section id="mision-vision" className="scroll-mt-24">
           <MisionVision />

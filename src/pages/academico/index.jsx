@@ -1,19 +1,22 @@
 import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
+import PageHero from '../../components/layout/PageHero';
 import PerfilIngresante from './PerfilIngresante';
 import PerfilEgresado from './PerfilEgresado';
 import PlanEstudios from './PlanEstudios';
 import Titulacion from './Titulacion';
+import { GraduationCap } from 'lucide-react';
 
 export default function AcademicoIndex() {
   return (
     <PageWrapper>
       <div className="flex flex-col">
-        {/* Cabecera general o espaciador opcional */}
-        <div className="bg-pucp-blue-dark text-white py-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-black tracking-tight">Área Académica</h1>
-          <p className="mt-4 text-white/80 font-body max-w-2xl mx-auto">Descubre todo lo relacionado con tu formación profesional en Educación Primaria.</p>
-        </div>
+        <PageHero
+          title="Área Académica"
+          subtitle="Descubre todo lo relacionado con tu formación profesional en Educación Primaria."
+          icon={GraduationCap}
+          breadcrumbs={[{ label: 'Académico' }]}
+        />
 
         <div className="bg-light py-10 lg:py-8">
           <div className="container mx-auto px-4 md:px-6">
@@ -23,6 +26,9 @@ export default function AcademicoIndex() {
             </div>
           </div>
         </div>
+
+        <section id="perfil-ingresante" className="scroll-mt-24 hidden" />
+        <section id="perfil-egresado" className="scroll-mt-24 hidden" />
 
         <section id="plan-estudios" className="scroll-mt-24">
           <PlanEstudios />
