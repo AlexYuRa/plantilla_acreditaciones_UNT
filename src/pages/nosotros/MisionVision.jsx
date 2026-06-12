@@ -16,9 +16,8 @@ export default function MisionVision() {
             title="Misión y **Visión**"
             subtitle="Los propósitos que guían nuestro camino hacia la excelencia educativa."
             center
-            badge="Identidad"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-6xl mx-auto">
             <MisionCard
               title="Nuestra Misión"
               description={mision}
@@ -40,9 +39,8 @@ export default function MisionVision() {
             title="Nuestros **Valores**"
             subtitle="Principios que guían a nuestra comunidad universitaria."
             center
-            badge="Principios"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 max-w-6xl mx-auto">
             {valores.map((valor, idx) => (
               <ValorItem key={idx} valor={valor} index={idx} />
             ))}

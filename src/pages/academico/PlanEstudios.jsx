@@ -47,8 +47,8 @@ export default function PlanEstudios() {
   );
 
   return (
-    <div className="bg-white py-10 lg:py-8">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="bg-white py-16 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
         <SectionTitle 
           title="Plan de Estudios" 
           center 
@@ -67,7 +67,7 @@ export default function PlanEstudios() {
           </a>
         </div>
         
-        <div className="max-w-5xl mx-auto mt-12">
+        <div className="max-w-6xl mx-auto mt-12">
           {isMobile ? (
             <div className="space-y-4">
               {planEstudios.map((ciclo, idx) => (

@@ -29,7 +29,7 @@ export default function Breadcrumbs() {
 
   return (
     <div className="bg-pucp-blue-dark py-3 w-full">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-8">
         <nav className="flex text-[13px] md:text-sm text-white/80 font-body" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2">
             <li className="inline-flex items-center">

@@ -5,8 +5,8 @@ import { historia } from '../../constants/identidad';
 
 export default function Historia() {
   return (
-    <div className="bg-white py-10 lg:py-8">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="bg-white py-16 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
         <SectionTitle title="Nuestra Historia" center subtitle="Más de cinco décadas formando educadores de excelencia." />
         
         <div className="max-w-3xl mx-auto mt-12 mb-16 text-center">

@@ -32,10 +32,9 @@ export default function ConveniosEscuelas() {
           title="Colegios **Aliados**"
           subtitle="Red de instituciones educativas donde nuestros estudiantes desarrollan sus prácticas pre-profesionales."
           center
-          badge="Convenios"
         />
 
-        <div className="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-12 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {colegios.map((colegio, idx) => (
             <motion.div
               key={idx}

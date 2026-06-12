@@ -13,10 +13,9 @@ export default function Titulacion() {
           title="Grados y **Títulos**"
           subtitle="Requisitos y modalidades para obtener tu grado de bachiller y título profesional."
           center
-          badge="Titulación"
         />
 
-        <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-7">
+        <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-7">
           {tramites.map((tramite, idx) => (
             <motion.div
               key={idx}

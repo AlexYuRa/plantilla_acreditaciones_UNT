@@ -50,7 +50,7 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       {/* Main footer body */}
       <div className="pt-14 pb-10">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
 
             {/* Columna 1: Identidad + Redes */}
@@ -190,7 +190,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="bg-black/20 py-4">
-        <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-400">
+        <div className="container mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-400">
           <p>© {currentYear} Escuela Profesional de Educación Primaria — UNT. Todos los derechos reservados.</p>
           <p>Ley de Transparencia N° 27806 — Acceso a la Información Pública</p>
         </div>

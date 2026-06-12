@@ -46,7 +46,7 @@ export default function Navbar() {
     >
       {/* Top Bar */}
       <div className="bg-pucp-blue-dark text-gray-300 text-[13px] py-2 border-b-2 border-[#E6AC09] hidden md:block">
-        <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+        <div className="container mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 md:gap-8">
             <span className="font-semibold text-white">¿Tienes alguna duda?</span>
             <span className="flex items-center gap-1.5 hover:text-[#E6AC09] transition-colors cursor-pointer">
@@ -80,7 +80,7 @@ export default function Navbar() {
       {/* Banner de Avisos Institucionales */}
       <AnnouncementBanner />
 
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           {/* Logo / Marca */}
           <Link to="/" className="flex items-center gap-3 md:gap-4 group py-3">

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import FloatingAdmissions from '../components/layout/FloatingAdmissions';
 import ScrollToHash from '../components/ScrollToHash';
 
 // Pages
@@ -34,6 +35,9 @@ import Proyectos from '../pages/investigacion/Proyectos';
 import Publicaciones from '../pages/investigacion/Publicaciones';
 import Convenios from '../pages/investigacion/convenios';
 
+// Noticias
+import Noticias from '../pages/Noticias';
+
 // Contacto
 import Contacto from '../pages/Contacto';
 
@@ -41,6 +45,7 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <ScrollToHash />
+      <FloatingAdmissions />
       <div className="flex flex-col min-h-screen">
         <Navbar />
 
@@ -82,6 +87,9 @@ export default function AppRouter() {
               <Route path="publicaciones" element={<Publicaciones />} />
               <Route path="convenios" element={<Convenios />} />
             </Route>
+
+            {/* Noticias */}
+            <Route path="/noticias" element={<Noticias />} />
 
             {/* Contacto */}
             <Route path="/contacto" element={<Contacto />} />

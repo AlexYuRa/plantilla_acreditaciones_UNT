@@ -45,7 +45,7 @@ export default function AnnouncementBanner() {
         transition={{ duration: 0.3 }}
         className="bg-[#E6AC09] text-white overflow-hidden"
       >
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between gap-3 py-2.5">
             {/* Ícono + Texto */}
             <div className="flex items-center gap-3 min-w-0 flex-1">

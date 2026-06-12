@@ -12,7 +12,6 @@ export default function Lineas() {
           title="Líneas de **Investigación**"
           subtitle="Áreas prioritarias para la generación de conocimiento e innovación educativa."
           center
-          badge="Investigación"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">

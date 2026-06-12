@@ -29,7 +29,7 @@ export default function SectionTabs({ links }) {
       className="sticky z-30 bg-white border-b border-gray-200 shadow-sm"
       style={{ top: headerHeight }}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-8">
         <nav
           className="flex overflow-x-auto hide-scrollbar gap-1"
           aria-label="Navegación de la sección"

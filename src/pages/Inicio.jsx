@@ -230,7 +230,7 @@ export default function Inicio() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <SectionTitle title="Noticias y Actualidad" subtitle="Últimas novedades, eventos y comunicados de la Escuela." />
             <Link
-              to="/investigacion"
+              to="/noticias"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#12377B] hover:text-[#E6AC09] transition-colors whitespace-nowrap shrink-0"
             >
               Ver todas <ArrowRight className="w-4 h-4" />
@@ -300,7 +300,7 @@ export default function Inicio() {
             center
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-12">
             {accesosRapidos.map((acceso, idx) => {
               const IconComp = acceso.icono;
               return (

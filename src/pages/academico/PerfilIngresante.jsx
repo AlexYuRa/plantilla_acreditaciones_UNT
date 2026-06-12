@@ -5,12 +5,12 @@ import { Check } from 'lucide-react';
 
 export default function PerfilIngresante() {
   return (
-    <div className="bg-light py-10 lg:py-8">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="w-full">
+    <div className="bg-light py-16 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="w-full max-w-4xl mx-auto">
           <SectionTitle
             title="Perfil del Ingresante"
-            center={false}
+            center
             subtitle="Habilidades y actitudes ideales para formar parte de la carrera de Educación Primaria."
           />
           <div className="mt-8 bg-white p-6 md:p-8 rounded-xl shadow-md border-t-4 border-t-secondary">

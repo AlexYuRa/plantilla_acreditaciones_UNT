@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T00:00:00Z",
+  "title": "Design System: Escuela de Educación Primaria — UNT",
+  "extensions": {
+    "colorMeta": {
+      "institutional-blue": { "role": "primary", "displayName": "Azul Institucional", "canonical": "#12377B", "tonalRamp": ["#070f22", "#0c1d44", "#12377B", "#1c4a9e", "#3463bd", "#6189d2", "#97b3e3", "#cdddf3"] },
+      "deep-navy": { "role": "primary", "displayName": "Azul Profundo", "canonical": "#000C4A", "tonalRamp": ["#000418", "#00082f", "#000C4A", "#001a7a", "#0a2faa", "#3457c9", "#6e8ade", "#b6c4ef"] },
+      "gold": { "role": "secondary", "displayName": "Dorado (Sello de Calidad)", "canonical": "#E6AC09", "tonalRamp": ["#3a2c02", "#6e5305", "#a37a07", "#c49308", "#E6AC09", "#f2c43f", "#f9dd92", "#fcebbf"] },
+      "gold-bright": { "role": "accent", "displayName": "Amarillo Vivo (solo degradado)", "canonical": "#FDF107", "tonalRamp": ["#403d02", "#7a7404", "#b3aa06", "#dcd006", "#FDF107", "#fdf449", "#fef985", "#fffcc2"] },
+      "electric-blue": { "role": "accent", "displayName": "Azul Eléctrico (solo degradado)", "canonical": "#092EFF", "tonalRamp": ["#020a40", "#031266", "#051c99", "#0726cc", "#092EFF", "#4a64ff", "#8499ff", "#c1ccff"] },
+      "ink": { "role": "neutral", "displayName": "Tinta (negro cálido)", "canonical": "#1B1711", "tonalRamp": ["#1B1711", "#3a342a", "#5a5044", "#7c715f", "#9d927f", "#bdb4a4", "#ddd7cc", "#f3f0ea"] },
+      "surface": { "role": "neutral", "displayName": "Superficie", "canonical": "#FFFFFF", "tonalRamp": ["#9ca3af", "#d1d5db", "#e5e7eb", "#f3f4f6", "#f9fafb", "#ffffff", "#ffffff", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Solo el H1 del hero; slab serif en peso black, tope 6rem." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección con una palabra resaltada en dorado." },
+      "body": { "displayName": "Body", "purpose": "Cuerpo en sans neutro, 65-75ch en bloques de lectura." },
+      "label": { "displayName": "Label", "purpose": "Badges/etiquetas mayúsculas ≤4 palabras; uso escaso." }
+    },
+    "shadows": [
+      { "name": "rest", "value": "0 1px 2px 0 rgba(0,0,0,0.05)", "purpose": "Tarjetas y botones en reposo." },
+      { "name": "raised", "value": "0 10px 15px -3px rgba(0,0,0,0.1)", "purpose": "Tarjetas destacadas y paneles." },
+      { "name": "high", "value": "0 20px 25px -5px rgba(0,0,0,0.1)", "purpose": "Hero secundario, tarjetas de Ambientes, panel de admisión." },
+      { "name": "gold-glow", "value": "0 12px 40px rgba(230,172,9,0.15)", "purpose": "Hover de tarjetas/botones dorados; resalte cálido." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Easing por defecto de transiciones de estado." },
+      { "name": "tab-spring", "value": "spring(stiffness 300, damping 30)", "purpose": "Indicador deslizante de pestañas (framer-motion layout)." },
+      { "name": "drawer", "value": "transform 500ms ease-in-out", "purpose": "Deslizamiento del panel lateral de admisión." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Gold Button (CTA principal)",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Acción primaria del hero y CTAs destacados.",
+      "html": "<button class=\"ds-btn-gold\">Ver Plan de Estudios</button>",
+      "css": ".ds-btn-gold { background:#E6AC09; color:#fff; font-weight:900; padding:14px 32px; border:none; border-radius:12px; font-family:Arial,Helvetica,sans-serif; cursor:pointer; transition:background .2s ease, box-shadow .2s ease; } .ds-btn-gold:hover { background:#C49308; box-shadow:0 0 32px rgba(230,172,9,0.5); } .ds-btn-gold:focus-visible { outline:2px solid #092EFF; outline-offset:2px; }"
+    },
+    {
+      "name": "Primary Button (azul)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Botón base institucional del sistema.",
+      "html": "<button class=\"ds-btn-primary\">Enviar</button>",
+      "css": ".ds-btn-primary { background:#12377B; color:#fff; font-weight:500; letter-spacing:0.025em; padding:10px 24px; border:none; border-radius:6px; font-family:Arial,Helvetica,sans-serif; cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,0.05); transition:background .2s ease; } .ds-btn-primary:hover { background:#0c2a63; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Contenedor blanco con borde sutil y elevación al hover.",
+      "html": "<div class=\"ds-card\"><h3>Plan de Estudios</h3><p>Malla curricular por ciclos.</p></div>",
+      "css": ".ds-card { background:#fff; border:1px solid #F3F4F6; border-radius:12px; padding:24px; box-shadow:0 1px 2px rgba(0,0,0,0.05); transition:box-shadow .3s ease, transform .3s ease; font-family:Arial,Helvetica,sans-serif; } .ds-card:hover { box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); transform:translateY(-4px); } .ds-card h3 { font-family:\"Roboto Slab\",Georgia,serif; font-weight:700; color:#12377B; margin:0 0 8px; } .ds-card p { color:#4B5563; font-size:0.875rem; margin:0; }"
+    },
+    {
+      "name": "Section Tab (sub-navegación)",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Pestaña de sección con indicador dorado deslizante.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab ds-tab--active\">Misión y Visión</a><a class=\"ds-tab\">Historia</a></nav>",
+      "css": ".ds-tabs { display:flex; gap:4px; border-bottom:1px solid #e5e7eb; font-family:Arial,Helvetica,sans-serif; } .ds-tab { position:relative; padding:16px; font-size:0.875rem; font-weight:600; color:#6b7280; text-decoration:none; cursor:pointer; } .ds-tab:hover { color:#374151; } .ds-tab--active { color:#12377B; } .ds-tab--active::after { content:\"\"; position:absolute; left:0; right:0; bottom:0; height:4px; background:#E6AC09; border-radius:9999px 9999px 0 0; } .ds-tab:focus-visible { outline:2px solid #E6AC09; outline-offset:-2px; border-radius:2px; }"
+    },
+    {
+      "name": "Admission Drawer Tab (signature)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Pestaña vertical 'INGRESO' del panel lateral de admisión.",
+      "html": "<div class=\"ds-ingreso\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22 10v6M2 10l10-5 10 5-10 5z\"/><path d=\"M6 12v5c3 3 9 3 12 0v-5\"/></svg><span class=\"ds-ingreso__txt\">INGRESO</span></div>",
+      "css": ".ds-ingreso { display:inline-flex; flex-direction:column; align-items:center; gap:16px; background:#E6AC09; color:#12377B; padding:24px 14px; border-radius:0 12px 12px 0; box-shadow:4px 0 15px rgba(0,0,0,0.15); cursor:pointer; } .ds-ingreso__txt { writing-mode:vertical-rl; transform:rotate(180deg); font-family:Arial,Helvetica,sans-serif; font-weight:700; letter-spacing:0.2em; font-size:26px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Cátedra Acreditada",
+    "overview": "El sistema viste a la Escuela con la autoridad de una cátedra universitaria respaldada por la acreditación. El azul institucional profundo es el aula y el papel oficial; el dorado es el sello —escaso, deliberado— que marca la calidad. La voz es formal pero no fría: la solidez de la UNT con la calidez de formar maestros de primaria. Ejecución moderna y ordenada, nunca anticuada ni burocrática.",
+    "keyCharacteristics": [
+      "Azul institucional como base; dorado como sello escaso.",
+      "Jerarquía al servicio de la lectura.",
+      "Evidencia visible: orden, no adjetivos.",
+      "Calidez con seriedad; identidad UNT específica."
+    ],
+    "rules": [
+      { "name": "La Regla del Sello", "body": "El dorado es un sello, no un fondo. Proporción mínima; si cubre más del ~10% de una pantalla, se vuelve ruido.", "section": "colors" },
+      { "name": "La Regla Solo-Degradado", "body": "El amarillo vivo (#FDF107) y el azul eléctrico (#092EFF) existen solo dentro de degradados; nunca como relleno/texto/borde sólido.", "section": "colors" },
+      { "name": "La Regla del Eyebrow Único", "body": "Sin eyebrows mayúsculos encima de cada sección; un kicker deliberado es voz, un eyebrow por sección es gramática de IA.", "section": "typography" },
+      { "name": "La Regla Anti-Ghost-Card", "body": "Prohibido borde 1px + sombra con blur ≥16px como decoración en el mismo elemento.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar el azul institucional como voz por defecto y el dorado como sello escaso (≤10%).",
+      "Do mantener el texto en tinta (#1B1711) o gris-600; contraste mínimo 4.5:1 (WCAG AA).",
+      "Do alternar fondos (blanco / gris-50 / azul profundo) con espaciado de sección consistente (py-16 md:py-20) y gutter px-8.",
+      "Do respetar prefers-reduced-motion en toda animación.",
+      "Do reservar #FDF107 y #092EFF exclusivamente para degradados."
+    ],
+    "donts": [
+      "Don't caer en look SaaS/startup (números gigantes con glow, degradados de moda, copy buzzword).",
+      "Don't parecer portal gubernamental anticuado (tablas crudas, gris sin jerarquía).",
+      "Don't usar colores infantiles/caricaturescos ni ilustraciones doodle.",
+      "Don't quedar como plantilla corporativa fría sin identidad UNT.",
+      "Don't eyebrows por sección, bordes laterales de color >1px, ni gradient text.",
+      "Don't redondear tarjetas a 32px+ ni borde 1px + sombra ancha como decoración."
+    ]
+  }
+}
