@@ -5,7 +5,7 @@ import FormContacto from '../components/contacto/FormContacto';
 import MapaUbicacion from '../components/contacto/MapaUbicacion';
 import RedesSociales from '../components/contacto/RedesSociales';
 import { informacionContacto } from '../constants/contacto';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Contacto() {
   return (
@@ -27,21 +27,21 @@ export default function Contacto() {
               
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-xl">📍</div>
+                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-primary"><MapPin className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1 uppercase tracking-wider">Dirección</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">{informacionContacto.direccion}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-xl">📞</div>
+                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-primary"><Phone className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1 uppercase tracking-wider">Teléfonos</h4>
                     <p className="text-gray-600 text-sm">{informacionContacto.telefonos.join(' / ')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-xl">✉️</div>
+                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center shrink-0 text-primary"><Mail className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1 uppercase tracking-wider">Correo Institucional</h4>
                     <p className="text-gray-600 text-sm">{informacionContacto.correo}</p>

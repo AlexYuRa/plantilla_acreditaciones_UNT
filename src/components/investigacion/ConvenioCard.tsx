@@ -13,7 +13,7 @@ interface Convenio {
 export default function ConvenioCard({ convenio }: { convenio: Convenio }) {
   return (
     <motion.div whileHover={{ scale: 1.02 }} className="h-full">
-      <Card className="h-full p-6 border-l-4 border-l-secondary flex flex-col">
+      <Card className="h-full p-6 flex flex-col">
         <div className="mb-2">
           <h3 className="text-lg font-display font-bold text-primary">{convenio.institucion}</h3>
         </div>

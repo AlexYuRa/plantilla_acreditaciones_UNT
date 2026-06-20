@@ -76,7 +76,7 @@ export default function Titulacion() {
                     href={tramite.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gold hover:bg-[#C49308] text-blue-deep font-black rounded-xl transition-colors text-sm group-hover:shadow-[0_4px_20px_rgba(230,172,9,0.4)]"
+                    className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-deep text-blue-deep font-black rounded-xl transition-colors text-sm group-hover:shadow-[0_4px_20px_rgba(230,172,9,0.4)]"
                   >
                     <Download className="w-4 h-4" />
                     Descargar Requisitos

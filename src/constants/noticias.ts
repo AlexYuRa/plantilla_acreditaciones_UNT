@@ -15,7 +15,7 @@ export const noticias = [
   {
     id: 2,
     categoria: 'Convocatoria',
-    categoriaColor: 'bg-[#E6AC09] text-[#1B1711]',
+    categoriaColor: 'bg-gold text-ink',
     titulo: 'Convocatoria: Prácticas Preprofesionales en Gestión Ambiental 2025-II',
     resumen:
       'Se abre la convocatoria para plazas de práctica preprofesional en entidades públicas y empresas del sector ambiental aliadas a la escuela.',
@@ -27,7 +27,7 @@ export const noticias = [
   {
     id: 3,
     categoria: 'Logro Institucional',
-    categoriaColor: 'bg-[#000C4A] text-white',
+    categoriaColor: 'bg-blue-deep text-white',
     titulo: 'Nuevo laboratorio de monitoreo de calidad del aire',
     resumen:
       'Nos complace anunciar la implementación de un nuevo laboratorio de monitoreo de calidad del aire para fortalecer la formación práctica y la investigación.',

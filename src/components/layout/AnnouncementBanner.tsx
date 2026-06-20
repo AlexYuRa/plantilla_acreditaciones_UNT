@@ -7,19 +7,19 @@ import { Link } from 'react-router-dom';
 const AVISOS = [
   {
     id: 1,
-    texto: '📋 Matrícula 2025-II: Del 10 al 20 de junio. Revisa los requisitos en el Portal del Estudiante.',
+    texto: 'Matrícula 2025-II: Del 10 al 20 de junio. Revisa los requisitos en el Portal del Estudiante.',
     link: 'https://sga.unitru.edu.pe',
     externo: true,
   },
   {
     id: 2,
-    texto: '🎓 Convocatoria: Proyecto FONDECYT 2025 — Inscripciones abiertas hasta el 30 de junio.',
+    texto: 'Convocatoria: Proyecto FONDECYT 2025. Inscripciones abiertas hasta el 30 de junio.',
     link: '/investigacion/proyectos',
     externo: false,
   },
   {
     id: 3,
-    texto: '📢 Acreditación SINEACE: Resultados de la visita de evaluación externa disponibles.',
+    texto: 'Acreditación SINEACE: Resultados de la visita de evaluación externa disponibles.',
     link: '/nosotros/historia',
     externo: false,
   },
@@ -29,14 +29,13 @@ export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
 
-  if (!visible) return null;
-
   const aviso = AVISOS[currentIdx];
 
   const handleNext = () => setCurrentIdx((prev) => (prev + 1) % AVISOS.length);
 
   return (
     <AnimatePresence>
+      {visible && (
       <motion.div
         key="banner"
         initial={{ height: 0, opacity: 0 }}
@@ -123,6 +122,7 @@ export default function AnnouncementBanner() {
           </div>
         </div>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 }

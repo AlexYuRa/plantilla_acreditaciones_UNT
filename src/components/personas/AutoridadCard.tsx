@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
-import { User } from 'lucide-react';
+import { User, Mail } from 'lucide-react';
 
 interface Autoridad {
   cargo: string;
@@ -29,7 +29,7 @@ export default function AutoridadCard({ autoridad, principal = false }: Autorida
         {autoridad.bio && <p className="text-gray-600 font-body text-sm mb-4 leading-relaxed max-w-md">{autoridad.bio}</p>}
         
         <a href={`mailto:${autoridad.correo}`} className="text-gray-500 hover:text-primary text-sm mt-auto inline-flex items-center gap-2 transition-colors">
-          ✉️ {autoridad.correo}
+          <Mail className="w-4 h-4" /> {autoridad.correo}
         </a>
       </Card>
     </motion.div>

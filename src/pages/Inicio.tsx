@@ -1,16 +1,14 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Card } from '../components/ui/Card';
 import { BookOpen, Users, FlaskConical, GraduationCap, Handshake, ArrowRight, Calendar } from 'lucide-react';
-import { Button } from '../components/ui/Button';
 import frontImage from '../assets/front_ingAmbi.webp';
 import frontImage2 from '../assets/front_ingAmbi1.webp';
 import frontImage3 from '../assets/frontunt.webp';
 import { noticias } from '../constants/noticias';
-import { director } from '../constants/autoridades';
 import useHeaderHeight from '../hooks/useHeaderHeight';
 
 export default function Inicio() {
@@ -147,7 +145,7 @@ export default function Inicio() {
               style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', textShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
             >
               Ingeniería<br />
-              <span style={{ color: '#E6AC09' }}>Ambiental</span>
+              <span className="text-gold">Ambiental</span>
             </motion.h1>
 
             <motion.p
@@ -163,13 +161,13 @@ export default function Inicio() {
                 <motion.button
                   whileHover={{ scale: 1.04, boxShadow: '0 0 32px rgba(230,172,9,0.5)' }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-[#C49308] text-blue-deep font-black px-8 py-3.5 rounded-xl text-base transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-deep text-blue-deep font-black px-8 py-3.5 rounded-xl text-base transition-colors"
                 >
                   <GraduationCap className="w-5 h-5" />
                   Ver Plan de Estudios
                 </motion.button>
               </Link>
-              <Link to="/nosotros/mision">
+              <Link to="/nosotros/mision-vision">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -201,7 +199,7 @@ export default function Inicio() {
               >
                 <div
                   className="text-4xl md:text-5xl font-display font-black mb-1"
-                  style={{ color: '#E6AC09', textShadow: '0 0 20px rgba(230,172,9,0.3)' }}
+                  style={{ textShadow: '0 0 20px rgba(230,172,9,0.3)' }}
                 >
                   {cifra.numero}
                 </div>
@@ -367,6 +365,10 @@ export default function Inicio() {
                           loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
+                        {/* Ícono de categoría */}
+                        <div className="absolute bottom-2 left-2 z-20 w-9 h-9 rounded-lg bg-gold flex items-center justify-center shadow-md">
+                          <IconComp className="w-5 h-5 text-blue-deep" />
+                        </div>
                       </div>
 
                       {/* Contenido */}

@@ -67,7 +67,7 @@ export default function PlanEstudios() {
             href={`${import.meta.env.BASE_URL}Plan_de_Estudios_2025.pdf`} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-blue-deep font-bold rounded-lg hover:bg-[#C49308] transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-blue-deep font-bold rounded-lg hover:bg-gold-deep transition-colors shadow-md"
           >
             <Download className="w-5 h-5" />
             Descargar Malla Curricular (PDF)

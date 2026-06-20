@@ -15,6 +15,7 @@ export default {
         'blue-deep': '#000C4A',
         'blue-electric': '#092EFF',
         gold: '#E6AC09',
+        'gold-deep': '#C49308',
         'gold-bright': '#FDF107',
         ink: '#1B1711',
         'pucp-blue-dark': '#12377B',

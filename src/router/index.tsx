@@ -49,7 +49,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <ScrollToHash />
       <FloatingAdmissions />
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-[100svh]">
         <Navbar />
 
         <main className="flex-grow">

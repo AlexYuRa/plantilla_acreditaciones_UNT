@@ -2,46 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
 import { informacionContacto, redesSociales } from '../../constants/contacto';
+import { socialIcons, socialLabels } from '../icons/social';
 import logo from '../../assets/unt1.png';
-
-// Iconos SVG de Redes Sociales
-const FacebookIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-);
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-  </svg>
-);
-const YoutubeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-    <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
-  </svg>
-);
-const TwitterXIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
-
-const socialIcons: Record<string, React.ReactNode> = {
-  facebook: <FacebookIcon />,
-  instagram: <InstagramIcon />,
-  youtube: <YoutubeIcon />,
-  twitter: <TwitterXIcon />,
-};
-
-const socialLabels: Record<string, string> = {
-  facebook: 'Facebook',
-  instagram: 'Instagram',
-  youtube: 'YouTube',
-  twitter: 'X (Twitter)',
-};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -94,10 +56,10 @@ export default function Footer() {
               </h3>
               <ul className="space-y-2.5">
                 {[
-                  { label: 'Misión y Visión', to: '/nosotros/mision' },
+                  { label: 'Misión y Visión', to: '/nosotros/mision-vision' },
                   { label: 'Historia de la Escuela', to: '/nosotros/historia' },
                   { label: 'Plan de Estudios', to: '/academico/malla-curricular' },
-                  { label: 'Perfil del Egresado', to: '/nosotros/perfil-egreso' },
+                  { label: 'Perfil del Egresado', to: '/nosotros/perfiles#egreso' },
                   { label: 'Líneas de Investigación', to: '/investigacion/lineas' },
                   { label: 'Plana Docente', to: '/organizacion/docentes' },
                 ].map(({ label, to }) => (

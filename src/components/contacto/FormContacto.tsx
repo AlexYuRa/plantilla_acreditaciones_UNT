@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { validarFormularioContacto, type ContactoFormData, type ContactoErrores } from '../../utils/validators';
 
@@ -30,7 +31,7 @@ export default function FormContacto() {
   if (enviado) {
     return (
       <div className="bg-success/10 text-success p-8 rounded-xl text-center border border-success/20 animate-fade-in">
-        <div className="text-5xl mb-4">✅</div>
+        <CheckCircle2 className="w-14 h-14 mx-auto mb-4" />
         <h3 className="text-xl font-display font-bold mb-2">¡Mensaje Enviado!</h3>
         <p className="text-sm">Gracias por contactarnos. Te responderemos a la brevedad.</p>
       </div>
