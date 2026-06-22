@@ -8,7 +8,9 @@ import { BookOpen, Users, FlaskConical, GraduationCap, Handshake, ArrowRight, Ca
 import frontImage from '../assets/front_ingAmbi.webp';
 import frontImage2 from '../assets/front_ingAmbi1.webp';
 import frontImage3 from '../assets/frontunt.webp';
+import libroReclamaciones from '../assets/libro-de-reclamaciones-37735_logosenvector.com_5.svg';
 import { noticias } from '../constants/noticias';
+import { libroReclamacionesUrl } from '../constants/contacto';
 import useHeaderHeight from '../hooks/useHeaderHeight';
 
 export default function Inicio() {
@@ -180,6 +182,21 @@ export default function Inicio() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Libro de Reclamaciones (oficial), alineado al gutter del sitio */}
+        <div className="absolute inset-x-0 bottom-4 md:bottom-8 z-10 pointer-events-none">
+          <div className="container mx-auto px-4 md:px-8">
+            <a
+              href={libroReclamacionesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Libro de Reclamaciones (abre en pestaña nueva)"
+              className="pointer-events-auto inline-block rounded transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            >
+              <img src={libroReclamaciones} alt="Libro de Reclamaciones" className="w-24 md:w-32 h-auto drop-shadow-md" />
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -187,7 +204,7 @@ export default function Inicio() {
           ══════════════════════════════════════════ */}
       <section ref={cifrasRef} className="bg-blue-deep py-0">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-4">
             {cifras.map((cifra, idx) => (
               <motion.div
                 key={idx}
@@ -195,16 +212,16 @@ export default function Inicio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className={`py-8 px-6 text-center border-white/10 ${idx < 3 ? 'lg:border-r' : ''} ${idx < 2 ? 'border-r' : ''} border-b lg:border-b-0`}
+                className={`py-5 px-1.5 sm:py-6 sm:px-4 md:py-8 md:px-6 text-center border-white/10 ${idx < 3 ? 'border-r' : ''}`}
               >
                 <div
-                  className="text-2xl md:text-4xl font-display font-black mb-1 text-gold"
+                  className="text-base sm:text-2xl md:text-4xl font-display font-black mb-1 text-gold"
                   style={{ textShadow: '0 0 20px rgba(230,172,9,0.3)' }}
                 >
                   {cifra.numero}
                 </div>
-                <p className="text-white font-bold text-sm md:text-base">{cifra.etiqueta}</p>
-                <p className="text-white/60 text-xs mt-0.5">{cifra.sub}</p>
+                <p className="text-white font-bold text-[10px] leading-tight sm:text-sm md:text-base">{cifra.etiqueta}</p>
+                <p className="hidden sm:block text-white/60 text-xs mt-0.5">{cifra.sub}</p>
               </motion.div>
             ))}
           </div>

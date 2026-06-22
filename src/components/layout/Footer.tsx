@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ExternalLink, BookOpen } from 'lucide-react';
-import { informacionContacto, redesSociales } from '../../constants/contacto';
+import { informacionContacto, redesSociales, libroReclamacionesUrl } from '../../constants/contacto';
 import { socialIcons, socialLabels } from '../icons/social';
 import logo from '../../assets/unt1.png';
-
-// Libro de Reclamaciones oficial (plataforma del Estado peruano, UNT).
-const LIBRO_RECLAMACIONES_URL = 'https://reclamos.servicios.gob.pe/?institution_id=247';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -160,7 +157,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
             <p>Ley de Transparencia N° 27806: Acceso a la Información Pública</p>
             <a
-              href={LIBRO_RECLAMACIONES_URL}
+              href={libroReclamacionesUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/30 rounded-md px-3 py-1.5 font-semibold text-white hover:bg-white/10 transition-colors shrink-0"

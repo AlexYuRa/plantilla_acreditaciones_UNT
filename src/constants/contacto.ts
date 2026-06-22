@@ -5,6 +5,9 @@ export const informacionContacto = {
   horarioAtencion: "Lunes a Viernes: 08:00 hrs a 13:00 hrs y 14:00 hrs a 16:00 hrs"
 };
 
+// Libro de Reclamaciones oficial (plataforma del Estado peruano, UNT).
+export const libroReclamacionesUrl = 'https://reclamos.servicios.gob.pe/?institution_id=247';
+
 export const redesSociales = {
   facebook: "https://facebook.com/ep.ambiental.uni",
   instagram: "https://instagram.com/ep.ambiental.uni",
