@@ -113,16 +113,18 @@ export default function Inicio() {
               alt=""
               aria-hidden="true"
               decoding="async"
-              fetchPriority={i === 0 ? 'high' : 'low'}
+              loading={i === 0 ? 'eager' : 'lazy'}
               className="absolute inset-0 z-0 w-full h-full object-cover object-center transition-opacity duration-[1500ms] ease-in-out transform-gpu"
               style={{ opacity: i === heroIdx ? 1 : 0, willChange: 'opacity' }}
             />
           ) : null
         )}
 
-        {/* Overlay doble: izquierda transparente, derecha azul sólido */}
+        {/* Overlay institucional: izquierda transparente (deja ver la foto) →
+            'primary' (#12377B) → 'blue-deep' (#000C4A). El extremo oscuro coincide
+            con la franja de cifras (también blue-deep) para que se sientan continuos. */}
         <div className="absolute inset-0 z-[1]"
-          style={{ background: 'linear-gradient(110deg, rgba(0,0,0,0.05) 0%, rgba(0,29,70,0.62) 42%, rgba(0,20,55,0.77) 70%, rgba(0,18,50,0.80) 100%)' }}
+          style={{ background: 'linear-gradient(110deg, rgba(0,12,74,0.05) 0%, rgba(18,55,123,0.52) 42%, rgba(0,12,74,0.78) 70%, rgba(0,12,74,0.88) 100%)' }}
         />
 
         {/* Patrón de puntos sutil (radial-gradient CSS en vez de SVG: una capa
@@ -172,7 +174,7 @@ export default function Inicio() {
                 <motion.button
                   whileHover={{ scale: 1.04, boxShadow: '0 0 32px rgba(230,172,9,0.5)' }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-deep text-blue-deep font-black px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl text-sm sm:text-base transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-deep text-white font-black px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl text-sm sm:text-base transition-colors"
                 >
                   <GraduationCap className="w-5 h-5 shrink-0" />
                   Ver Plan de Estudios
@@ -253,7 +255,7 @@ export default function Inicio() {
               transition={{ duration: 0.6 }}
               className="flex flex-col"
             >
-              <SectionTitle title="Bienvenida de la **Rectora**" />
+              <SectionTitle title="Bienvenida de la **Decana**" />
 
               <div className="text-gray-700 font-body space-y-4 leading-relaxed">
                 <p>
@@ -263,7 +265,7 @@ export default function Inicio() {
                   un programa que cuida cada detalle de tu formación."
                 </p>
                 <footer className="text-sm text-gray-600 not-italic font-semibold">
-                  Karen Valderrama, Rectora de la Universidad Nacional de Trujillo
+                  Karen Valderrama, Decana de la Escuela Profesional de Ingeniería Ambiental
                 </footer>
               </div>
             </motion.div>

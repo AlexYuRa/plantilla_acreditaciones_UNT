@@ -41,7 +41,7 @@ export default function FormContacto() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div>
-        <label htmlFor="contacto-nombre" className="block text-sm font-semibold text-pucp-blue-dark mb-1.5">
+        <label htmlFor="contacto-nombre" className="block text-sm font-semibold text-primary mb-1.5">
           Nombre completo <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
@@ -60,7 +60,7 @@ export default function FormContacto() {
         {errores.nombre && <span id="contacto-nombre-error" role="alert" className="text-xs text-red-500 mt-1 block">{errores.nombre}</span>}
       </div>
       <div>
-        <label htmlFor="contacto-email" className="block text-sm font-semibold text-pucp-blue-dark mb-1.5">
+        <label htmlFor="contacto-email" className="block text-sm font-semibold text-primary mb-1.5">
           Correo electrónico <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
@@ -79,7 +79,7 @@ export default function FormContacto() {
         {errores.email && <span id="contacto-email-error" role="alert" className="text-xs text-red-500 mt-1 block">{errores.email}</span>}
       </div>
       <div>
-        <label htmlFor="contacto-asunto" className="block text-sm font-semibold text-pucp-blue-dark mb-1.5">
+        <label htmlFor="contacto-asunto" className="block text-sm font-semibold text-primary mb-1.5">
           Asunto <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
@@ -98,7 +98,7 @@ export default function FormContacto() {
         {errores.asunto && <span id="contacto-asunto-error" role="alert" className="text-xs text-red-500 mt-1 block">{errores.asunto}</span>}
       </div>
       <div>
-        <label htmlFor="contacto-mensaje" className="block text-sm font-semibold text-pucp-blue-dark mb-1.5">
+        <label htmlFor="contacto-mensaje" className="block text-sm font-semibold text-primary mb-1.5">
           Mensaje <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <textarea

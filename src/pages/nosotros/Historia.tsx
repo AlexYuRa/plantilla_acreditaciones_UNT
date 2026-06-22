@@ -10,7 +10,7 @@ export default function Historia() {
         <SectionTitle title="Nuestra **Historia**" center subtitle="Formando ingenieros ambientales comprometidos con la sostenibilidad." />
         
         <div className="max-w-3xl mx-auto mt-12 mb-16 text-center">
-          <p className="text-gray-600 font-body text-lg leading-relaxed bg-light p-8 rounded-xl border border-gray-100 shadow-sm">
+          <p className="text-gray-600 font-body text-lg leading-relaxed bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
             {historia.resena}
           </p>
           <div className="mt-6 inline-block bg-primary/10 text-primary px-5 py-2 rounded-full font-bold text-sm">

@@ -5,7 +5,7 @@ import { publicaciones } from '../../constants/investigacion';
 
 export default function Publicaciones() {
   return (
-    <div className="bg-light py-16 md:py-20">
+    <div className="bg-white py-16 md:py-20">
       <div className="container mx-auto px-4 md:px-8">
         <SectionTitle title="Publicaciones **Científicas**" center subtitle="Artículos, libros y material académico generado por nuestra comunidad." />
         

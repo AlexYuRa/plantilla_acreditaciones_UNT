@@ -73,7 +73,7 @@ export default function Navbar() {
       )}
     >
       {/* Top Bar */}
-      <div className="bg-pucp-blue-dark text-gray-300 text-[13px] py-2 border-b-2 border-gold hidden md:block">
+      <div className="bg-primary text-gray-300 text-[13px] py-2 border-b-2 border-gold hidden md:block">
         <div className="container mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 md:gap-8">
             <span className="font-semibold text-white">¿Tienes alguna duda?</span>
@@ -139,14 +139,14 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col ml-1 md:ml-3">
               <span className="font-display font-black tracking-tight leading-[0.95] text-base sm:text-lg md:text-3xl flex flex-col">
-                <span className="text-pucp-blue-dark">Ingeniería</span>
+                <span className="text-primary">Ingeniería</span>
                 <span className="text-gold">Ambiental</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center bg-pucp-blue-dark mr-5">
+          <nav className="hidden lg:flex items-center bg-primary mr-5">
             {NAV_LINKS.map((link, idx) => (
               <div
                 key={link.name}
@@ -172,7 +172,7 @@ export default function Navbar() {
                   onClick={(e) => e.currentTarget.blur()}
                   className={({ isActive }) => clsx(
                   'font-body font-medium text-[16px] transition-colors flex items-center px-7 py-5 md:py-6',
-                  isActive ? 'bg-gold text-blue-deep' : 'text-white hover:bg-white/10'
+                  isActive ? 'bg-gold text-white' : 'text-white hover:bg-white/10'
                   )}
                 >
                   {link.name}
@@ -204,7 +204,7 @@ export default function Navbar() {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={(e) => e.currentTarget.blur()}
-                                  className="flex items-center justify-between gap-2 px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-pucp-blue-dark transition-colors"
+                                  className="flex items-center justify-between gap-2 px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-primary transition-colors"
                                 >
                                   <span>{item.name}<span className="sr-only"> (abre en pestaña nueva)</span></span>
                                   <ExternalLink className="w-3.5 h-3.5 opacity-50 shrink-0" />
@@ -214,7 +214,7 @@ export default function Navbar() {
                                   key={item.name}
                                   to={item.path}
                                   onClick={(e) => e.currentTarget.blur()}
-                                  className="block px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-pucp-blue-dark transition-colors"
+                                  className="block px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-primary transition-colors"
                                 >
                                   {item.name}
                                 </Link>
@@ -233,7 +233,7 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button
             ref={menuButtonRef}
-            className="lg:hidden text-pucp-blue-dark p-2.5 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pucp-blue-dark focus-visible:ring-offset-2"
+            className="lg:hidden text-primary p-2.5 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             onClick={() => setIsOpen((o) => !o)}
             aria-label="Abrir menú"
             aria-haspopup="dialog"

@@ -29,7 +29,7 @@ export default function PublicacionItem({ publicacion, index }: PublicacionItemP
         <p className="text-gray-500 text-sm"><span className="font-bold">Revista:</span> {publicacion.revista} ({publicacion.año})</p>
       </div>
       <a href={publicacion.url} target="_blank" rel="noopener noreferrer"
-         className="shrink-0 bg-secondary/10 text-secondary hover:bg-secondary hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+         className="shrink-0 bg-primary/10 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
         Ver Artículo
       </a>
     </motion.div>

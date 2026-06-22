@@ -28,7 +28,7 @@ export default function Breadcrumbs() {
     (basePath.length > 1 ? basePath.charAt(1).toUpperCase() + basePath.slice(2) : '');
 
   return (
-    <div className="bg-pucp-blue-dark py-3 w-full">
+    <div className="bg-primary py-3 w-full">
       <div className="container mx-auto px-4 md:px-8">
         <nav className="flex text-[13px] md:text-sm text-white/80 font-body" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2">

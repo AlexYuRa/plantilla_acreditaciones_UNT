@@ -35,7 +35,7 @@ export function Tabs({ tabs, activeTab, onChange, className }: TabsProps) {
               {isActive && (
                 <motion.div
                   layoutId="activeTabIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-secondary rounded-t-full"
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full"
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />

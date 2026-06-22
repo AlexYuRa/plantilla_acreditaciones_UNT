@@ -12,7 +12,7 @@ interface BadgeProps {
 export function Badge({ children, variant = 'primary', className }: BadgeProps) {
   const variants: Record<BadgeVariant, string> = {
     primary: 'bg-primary/10 text-primary',
-    secondary: 'bg-secondary/20 text-yellow-800',
+    secondary: 'bg-gold/20 text-yellow-900',
     success: 'bg-success/10 text-success',
     info: 'bg-blue-100 text-blue-800',
     gray: 'bg-gray-100 text-gray-800'

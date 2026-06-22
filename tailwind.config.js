@@ -7,28 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* ── Paleta Institucional ──
-           Uso general → 'primary' (#12377B) y 'gold' (#E6AC09).
-           Superficies oscuras → 'blue-deep' (#000C4A) · Texto base → 'ink' (#1B1711).
-           'gold-bright' (#FDF107) y 'blue-electric' (#092EFF): SOLO para degradados,
-           nunca como relleno/texto/borde sólido. */
-        'blue-deep': '#000C4A',
-        'blue-electric': '#092EFF',
-        gold: '#E6AC09',
-        'gold-deep': '#C49308',
+        /* ── Paleta Institucional (UNT · Ingeniería Ambiental) ──
+           Identidad: azul 'primary' (#12377B) + 'gold' (#E6AC09).
+           Superficies oscuras y hover del azul → 'blue-deep' (#000C4A).
+           Texto base → 'ink' (#1B1711). Hover del dorado → 'gold-deep'. */
+        primary: '#12377B',       // Azul institucional (color base)
+        gold: '#E6AC09',          // Dorado (acento)
+        'gold-deep': '#C49308',   // Dorado oscuro (hover)
+        'blue-deep': '#000C4A',   // Azul profundo (fondos oscuros / hover)
+        ink: '#1B1711',           // Casi negro cálido (texto base)
+
+        /* Solo para degradados, nunca como relleno/texto/borde sólido. */
         'gold-bright': '#FDF107',
-        ink: '#1B1711',
-        'pucp-blue-dark': '#12377B',
-        'pucp-blue-light': '#12377B',
-        'pucp-gray-dark': '#333333',
-        'pucp-gray-light': '#F8FAFC',
-        /* Mapeo de compatibilidad */
-        primary: '#12377B',
-        secondary: '#12377B',
-        accent: '#F8FAFC',
-        dark: '#333333',
-        light: '#FFFFFF',
-        success: '#2D6A4F',
+        'blue-electric': '#092EFF',
+
+        /* Semántico (los neutros usan la escala nativa de Tailwind:
+           white / black / slate-50 / gray-*). */
+        success: '#2D6A4F',       // Verde (estados de éxito)
       },
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'],

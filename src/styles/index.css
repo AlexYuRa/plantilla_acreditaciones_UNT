@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-body text-ink antialiased bg-light;
+    @apply font-body text-ink antialiased bg-white;
   }
 }
 
