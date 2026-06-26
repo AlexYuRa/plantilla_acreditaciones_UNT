@@ -127,7 +127,7 @@ export default function Inicio() {
         <div className="absolute inset-0 z-[1]"
           style={{ background: 'linear-gradient(110deg, rgba(18,55,123,0.05) 0%, rgba(18,55,123,0.52) 42%, rgba(18,55,123,0.78) 70%, rgba(18,55,123,0.88) 100%)' }}
         />
-        <div className="absolute inset-0 z-[1] bg-black/30" />
+        <div className="absolute inset-0 z-[1] bg-black/40 md:bg-black/30" />
 
         {/* Patrón de puntos sutil (radial-gradient CSS en vez de SVG: una capa
             de pintura menos que recalcular durante el scroll). */}
@@ -147,7 +147,11 @@ export default function Inicio() {
             animate="visible"
             className="max-w-xl lg:max-w-2xl mx-auto md:mr-0 md:ml-auto text-center md:text-right"
           >
-            <motion.p variants={itemVariants} className="text-sm md:text-lg font-display font-semibold text-white/70 uppercase tracking-widest mb-2">
+            <motion.p
+              variants={itemVariants}
+              className="text-sm md:text-lg font-display font-semibold text-white/80 uppercase tracking-widest mb-2"
+              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}
+            >
               Escuela Profesional de
             </motion.p>
 
@@ -248,15 +252,12 @@ export default function Inicio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className={`py-5 px-1.5 sm:py-6 sm:px-4 md:py-8 md:px-6 text-center border-white/10 ${idx < 2 ? 'border-r' : ''}`}
+                className={`py-5 px-2 sm:py-6 sm:px-4 md:py-8 md:px-6 text-center border-white/10 ${idx < 2 ? 'border-r' : ''}`}
               >
-                <div
-                  className="text-base sm:text-2xl md:text-4xl font-display font-black mb-1 text-gold"
-                  style={{ textShadow: '0 0 20px rgba(230,173,9,0.3)' }}
-                >
+                <div className="text-base sm:text-2xl md:text-4xl font-display font-black mb-1 text-gold">
                   {cifra.numero}
                 </div>
-                <p className="text-white font-bold text-[11px] leading-tight sm:text-sm md:text-base">{cifra.etiqueta}</p>
+                <p className="text-white font-bold text-xs leading-tight sm:text-sm md:text-base">{cifra.etiqueta}</p>
                 <p className="hidden sm:block text-white/60 text-xs mt-0.5">{cifra.sub}</p>
               </motion.div>
             ))}
@@ -305,12 +306,11 @@ export default function Inicio() {
               style={{ paddingTop: '56.25%' }}
             >
               <iframe
-                className="absolute top-0 left-0 w-full h-full"
+                className="absolute top-0 left-0 w-full h-full border-0"
                 src="https://www.youtube-nocookie.com/embed/6mmdvUizSbk?start=7"
                 title="Video Institucional Ingeniería Ambiental UNT"
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
