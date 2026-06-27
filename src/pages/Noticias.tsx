@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import PageHero from '../components/layout/PageHero';
 import { Card } from '../components/ui/Card';
-import { noticias } from '../constants/noticias';
+import { noticias } from '@profile/content/noticias';
 import { Newspaper, Calendar, ArrowRight } from 'lucide-react';
 
 export default function Noticias() {

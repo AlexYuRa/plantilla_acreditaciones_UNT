@@ -2,7 +2,7 @@ import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import MisionCard from '../../components/identidad/MisionCard';
 import ValorItem from '../../components/identidad/ValorItem';
-import { mision, vision, valores } from '../../constants/identidad';
+import { mision, vision, valores } from '@profile/content/identidad';
 import { Target, Telescope } from 'lucide-react';
 
 export default function MisionVision() {

@@ -1,5 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath, URL } from 'node:url'
+
+// Perfil de escuela activo (build-time). Crear una escuela nueva = añadir
+// `profiles/<slug>/` y construir con PROFILE=<slug>. El slug de deploy
+// (outDir/base) es independiente del perfil y se mantiene fijo.
+const PROFILE = process.env.PROFILE ?? 'escuela';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -7,6 +13,12 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [react()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@profile': fileURLToPath(new URL(`./profiles/${PROFILE}`, import.meta.url)),
+      },
+    },
     base: isVercel || command === 'serve' ? '/' : '/wp-content/themes/educacion-primaria/dist/',
     build: {
       outDir: isVercel ? 'dist' : '../wp-content/themes/educacion-primaria/dist',

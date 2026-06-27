@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import AutoridadCard from '../../components/personas/AutoridadCard';
-import { director, coordinadores } from '../../constants/autoridades';
+import { director, coordinadores } from '@profile/content/autoridades';
 
 export default function Direccion() {
   return (

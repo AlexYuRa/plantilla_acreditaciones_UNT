@@ -1,44 +1,21 @@
+import type { NavSection, NavGroup } from '@/profile-types';
+
 /**
- * Fuente ÚNICA de navegación del sitio.
- * Alimenta el Navbar (menú principal + desplegables AGRUPADOS por subcategoría),
- * la barra de pestañas de cada sección (SectionTabs) y los Breadcrumbs.
+ * Datos de navegación de la escuela (Configuración del perfil).
+ * Alimenta Navbar (menú + desplegables agrupados), SectionTabs y Breadcrumbs.
+ * Los helpers de recorrido están en `src/navigation.ts` (sistema); importar desde ahí.
  *
- * Modelo de datos:
- *   sección  = { name, path, groups: [grupo] }
- *   grupo    = { label, items: [item] }
- *   item     = { name, path, external?, navAs? }
+ * Patrón "navbar granular → página agrupada": un `item` = UNA página (= UNA pestaña).
+ * Si trae `navAs`, el Navbar lo muestra desglosado en etiquetas finas con #ancla,
+ * pero todas llevan a la misma página.
  *
- * Patrón "navbar granular → página agrupada":
- *   Un `item` representa UNA página (y por tanto UNA pestaña). Si además trae
- *   `navAs`, el Navbar lo MUESTRA desglosado en varias etiquetas finas (cada una
- *   con su #ancla), pero todas llevan a la misma página. Así el menú es granular
- *   (Misión, Visión) mientras las pestañas/rutas se mantienen agrupadas (Misión y
- *   Visión = 1 pestaña). Ej.: clic en "Visión" → /nosotros/mision-vision#vision.
+ * "Admisión" NO está en el menú: vive en el panel lateral (FloatingAdmissions),
+ * por eso se exporta aparte como ADMISION_GROUPS.
  *
- * "Admisión" NO está aquí: vive en el panel lateral (FloatingAdmissions), por eso
- * se exporta aparte como ADMISION_GROUPS.
+ * Nota: las rutas (`path`) deben coincidir con las definidas en el router del
+ * sistema (`src/router`). Cambiar etiquetas es seguro; cambiar rutas requiere
+ * actualizar también el router.
  */
-/** Una entrada navegable (página o, dentro de `navAs`, una etiqueta con ancla). */
-export interface NavLeaf {
-  name: string;
-  path: string;
-  external?: boolean;
-  navAs?: NavLeaf[];
-}
-
-/** Subcategoría de un desplegable: una etiqueta con sus items. */
-export interface NavGroup {
-  label: string;
-  items: NavLeaf[];
-}
-
-/** Sección del menú principal; puede tener grupos (desplegable) o no (enlace simple). */
-export interface NavSection {
-  name: string;
-  path: string;
-  groups?: NavGroup[];
-}
-
 export const NAV_LINKS: NavSection[] = [
   { name: 'Inicio', path: '/' },
   {
@@ -216,26 +193,3 @@ export const ADMISION_GROUPS: NavGroup[] = [
     ],
   },
 ];
-
-/** Devuelve la entrada de sección (con sus grupos) a partir de su ruta base. */
-export const getSection = (basePath: string): NavSection | undefined =>
-  NAV_LINKS.find((link) => link.path === basePath);
-
-/** Aplana los grupos de una sección a su lista de items (1 item = 1 página/pestaña). */
-export const flattenItems = (groups: NavGroup[] = []): NavLeaf[] =>
-  groups.flatMap((group) => group.items);
-
-/**
- * Items internos (navegables dentro del sitio) de una sección, deduplicados por
- * página. Excluye externos. Lo usan SectionTabs (1 pestaña por página) y las
- * rutas anidadas.
- */
-export const getInternalItems = (section: NavSection | undefined): NavLeaf[] =>
-  flattenItems(section?.groups).filter((item) => !item.external);
-
-/**
- * Enlaces granulares para el Navbar: expande `navAs` en varias etiquetas finas.
- * Si un item no tiene `navAs`, se muestra tal cual.
- */
-export const expandNavLinks = (items: NavLeaf[] = []): NavLeaf[] =>
-  items.flatMap((item) => item.navAs ?? [item]);

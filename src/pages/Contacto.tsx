@@ -4,7 +4,7 @@ import PageHero from '../components/layout/PageHero';
 import FormContacto from '../components/contacto/FormContacto';
 import MapaUbicacion from '../components/contacto/MapaUbicacion';
 import RedesSociales from '../components/contacto/RedesSociales';
-import { informacionContacto } from '../constants/contacto';
+import { informacionContacto } from '@profile/content/contacto';
 import { MessageSquare, MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Contacto() {

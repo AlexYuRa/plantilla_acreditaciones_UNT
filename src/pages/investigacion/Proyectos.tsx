@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import ProyectoCard from '../../components/investigacion/ProyectoCard';
-import { proyectos } from '../../constants/investigacion';
+import { proyectos } from '@profile/content/investigacion';
 
 export default function Proyectos() {
   return (

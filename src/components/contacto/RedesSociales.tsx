@@ -1,5 +1,5 @@
 import React from 'react';
-import { redesSociales } from '../../constants/contacto';
+import { redesSociales } from '@profile/content/contacto';
 import { socialIcons, socialLabels } from '../icons/social';
 
 export default function RedesSociales() {

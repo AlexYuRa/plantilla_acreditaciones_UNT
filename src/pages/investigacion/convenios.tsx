@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import ConvenioCard from '../../components/investigacion/ConvenioCard';
-import { convenios } from '../../constants/investigacion';
+import { convenios } from '@profile/content/investigacion';
 
 export default function Convenios() {
   return (

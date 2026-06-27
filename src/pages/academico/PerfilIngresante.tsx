@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import { perfilIngresante } from '../../constants/academico';
+import { perfilIngresante } from '@profile/content/academico';
 import { Check } from 'lucide-react';
 
 export default function PerfilIngresante() {

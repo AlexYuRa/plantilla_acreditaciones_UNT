@@ -4,7 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 import PageWrapper from './PageWrapper';
 import PageHero, { type Breadcrumb } from './PageHero';
 import SectionTabs from './SectionTabs';
-import { getSection, getInternalItems } from '../../constants/navigation';
+import { getSection, getInternalItems } from '@/navigation';
 
 const SITE_NAME = 'Ingeniería Ambiental · UNT';
 

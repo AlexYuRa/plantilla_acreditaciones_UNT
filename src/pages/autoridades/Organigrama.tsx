@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import OrganigramaNode from '../../components/personas/OrganigramaNode';
-import { organigrama } from '../../constants/autoridades';
+import { organigrama } from '@profile/content/autoridades';
 
 export default function Organigrama() {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ExternalLink, BookOpen } from 'lucide-react';
-import { informacionContacto, redesSociales, libroReclamacionesUrl } from '../../constants/contacto';
+import { informacionContacto, redesSociales } from '@profile/content/contacto';
 import { socialIcons, socialLabels } from '../icons/social';
-import logo from '../../assets/unt1.png';
+import { site, branding } from '@/profile';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,18 +18,18 @@ export default function Footer() {
             {/* Columna 1: Identidad + Redes */}
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <img src={logo} alt="Logo UNT" loading="lazy" className="h-14 w-auto object-contain brightness-0 invert" />
+                <img src={branding.logos.universidad} alt={branding.alt.universidad} loading="lazy" className="h-14 w-auto object-contain brightness-0 invert" />
                 <div className="flex flex-col">
                   <span className="font-display font-bold leading-tight text-base text-white">
-                    Ingeniería Ambiental
+                    {site.programa.nombreCorto}
                   </span>
                   <span className="text-white/60 text-xs uppercase tracking-wider">
-                    UNT · Fac. Ingeniería
+                    {site.universidad.siglas}{site.facultad ? ` · ${site.facultad}` : ''}
                   </span>
                 </div>
               </div>
               <p className="text-gray-300 font-body text-sm leading-relaxed mb-6">
-                Formando ingenieros ambientales de excelencia, con rigor científico y compromiso con la sostenibilidad del país.
+                {site.tagline}
               </p>
               {/* Social icons */}
               <div className="flex items-center gap-3 flex-wrap">
@@ -116,33 +116,18 @@ export default function Footer() {
                 <p className="text-gray-300 text-xs uppercase tracking-wider mb-3 font-semibold">
                   Portal Institucional
                 </p>
-                <a
-                  href="https://www.unitru.edu.pe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  Portal UNT
-                </a>
-                <a
-                  href="https://www.unitru.edu.pe/transparencia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  Transparencia
-                </a>
-                <a
-                  href="https://sga.unitru.edu.pe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  Portal del Estudiante
-                </a>
+                {site.enlacesInstitucionales.map(({ label, url }) => (
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -153,11 +138,11 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="bg-black/20 py-4">
         <div className="container mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-300">
-          <p>© {currentYear} Escuela Profesional de Ingeniería Ambiental · UNT. Todos los derechos reservados.</p>
+          <p>© {currentYear} {site.programa.nombre} · {site.universidad.siglas}. Todos los derechos reservados.</p>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
             <p>Ley de Transparencia N° 27806: Acceso a la Información Pública</p>
             <a
-              href={libroReclamacionesUrl}
+              href={site.enlaces.libroReclamaciones}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/30 rounded-md px-3 py-1.5 font-semibold text-white hover:bg-white/10 transition-colors shrink-0"

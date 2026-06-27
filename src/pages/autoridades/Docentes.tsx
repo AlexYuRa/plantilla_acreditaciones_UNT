@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import DocenteCard from '../../components/personas/DocenteCard';
-import { docentes } from '../../constants/docentes';
+import { docentes } from '@profile/content/docentes';
 
 export default function Docentes() {
   return (

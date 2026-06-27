@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import CompetenciaItem from '../../components/academico/CompetenciaItem';
-import { perfilEgresado } from '../../constants/academico';
+import { perfilEgresado } from '@profile/content/academico';
 
 export default function PerfilEgresado() {
   return (

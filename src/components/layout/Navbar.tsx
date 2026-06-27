@@ -3,11 +3,10 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import { Phone, Mail, Search, ChevronDown, Menu, X, ExternalLink } from 'lucide-react';
-import logo from '../../assets/unt1.png';
-import logoEscuela from '../../assets/logo_ingAmb.png';
+import { site, branding } from '@/profile';
 import Breadcrumbs from './Breadcrumbs';
 import AnnouncementBanner from './AnnouncementBanner';
-import { NAV_LINKS, expandNavLinks } from '../../constants/navigation';
+import { NAV_LINKS, expandNavLinks } from '@/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +25,8 @@ export default function Navbar() {
     menuButtonRef.current?.focus();
   };
 
-  // Logo de la Escuela de Ingeniería Ambiental (src/assets/logo_ingAmb.png).
-  const schoolLogoUrl = logoEscuela;
+  // Logo de la Escuela (definido en el branding del perfil activo).
+  const schoolLogoUrl = branding.logos.escuela;
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => {
     if (('key' in e && e.key === 'Enter') || e.type === 'click') {
@@ -119,8 +118,8 @@ export default function Navbar() {
             <div className="flex items-center gap-3 md:gap-4">
               {/* Logo de la Universidad */}
               <img
-                src={logo}
-                alt="Universidad Nacional de Trujillo"
+                src={branding.logos.universidad}
+                alt={branding.alt.universidad}
                 className="h-16 sm:h-20 md:h-[112px] w-auto object-contain"
               />
               {/* Separador (solo si existe el logo de la escuela) */}
@@ -131,7 +130,7 @@ export default function Navbar() {
                   Si no existe, no se muestra (ni el logo ni el separador). */}
               <img
                 src={schoolLogoUrl}
-                alt="Escuela Profesional de Ingeniería Ambiental"
+                alt={branding.alt.escuela}
                 onLoad={() => setSchoolLogoOk(true)}
                 onError={() => setSchoolLogoOk(false)}
                 className={clsx(
@@ -142,8 +141,8 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col ml-1 md:ml-3">
               <span className="font-display font-black tracking-tight leading-[0.95] text-base sm:text-lg md:text-3xl flex flex-col">
-                <span className="text-primary">Ingeniería</span>
-                <span className="text-gold">Ambiental</span>
+                <span className="text-primary">{site.wordmark.linea1}</span>
+                <span className="text-gold">{site.wordmark.linea2}</span>
               </span>
             </div>
           </Link>

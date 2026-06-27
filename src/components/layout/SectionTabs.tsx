@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import clsx from 'clsx';
 import useHeaderHeight from '../../hooks/useHeaderHeight';
-import type { NavLeaf } from '../../constants/navigation';
+import type { NavLeaf } from '@/navigation';
 
 /**
  * Barra de sub-navegación (pestañas) compartida por las subpáginas de una misma

@@ -4,14 +4,10 @@ import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Card } from '../components/ui/Card';
-import { BookOpen, Users, FlaskConical, GraduationCap, Handshake, ArrowRight, Calendar, ShieldCheck } from 'lucide-react';
-import frontImage from '../assets/front_ingAmbi.webp';
-import frontImage2 from '../assets/front_ingAmbi1.webp';
-import frontImage3 from '../assets/frontunt.webp';
-import libroReclamaciones from '../assets/libro-de-reclamaciones-37735_logosenvector.com_5.svg';
-import useLogo from '../assets/uselogo-icon.png';
-import { noticias } from '../constants/noticias';
-import { libroReclamacionesUrl } from '../constants/contacto';
+import { GraduationCap, ArrowRight, Calendar, ShieldCheck } from 'lucide-react';
+import { site, branding } from '@/profile';
+import { noticias } from '@profile/content/noticias';
+import { accesosRapidos, ambientes } from '@profile/content/home';
 import useHeaderHeight from '../hooks/useHeaderHeight';
 
 export default function Inicio() {
@@ -38,13 +34,8 @@ export default function Inicio() {
     };
   }, []);
 
-  // Carrusel del hero (máx. 3 imágenes): crossfade suave entre fondos.
-  // Fotos de la Escuela de Ingeniería Ambiental (src/assets).
-  const heroImages = [
-    frontImage,
-    frontImage2,
-    frontImage3,
-  ];
+  // Carrusel del hero: imágenes definidas en el perfil (branding.heroImages).
+  const heroImages = branding.heroImages;
   const [heroIdx, setHeroIdx] = useState(0);
   // Carga progresiva: solo pedimos las imágenes ya mostradas + la siguiente.
   // Así la primera pinta rápido en móvil (mejor LCP) y las demás no compiten
@@ -78,22 +69,8 @@ export default function Inicio() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  const accesosRapidos = [
-    { titulo: "Plan de Estudios", descripcion: "Malla curricular actualizada por ciclos.", icono: BookOpen, link: "/academico/malla-curricular", imagen: "https://picsum.photos/seed/malla-plan-estudios/600/400" },
-    { titulo: "Plana Docente", descripcion: "Profesores e investigadores comprometidos.", icono: Users, link: "/organizacion/docentes", imagen: "https://picsum.photos/seed/plana-docente/600/400" },
-    { titulo: "Investigación", descripcion: "Líneas, proyectos y publicaciones activas.", icono: FlaskConical, link: "/investigacion/proyectos", imagen: "https://picsum.photos/seed/investigacion-ambiental/600/400" },
-    { titulo: "Grados y Títulos", descripcion: "Pasos y requisitos para tu titulación.", icono: GraduationCap, link: "/academico/titulacion", imagen: "https://picsum.photos/seed/grados-titulos/600/400" },
-    { titulo: "Convenios", descripcion: "Alianzas con entidades del sector ambiental.", icono: Handshake, link: "/academico/convenios", imagen: "https://picsum.photos/seed/convenios-alianzas/600/400" },
-  ];
-
-  // Cifras de impacto (datos de EJEMPLO para el demo; reemplazar por cifras
-  // verificables). El estado de acreditación se muestra como sello en el hero,
-  // no aquí.
-  const cifras = [
-    { numero: "+15", etiqueta: "Años formando ingenieros", sub: "de trayectoria ininterrumpida" },
-    { numero: "800+", etiqueta: "Egresados a nivel nacional", sub: "aportando a la sostenibilidad" },
-    { numero: "100%", etiqueta: "Malla actualizada", sub: "con enfoque en sostenibilidad" },
-  ];
+  // Accesos rápidos, ambientes y cifras: contenido del perfil activo.
+  const cifras = site.cifras;
 
   return (
     <PageWrapper>
@@ -152,7 +129,7 @@ export default function Inicio() {
               className="text-sm md:text-lg font-display font-semibold text-white/80 uppercase tracking-widest mb-2"
               style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}
             >
-              Escuela Profesional de
+              {site.hero.eyebrow}
             </motion.p>
 
             <motion.h1
@@ -160,52 +137,52 @@ export default function Inicio() {
               className="font-display font-black leading-[0.95] mb-4 text-white"
               style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', textShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
             >
-              Ingeniería<br />
-              <span className="text-gold">Ambiental</span>
+              {site.hero.titulo.linea1}<br />
+              <span className="text-gold">{site.hero.titulo.linea2}</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-base lg:text-xl text-white/85 mb-7 font-body leading-relaxed text-balance max-w-md md:max-w-none mx-auto"
             >
-              Formamos ingenieros ambientales en la Universidad Nacional de Trujillo,
-              con rigor científico y compromiso con la sostenibilidad.
+              {site.hero.descripcion}
             </motion.p>
 
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-3 justify-center md:justify-end max-w-xs sm:max-w-none mx-auto md:mr-0 md:ml-auto"
             >
-              <Link to="/academico/malla-curricular" className="w-full sm:w-auto">
+              <Link to={site.hero.ctas.primary.to} className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.04, boxShadow: '0 0 32px rgba(230,173,9,0.5)' }}
                   whileTap={{ scale: 0.97 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-deep text-white font-black px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl text-sm sm:text-base transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 >
                   <GraduationCap className="w-5 h-5 shrink-0" />
-                  Ver Plan de Estudios
+                  {site.hero.ctas.primary.label}
                 </motion.button>
               </Link>
-              <Link to="/academico/perfiles" className="w-full sm:w-auto">
+              <Link to={site.hero.ctas.secondary.to} className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl text-sm sm:text-base backdrop-blur-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 >
-                  Perfiles académicos
+                  {site.hero.ctas.secondary.label}
                   <ArrowRight className="w-4 h-4 shrink-0" />
                 </motion.button>
               </Link>
             </motion.div>
 
-            {/* Sello de acreditación (después de los CTAs). TEXTO DE EJEMPLO para el
-                demo (plantilla): reemplazar por el estado/ente real y su logo oficial. */}
-            <motion.div variants={itemVariants} className="mt-6 flex justify-center md:justify-end">
-              <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-sm">
-                <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
-                Acreditada por SINEACE
-              </span>
-            </motion.div>
+            {/* Sello de acreditación (definido en site.acreditacion del perfil). */}
+            {site.acreditacion.mostrarSello && (
+              <motion.div variants={itemVariants} className="mt-6 flex justify-center md:justify-end">
+                <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-sm">
+                  <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
+                  {site.acreditacion.texto}
+                </span>
+              </motion.div>
+            )}
           </motion.div>
         </div>
 
@@ -215,24 +192,24 @@ export default function Inicio() {
             <div className="flex items-center gap-3 flex-wrap">
               {/* Libro de Reclamaciones (oficial) */}
               <a
-                href={libroReclamacionesUrl}
+                href={site.enlaces.libroReclamaciones}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Libro de Reclamaciones (abre en pestaña nueva)"
                 className="pointer-events-auto inline-block rounded transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
-                <img src={libroReclamaciones} alt="Libro de Reclamaciones" className="w-20 md:w-32 h-auto drop-shadow-md" />
+                <img src={branding.logos.libroReclamaciones} alt="Libro de Reclamaciones" className="w-20 md:w-32 h-auto drop-shadow-md" />
               </a>
 
               {/* Bolsa de trabajo (UNT · USE) */}
               <a
-                href="https://use-dpa.unitru.edu.pe/bolsadetrabajo"
+                href={site.enlaces.bolsaTrabajo}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Bolsa de trabajo (abre en pestaña nueva)"
                 className="pointer-events-auto inline-block rounded transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
-                <img src={useLogo} alt="Bolsa de trabajo UNT" className="h-[54px] md:h-[87px] w-auto drop-shadow-md" />
+                <img src={branding.logos.bolsaTrabajo} alt={branding.alt.bolsaTrabajo} className="h-[54px] md:h-[87px] w-auto drop-shadow-md" />
               </a>
             </div>
           </div>
@@ -284,14 +261,9 @@ export default function Inicio() {
               <SectionTitle title="Bienvenida de la **Decana**" />
 
               <div className="text-gray-700 font-body space-y-4 leading-relaxed">
-                <p>
-                  «Bienvenidos a la Escuela Profesional de Ingeniería Ambiental. Formamos
-                  ingenieros capaces de prevenir y resolver los problemas ambientales con
-                  rigor científico y compromiso con la sostenibilidad. Te invitamos a conocer
-                  un programa que cuida cada detalle de tu formación.»
-                </p>
+                <p>«{site.decana.mensaje}»</p>
                 <footer className="text-sm text-gray-600 not-italic font-semibold">
-                  Karen Valderrama, Decana de la Escuela Profesional de Ingeniería Ambiental
+                  {site.decana.nombre}, {site.decana.cargo}
                 </footer>
               </div>
             </motion.div>
@@ -307,8 +279,8 @@ export default function Inicio() {
             >
               <iframe
                 className="absolute top-0 left-0 w-full h-full border-0"
-                src="https://www.youtube-nocookie.com/embed/6mmdvUizSbk?start=7"
-                title="Video Institucional Ingeniería Ambiental UNT"
+                src={`https://www.youtube-nocookie.com/embed/${site.decana.video.youtubeId}${site.decana.video.start ? `?start=${site.decana.video.start}` : ''}`}
+                title={`Video Institucional · ${site.programa.nombre}`}
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -461,69 +433,39 @@ export default function Inicio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             
-            {/* Módulo de Estimulación Temprana */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group relative rounded-3xl overflow-hidden bg-primary h-[380px] md:h-[450px] flex items-end shadow-xl"
-            >
-              <div className="absolute inset-0">
-                <img
-                  src="https://picsum.photos/seed/laboratorio-calidad-agua/800/600"
-                  alt="Laboratorio de Calidad de Agua"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
-                <div className="absolute inset-0 bg-primary/25" />
-              </div>
-              <div className="relative z-10 p-8 md:p-10 w-full transform group-hover:-translate-y-2 transition-transform duration-500">
-                <span className="inline-block px-3.5 py-1.5 bg-gold text-primary text-[10px] font-black tracking-widest uppercase rounded-md mb-4 shadow-lg">
-                  Laboratorio
-                </span>
-                <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-3 leading-tight">
-                  Laboratorio de Calidad de Agua
-                </h3>
-                <div className="w-24 h-1 bg-gold mb-4 origin-left scale-x-50 transition-transform duration-500 group-hover:scale-x-100"></div>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-lg">
-                  Espacio equipado con instrumentación para el análisis físico, químico y biológico del agua, base para el monitoreo y tratamiento de los recursos hídricos.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Centro de Cómputo */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="group relative rounded-3xl overflow-hidden bg-primary h-[380px] md:h-[450px] flex items-end shadow-xl"
-            >
-              <div className="absolute inset-0">
-                <img
-                  src="https://picsum.photos/seed/monitoreo-calidad-aire/800/600"
-                  alt="Monitoreo de Calidad del Aire"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
-                <div className="absolute inset-0 bg-primary/25" />
-              </div>
-              <div className="relative z-10 p-8 md:p-10 w-full transform group-hover:-translate-y-2 transition-transform duration-500">
-                <span className="inline-block px-3.5 py-1.5 bg-gold text-primary text-[10px] font-black tracking-widest uppercase rounded-md mb-4 shadow-lg">
-                  Laboratorio
-                </span>
-                <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-3 leading-tight">
-                  Monitoreo de<br/>Calidad del Aire
-                </h3>
-                <div className="w-24 h-1 bg-gold mb-4 origin-left scale-x-50 transition-transform duration-500 group-hover:scale-x-100"></div>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-lg">
-                  Laboratorio con equipos para medir material particulado y gases contaminantes, donde los estudiantes desarrollan competencias en gestión de la calidad del aire.
-                </p>
-              </div>
-            </motion.div>
+            {ambientes.map((amb, idx) => (
+              <motion.div
+                key={amb.titulo}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative rounded-3xl overflow-hidden bg-primary h-[380px] md:h-[450px] flex items-end shadow-xl"
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={amb.imagen}
+                    alt={amb.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-60"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+                  <div className="absolute inset-0 bg-primary/25" />
+                </div>
+                <div className="relative z-10 p-8 md:p-10 w-full transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <span className="inline-block px-3.5 py-1.5 bg-gold text-primary text-[10px] font-black tracking-widest uppercase rounded-md mb-4 shadow-lg">
+                    {amb.badge}
+                  </span>
+                  <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-3 leading-tight">
+                    {amb.titulo}
+                  </h3>
+                  <div className="w-24 h-1 bg-gold mb-4 origin-left scale-x-50 transition-transform duration-500 group-hover:scale-x-100"></div>
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-lg">
+                    {amb.descripcion}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
 
           </div>
         </div>

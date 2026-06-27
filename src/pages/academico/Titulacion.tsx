@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import { tramites } from '../../constants/academico';
+import { tramites } from '@profile/content/academico';
 import { GraduationCap, Award, Download, Check } from 'lucide-react';
 
 export default function Titulacion() {

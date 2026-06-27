@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { GraduationCap, Award, Info, ChevronRight, ExternalLink, BookOpen, Star } from 'lucide-react';
 import useHeaderHeight from '../../hooks/useHeaderHeight';
-import { ADMISION_GROUPS } from '../../constants/navigation';
+import { ADMISION_GROUPS } from '@/navigation';
 
 /**
  * Panel lateral deslizante (slide-out drawer) con pestaña "INGRESO".

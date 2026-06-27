@@ -14,11 +14,18 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Alias de rutas: sistema (@) y perfil activo (@profile) */
+    "paths": {
+      "@/*": ["./src/*"],
+      "@profile": ["./profiles/escuela/index.ts"],
+      "@profile/*": ["./profiles/escuela/*"]
+    },
+
     /* Linting estricto */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "src/vite-env.d.ts"],
+  "include": ["src", "src/vite-env.d.ts", "profiles"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

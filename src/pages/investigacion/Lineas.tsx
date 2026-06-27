@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import { lineasInvestigacion } from '../../constants/investigacion';
+import { lineasInvestigacion } from '@profile/content/investigacion';
 
 export default function Lineas() {
   return (

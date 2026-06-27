@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import PublicacionItem from '../../components/investigacion/PublicacionItem';
-import { publicaciones } from '../../constants/investigacion';
+import { publicaciones } from '@profile/content/investigacion';
 
 export default function Publicaciones() {
   return (

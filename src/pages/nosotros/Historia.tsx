@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import HitoTimeline from '../../components/identidad/HitoTimeline';
-import { historia } from '../../constants/identidad';
+import { historia } from '@profile/content/identidad';
 
 export default function Historia() {
   return (
