@@ -4,7 +4,7 @@ import type { SiteConfig } from '@/profile-types';
 // Ejemplo completo y funcional: profiles/escuela/config/site.ts
 export const site: SiteConfig = {
   programa: { nombre: 'Escuela Profesional de [NOMBRE]', nombreCorto: '[Nombre corto]' },
-  universidad: { nombre: '[Universidad]', siglas: '[SIGLAS]', url: 'https://' },
+  universidad: { nombre: '[Universidad]', siglas: '[SIGLAS]', url: 'https://', dominio: '' },
   facultad: 'Facultad de [Facultad]',
 
   wordmark: { linea1: '[Palabra 1]', linea2: '[Palabra 2]' },
@@ -22,7 +22,7 @@ export const site: SiteConfig = {
   },
 
   acreditacion: {
-    entidad: 'SINEACE',
+    entidad: '[Entidad acreditadora]',
     estado: 'en-proceso',
     texto: 'En proceso de acreditación',
     mostrarSello: false,

@@ -1,53 +1,53 @@
 export const lineasInvestigacion = [
   {
-    nombre: "Gestión y Calidad de Recursos Hídricos",
-    descripcion: "Estudio, monitoreo y tratamiento del agua para garantizar su calidad y aprovechamiento sostenible en cuencas y zonas urbanas.",
-    responsable: "Dr. Ing. Carlos Alberto Mendoza Ríos"
+    nombre: "Línea de investigación 1",
+    descripcion: "Descripción breve de la primera línea de investigación de la escuela.",
+    responsable: "Nombre del Responsable"
   },
   {
-    nombre: "Calidad del Aire y Cambio Climático",
-    descripcion: "Evaluación de la contaminación atmosférica, gases de efecto invernadero y estrategias de mitigación y adaptación al cambio climático.",
-    responsable: "Dra. Ing. Patricia Salinas Vega"
+    nombre: "Línea de investigación 2",
+    descripcion: "Descripción breve de la segunda línea de investigación de la escuela.",
+    responsable: "Nombre del Responsable"
   },
   {
-    nombre: "Gestión de Residuos Sólidos y Economía Circular",
-    descripcion: "Manejo integral, valorización y aprovechamiento de residuos sólidos bajo el enfoque de economía circular.",
-    responsable: "Dr. Ing. Jorge Villanueva Castro"
+    nombre: "Línea de investigación 3",
+    descripcion: "Descripción breve de la tercera línea de investigación de la escuela.",
+    responsable: "Nombre del Responsable"
   }
 ];
 
 export const proyectos = [
   {
-    titulo: "Eficiencia de humedales artificiales para el tratamiento de aguas residuales rurales",
+    titulo: "Título del proyecto de investigación 1",
     estado: "En ejecución",
     año: "2023-2024",
-    descripcion: "Investigación aplicada que evalúa el desempeño de humedales construidos como tecnología de bajo costo para comunidades rurales.",
-    investigadores: ["Mg. Ing. Roberto Carlos Salazar", "Dr. Ing. Hernán Torres"]
+    descripcion: "Descripción breve del primer proyecto de investigación de la escuela.",
+    investigadores: ["Nombre del Investigador 1", "Nombre del Investigador 2"]
   },
   {
-    titulo: "Monitoreo de la calidad del aire mediante sensores de bajo costo en zonas urbanas",
+    titulo: "Título del proyecto de investigación 2",
     estado: "Finalizado",
     año: "2022-2023",
-    descripcion: "Estudio sobre el despliegue de redes de sensores para estimar material particulado y apoyar la gestión de la calidad del aire.",
-    investigadores: ["Dra. Ing. Andrea Cáceres", "Dr. Ing. Jorge Villanueva"]
+    descripcion: "Descripción breve del segundo proyecto de investigación de la escuela.",
+    investigadores: ["Nombre del Investigador 1", "Nombre del Investigador 2"]
   }
 ];
 
 export const publicaciones = [
   {
-    titulo: "Remoción de metales pesados en aguas residuales mediante biocarbón de residuos agrícolas",
-    autores: "Mendoza, C., & Salinas, P.",
+    titulo: "Título de la publicación 1",
+    autores: "Apellido, N., & Apellido, N.",
     año: 2023,
-    revista: "Revista Peruana de Ingeniería y Gestión Ambiental",
+    revista: "Nombre de la revista",
     url: "#"
   }
 ];
 
 export const convenios = [
   {
-    institucion: "Ministerio del Ambiente (MINAM)",
+    institucion: "Nombre de la institución aliada",
     tipo: "Interinstitucional",
-    descripcion: "Alianza para el desarrollo de prácticas preprofesionales y proyectos de monitoreo y gestión ambiental.",
+    descripcion: "Descripción breve del convenio: con quién y para qué.",
     vigencia: "2022 - 2027"
   }
 ];

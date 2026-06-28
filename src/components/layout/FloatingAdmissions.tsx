@@ -3,6 +3,11 @@ import { useLocation, Link } from 'react-router-dom';
 import { GraduationCap, Award, Info, ChevronRight, ExternalLink, BookOpen, Star } from 'lucide-react';
 import useHeaderHeight from '../../hooks/useHeaderHeight';
 import { ADMISION_GROUPS } from '@/navigation';
+import { site } from '@/profile';
+import { modalidadesAdmision, infoUtilAdmision, portalAdmision } from '@profile/content/admision';
+
+// Íconos rotados por modalidad (decorativos; el contenido viene del perfil).
+const MODALIDAD_ICONOS = [BookOpen, Star, Award];
 
 /**
  * Panel lateral deslizante (slide-out drawer) con pestaña "INGRESO".
@@ -49,63 +54,32 @@ export default function FloatingAdmissions() {
         </div>
 
         <p className="text-sm md:text-base leading-tight mb-4 text-white/95 shrink-0">
-          Descubre las modalidades de ingreso para formar parte de la Escuela de Ingeniería Ambiental.
+          Descubre las modalidades de ingreso para formar parte de la {site.programa.nombre}.
         </p>
 
         <div className="flex-1 overflow-y-auto overscroll-contain pr-2 space-y-3 custom-scrollbar">
-          {/* Modalidad 1: Examen Ordinario */}
-          <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-            <div className="flex items-center gap-2 mb-2">
-              <BookOpen className="w-5 h-5" />
-              <h4 className="font-bold text-base">Examen Ordinario</h4>
-            </div>
-            <p className="text-[13px] mb-2">
-              <strong className="font-bold">Dirigido a:</strong> Egresados de Educación Secundaria.
-            </p>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="font-bold text-[13px]">Vacantes:</span>
-              <span className="bg-white/20 text-[12px] px-2 py-0.5 rounded font-medium">Aprox. 20 vacantes</span>
-            </div>
-            <p className="text-[12px] text-white/80 pt-2 border-t border-white/20 leading-tight">
-              Examen general que evalúa Aptitud Académica y Conocimientos.
-            </p>
-          </div>
-
-          {/* Modalidad 2: Vía CEPUNT */}
-          <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Star className="w-5 h-5" />
-              <h4 className="font-bold text-base">Vía CEPUNT</h4>
-            </div>
-            <p className="text-[13px] mb-2">
-              <strong className="font-bold">Dirigido a:</strong> Estudiantes del Centro Preuniversitario UNT.
-            </p>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="font-bold text-[13px]">Vacantes:</span>
-              <span className="bg-white/20 text-[12px] px-2 py-0.5 rounded font-medium">Aprox. 15 vacantes</span>
-            </div>
-            <p className="text-[12px] text-white/80 pt-2 border-t border-white/20 leading-tight">
-              Ingreso directo por estricto orden de mérito tras sumatoria de exámenes.
-            </p>
-          </div>
-
-          {/* Modalidad 3: Examen Extraordinario */}
-          <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-            <div className="flex items-center gap-2 mb-2">
-              <Award className="w-5 h-5" />
-              <h4 className="font-bold text-base">Examen Extraordinario</h4>
-            </div>
-            <p className="text-[13px] mb-2">
-              <strong className="font-bold">Dirigido a:</strong> 1ros y 2dos puestos, deportistas, traslados, etc.
-            </p>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="font-bold text-[13px]">Vacantes:</span>
-              <span className="bg-white/20 text-[12px] px-2 py-0.5 rounded font-medium">Aprox. 5 vacantes</span>
-            </div>
-            <p className="text-[12px] text-white/80 pt-2 border-t border-white/20 leading-tight">
-              Evaluación especial según el reglamento de admisión vigente.
-            </p>
-          </div>
+          {/* Modalidades de ingreso (definidas en el perfil: content/admision.ts) */}
+          {modalidadesAdmision.map((modalidad, idx) => {
+            const IconComp = MODALIDAD_ICONOS[idx % MODALIDAD_ICONOS.length];
+            return (
+              <div key={idx} className="bg-white/10 rounded-lg p-4 border border-white/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <IconComp className="w-5 h-5" />
+                  <h4 className="font-bold text-base">{modalidad.titulo}</h4>
+                </div>
+                <p className="text-[13px] mb-2">
+                  <strong className="font-bold">Dirigido a:</strong> {modalidad.dirigidoA}
+                </p>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-bold text-[13px]">Vacantes:</span>
+                  <span className="bg-white/20 text-[12px] px-2 py-0.5 rounded font-medium">{modalidad.vacantes}</span>
+                </div>
+                <p className="text-[12px] text-white/80 pt-2 border-t border-white/20 leading-tight">
+                  {modalidad.descripcion}
+                </p>
+              </div>
+            );
+          })}
 
           {/* Información Útil */}
           <div className="pt-2">
@@ -114,14 +88,12 @@ export default function FloatingAdmissions() {
               <h4 className="font-bold text-base">Información Útil</h4>
             </div>
             <ul className="space-y-2 text-[13px]">
-              <li className="flex gap-1.5">
-                <ChevronRight className="w-4 h-4 shrink-0 mt-0.5" />
-                <span><strong className="font-bold">Requisitos:</strong> DNI original, certificado de estudios y recibo de pago por derecho de admisión.</span>
-              </li>
-              <li className="flex gap-1.5">
-                <ChevronRight className="w-4 h-4 shrink-0 mt-0.5" />
-                <span><strong className="font-bold">Fechas:</strong> Los exámenes ordinarios suelen realizarse en los meses de Marzo y Setiembre.</span>
-              </li>
+              {infoUtilAdmision.map((item, idx) => (
+                <li key={idx} className="flex gap-1.5">
+                  <ChevronRight className="w-4 h-4 shrink-0 mt-0.5" />
+                  <span><strong className="font-bold">{item.titulo}:</strong> {item.detalle}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -164,12 +136,12 @@ export default function FloatingAdmissions() {
 
         <div className="mt-4 pt-4 border-t border-white/20 shrink-0">
           <a
-            href="https://www.admisionunt.info/"
+            href={portalAdmision.url}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-white text-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors shadow-md text-base"
           >
-            Portal de Admisión UNT <ExternalLink className="w-4 h-4" />
+            {portalAdmision.label} <ExternalLink className="w-4 h-4" />
           </a>
         </div>
       </div>

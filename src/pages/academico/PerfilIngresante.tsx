@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import { perfilIngresante } from '@profile/content/academico';
+import { site } from '@/profile';
 import { Check } from 'lucide-react';
 
 export default function PerfilIngresante() {
@@ -11,7 +12,7 @@ export default function PerfilIngresante() {
           <SectionTitle
             title="Perfil del Ingresante"
             center
-            subtitle="Habilidades y actitudes ideales para formar parte de la carrera de Ingeniería Ambiental."
+            subtitle={`Habilidades y actitudes ideales para formar parte de la ${site.programa.nombre}.`}
           />
           <div className="mt-8 bg-white p-6 md:p-8 rounded-xl shadow-md border-t-4 border-t-primary">
             <ul className="space-y-4">

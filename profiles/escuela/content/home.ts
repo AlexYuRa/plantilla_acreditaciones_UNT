@@ -29,19 +29,19 @@ export interface Ambiente {
 
 export const ambientes: Ambiente[] = [
   {
-    badge: 'Laboratorio',
-    titulo: 'Laboratorio de Calidad de Agua',
+    badge: 'Ambiente',
+    titulo: 'Nombre del Ambiente 1',
     descripcion:
-      'Espacio equipado con instrumentación para el análisis físico, químico y biológico del agua, base para el monitoreo y tratamiento de los recursos hídricos.',
-    imagen: 'https://picsum.photos/seed/laboratorio-calidad-agua/800/600',
-    alt: 'Laboratorio de Calidad de Agua',
+      'Descripción breve del primer ambiente o laboratorio: con qué cuenta y para qué se usa en la formación. Reemplaza este texto por el de tu escuela.',
+    imagen: 'https://picsum.photos/seed/ambiente-1/800/600',
+    alt: 'Nombre del Ambiente 1',
   },
   {
-    badge: 'Laboratorio',
-    titulo: 'Monitoreo de Calidad del Aire',
+    badge: 'Ambiente',
+    titulo: 'Nombre del Ambiente 2',
     descripcion:
-      'Laboratorio con equipos para medir material particulado y gases contaminantes, donde los estudiantes desarrollan competencias en gestión de la calidad del aire.',
-    imagen: 'https://picsum.photos/seed/monitoreo-calidad-aire/800/600',
-    alt: 'Monitoreo de Calidad del Aire',
+      'Descripción breve del segundo ambiente o laboratorio: con qué cuenta y para qué se usa en la formación. Reemplaza este texto por el de tu escuela.',
+    imagen: 'https://picsum.photos/seed/ambiente-2/800/600',
+    alt: 'Nombre del Ambiente 2',
   },
 ];

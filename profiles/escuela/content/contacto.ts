@@ -1,16 +1,20 @@
 export const informacionContacto = {
-  direccion: "Pabellón de la Facultad de Ingeniería, Campus Universitario Principal",
-  telefonos: ["(01) 345-6789 Anexo: 123", "+51 987 654 321"],
-  correo: "ep.ambiental@universidad.edu.pe",
-  horarioAtencion: "Lunes a Viernes: 08:00 hrs a 13:00 hrs y 14:00 hrs a 16:00 hrs"
+  direccion: "Dirección de la escuela: pabellón, facultad y campus universitario.",
+  telefonos: ["(00) 000-0000 Anexo: 000", "+51 000 000 000"],
+  correo: "contacto@universidad.edu.pe",
+  horarioAtencion: "Lunes a Viernes: 00:00 a 00:00 hrs",
+  // Mapa de ubicación: pega aquí la URL "embed" de Google Maps de tu escuela
+  // (Compartir → Insertar un mapa → copia el atributo src del iframe).
+  mapaEmbedUrl: "https://www.google.com/maps?q=Per%C3%BA&output=embed",
+  mapaTitulo: "Ubicación de la escuela"
 };
 
-// Libro de Reclamaciones oficial (plataforma del Estado peruano, UNT).
-export const libroReclamacionesUrl = 'https://reclamos.servicios.gob.pe/?institution_id=247';
+// Libro de Reclamaciones oficial. Reemplaza por la URL de tu institución.
+export const libroReclamacionesUrl = '#';
 
 export const redesSociales = {
-  facebook: "https://facebook.com/ep.ambiental.uni",
-  instagram: "https://instagram.com/ep.ambiental.uni",
-  youtube: "https://youtube.com/ep.ambiental.uni",
-  twitter: "https://twitter.com/ep_ambiental_uni"
+  facebook: "#",
+  instagram: "#",
+  youtube: "#",
+  twitter: "#"
 };

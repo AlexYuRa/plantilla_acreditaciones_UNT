@@ -2,32 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Megaphone, X, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-// Avisos institucionales — editar aquí para actualizar
-const AVISOS = [
-  {
-    id: 1,
-    texto: 'Matrícula 2025-II: Del 10 al 20 de junio. Revisa los requisitos en el Portal del Estudiante.',
-    link: 'https://sga.unitru.edu.pe',
-    externo: true,
-  },
-  {
-    id: 2,
-    texto: 'Convocatoria: Proyecto FONDECYT 2025. Inscripciones abiertas hasta el 30 de junio.',
-    link: '/investigacion/proyectos',
-    externo: false,
-  },
-  {
-    id: 3,
-    texto: 'Acreditación SINEACE: Resultados de la visita de evaluación externa disponibles.',
-    link: '/nosotros/historia',
-    externo: false,
-  },
-];
+import { avisos as AVISOS } from '@profile/content/avisos';
 
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
+
+  // Sin avisos en el perfil: el banner no se muestra.
+  if (AVISOS.length === 0) return null;
 
   const aviso = AVISOS[currentIdx];
 

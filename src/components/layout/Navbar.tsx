@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import { Phone, Mail, Search, ChevronDown, Menu, X, ExternalLink } from 'lucide-react';
 import { site, branding } from '@/profile';
+import { informacionContacto } from '@profile/content/contacto';
 import Breadcrumbs from './Breadcrumbs';
 import AnnouncementBanner from './AnnouncementBanner';
 import { NAV_LINKS, expandNavLinks } from '@/navigation';
@@ -31,7 +32,10 @@ export default function Navbar() {
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => {
     if (('key' in e && e.key === 'Enter') || e.type === 'click') {
       if (searchTerm.trim()) {
-        window.open(`https://www.google.com/search?q=site:unitru.edu.pe+${encodeURIComponent(searchTerm.trim())}`, '_blank');
+        // Acota al dominio de la universidad si el perfil lo define; si no, búsqueda general.
+        const dominio = site.universidad.dominio?.trim();
+        const filtro = dominio ? `site:${dominio}+` : '';
+        window.open(`https://www.google.com/search?q=${filtro}${encodeURIComponent(searchTerm.trim())}`, '_blank');
       }
     }
   };
@@ -81,11 +85,11 @@ export default function Navbar() {
             <span className="font-semibold text-white">¿Tienes alguna duda?</span>
             <span className="flex items-center gap-1.5 hover:text-gold transition-colors cursor-pointer">
               <Phone className="w-4 h-4" />
-              (+51) 920 027 273
+              {informacionContacto.telefonos[0]}
             </span>
             <span className="flex items-center gap-1.5 hover:text-gold transition-colors cursor-pointer">
               <Mail className="w-4 h-4" />
-              facedu@unitru.edu.pe
+              {informacionContacto.correo}
             </span>
           </div>
           <div className="flex items-center">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Card } from '../components/ui/Card';
-import { GraduationCap, ArrowRight, Calendar, ShieldCheck } from 'lucide-react';
+import { GraduationCap, ArrowRight, Calendar, ShieldCheck, PlayCircle } from 'lucide-react';
 import { site, branding } from '@/profile';
 import { noticias } from '@profile/content/noticias';
 import { accesosRapidos, ambientes } from '@profile/content/home';
@@ -201,7 +201,7 @@ export default function Inicio() {
                 <img src={branding.logos.libroReclamaciones} alt="Libro de Reclamaciones" className="w-20 md:w-32 h-auto drop-shadow-md" />
               </a>
 
-              {/* Bolsa de trabajo (UNT · USE) */}
+              {/* Bolsa de trabajo */}
               <a
                 href={site.enlaces.bolsaTrabajo}
                 target="_blank"
@@ -277,15 +277,23 @@ export default function Inicio() {
               className="w-full rounded-xl overflow-hidden shadow-2xl relative border-4 border-gray-50"
               style={{ paddingTop: '56.25%' }}
             >
-              <iframe
-                className="absolute top-0 left-0 w-full h-full border-0"
-                src={`https://www.youtube-nocookie.com/embed/${site.decana.video.youtubeId}${site.decana.video.start ? `?start=${site.decana.video.start}` : ''}`}
-                title={`Video Institucional · ${site.programa.nombre}`}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              {site.decana.video.youtubeId ? (
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full border-0"
+                  src={`https://www.youtube-nocookie.com/embed/${site.decana.video.youtubeId}${site.decana.video.start ? `?start=${site.decana.video.start}` : ''}`}
+                  title={`Video Institucional · ${site.programa.nombre}`}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-primary/5 text-primary/70 text-center px-6">
+                  <PlayCircle className="w-12 h-12" aria-hidden="true" />
+                  <p className="font-display font-bold text-sm">Aquí va el video de bienvenida</p>
+                  <p className="text-xs text-primary/50">Agrega el ID de YouTube del video en el perfil (site.decana.video).</p>
+                </div>
+              )}
             </motion.div>
 
           </div>

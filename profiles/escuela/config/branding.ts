@@ -20,8 +20,8 @@ export const branding: BrandingConfig = {
   },
   heroImages: [hero1, hero2, hero3],
   alt: {
-    universidad: 'Universidad Nacional de Trujillo',
-    escuela: 'Escuela Profesional de Ingeniería Ambiental',
-    bolsaTrabajo: 'Bolsa de trabajo UNT',
+    universidad: 'Nombre de la Universidad',
+    escuela: 'Nombre de la Escuela Profesional',
+    bolsaTrabajo: 'Bolsa de trabajo',
   },
 };

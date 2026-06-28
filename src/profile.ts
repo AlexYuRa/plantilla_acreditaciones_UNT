@@ -9,3 +9,9 @@ import profile from '@profile';
 
 export default profile;
 export const { site, branding, seo } = profile;
+
+/**
+ * Nombre corto del sitio para títulos de pestaña (`document.title`), p. ej.
+ * "Nombre de la Escuela · SIGLAS". Derivado del perfil, no hardcodeado.
+ */
+export const siteName = `${site.programa.nombreCorto} · ${site.universidad.siglas}`;

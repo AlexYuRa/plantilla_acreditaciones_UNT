@@ -3,65 +3,76 @@ import type { SiteConfig } from '@/profile-types';
 /**
  * Identidad de la escuela. Editar este archivo (y `branding.ts`) cubre la mayor
  * parte de la re-tematización para una escuela nueva.
+ *
+ * Los textos de abajo son PLANTILLA: describen qué va en cada campo. Reemplázalos
+ * por los datos de tu escuela.
  */
 export const site: SiteConfig = {
   programa: {
-    nombre: 'Escuela Profesional de Ingeniería Ambiental',
-    nombreCorto: 'Ingeniería Ambiental',
+    nombre: 'Nombre de la Escuela Profesional',
+    nombreCorto: 'Nombre de la Escuela',
   },
   universidad: {
-    nombre: 'Universidad Nacional de Trujillo',
-    siglas: 'UNT',
-    url: 'https://www.unitru.edu.pe',
+    nombre: 'Nombre de la Universidad',
+    siglas: 'SIGLAS',
+    url: '#',
+    // Dominio para acotar el buscador del navbar (site:dominio). Déjalo vacío
+    // para una búsqueda general en Google.
+    dominio: '',
   },
-  facultad: 'Facultad de Ingeniería',
+  facultad: 'Nombre de la Facultad',
 
-  wordmark: { linea1: 'Ingeniería', linea2: 'Ambiental' },
+  // Wordmark del navbar: se muestra en dos líneas (línea 1 en azul, línea 2 en dorado).
+  wordmark: { linea1: 'Nombre', linea2: 'Escuela' },
 
   tagline:
-    'Formando ingenieros ambientales de excelencia, con rigor científico y compromiso con la sostenibilidad del país.',
+    'Lema o frase que resume el propósito de la escuela en una línea. Reemplázalo por el de tu escuela.',
 
   hero: {
     eyebrow: 'Escuela Profesional de',
-    titulo: { linea1: 'Ingeniería', linea2: 'Ambiental' },
+    titulo: { linea1: 'Nombre De', linea2: 'La Escuela' },
     descripcion:
-      'Formamos ingenieros ambientales en la Universidad Nacional de Trujillo, con rigor científico y compromiso con la sostenibilidad.',
+      'Descripción breve de la escuela para el hero: a quién forma y con qué enfoque. Reemplaza este texto por el de tu escuela.',
     ctas: {
       primary: { label: 'Ver Plan de Estudios', to: '/academico/malla-curricular' },
       secondary: { label: 'Perfiles académicos', to: '/academico/perfiles' },
     },
   },
 
+  // Sello de acreditación (badge del hero). Si tu escuela no está acreditada,
+  // pon `mostrarSello: false` y ajusta `estado`.
   acreditacion: {
-    entidad: 'SINEACE',
+    entidad: 'Entidad Acreditadora',
     estado: 'acreditada',
-    texto: 'Acreditada por SINEACE',
+    texto: 'Acreditada por la Entidad',
     mostrarSello: true,
   },
 
-  // Cifras de EJEMPLO (plantilla): reemplazar por datos verificables.
+  // Cifras destacadas de la franja del hero. Reemplaza números y etiquetas.
   cifras: [
-    { numero: '+15', etiqueta: 'Años formando ingenieros', sub: 'de trayectoria ininterrumpida' },
-    { numero: '800+', etiqueta: 'Egresados a nivel nacional', sub: 'aportando a la sostenibilidad' },
-    { numero: '100%', etiqueta: 'Malla actualizada', sub: 'con enfoque en sostenibilidad' },
+    { numero: '00', etiqueta: 'Primera cifra destacada', sub: 'Descripción breve de la cifra' },
+    { numero: '000+', etiqueta: 'Segunda cifra destacada', sub: 'Descripción breve de la cifra' },
+    { numero: '00%', etiqueta: 'Tercera cifra destacada', sub: 'Descripción breve de la cifra' },
   ],
 
   decana: {
-    nombre: 'Karen Valderrama',
-    cargo: 'Decana de la Escuela Profesional de Ingeniería Ambiental',
+    nombre: 'Nombre del Decano(a)',
+    cargo: 'Decano(a) de la Escuela Profesional',
     mensaje:
-      'Bienvenidos a la Escuela Profesional de Ingeniería Ambiental. Formamos ingenieros capaces de prevenir y resolver los problemas ambientales con rigor científico y compromiso con la sostenibilidad. Te invitamos a conocer un programa que cuida cada detalle de tu formación.',
-    video: { youtubeId: '6mmdvUizSbk', start: 7 },
+      'Mensaje de bienvenida del decano(a). Aquí va un párrafo que recibe a los visitantes y resume el espíritu del programa. Reemplaza este texto por el de tu escuela.',
+    // ID del video de YouTube para el mensaje de bienvenida. Déjalo vacío hasta
+    // tener el video de tu escuela; al ponerlo, el reproductor aparece solo.
+    video: { youtubeId: '', start: 0 },
   },
 
   enlaces: {
-    libroReclamaciones: 'https://reclamos.servicios.gob.pe/?institution_id=247',
-    bolsaTrabajo: 'https://use-dpa.unitru.edu.pe/bolsadetrabajo',
+    libroReclamaciones: '#',
+    bolsaTrabajo: '#',
   },
 
   enlacesInstitucionales: [
-    { label: 'Portal UNT', url: 'https://www.unitru.edu.pe' },
-    { label: 'Transparencia', url: 'https://www.unitru.edu.pe/transparencia' },
-    { label: 'Portal del Estudiante', url: 'https://sga.unitru.edu.pe' },
+    { label: 'Enlace institucional 1', url: '#' },
+    { label: 'Enlace institucional 2', url: '#' },
+    { label: 'Enlace institucional 3', url: '#' },
   ],
 };

@@ -1,48 +1,48 @@
 export const director = {
-  nombre: "Dr. Ing. Carlos Alberto Mendoza Ríos",
-  cargo: "Director de la Escuela Profesional de Ingeniería Ambiental",
-  correo: "direccion.ambiental@universidad.edu.pe",
-  bio: "Doctor en Ingeniería Ambiental con amplia experiencia en gestión de recursos hídricos, evaluación de impacto ambiental y docencia universitaria.",
-  foto: null // Placeholder
+  nombre: "Nombre del Director(a)",
+  cargo: "Director(a) de la Escuela Profesional",
+  correo: "direccion@universidad.edu.pe",
+  bio: "Breve reseña del director(a): grado académico, especialidad y experiencia. Reemplaza este texto por la del director(a) de tu escuela.",
+  foto: null // Reemplaza por la ruta de la foto o deja null para la silueta
 };
 
 export const coordinadores = [
   {
-    nombre: "Mg. Ing. Roberto Carlos Salazar",
-    cargo: "Coordinador Académico",
-    correo: "acad.ambiental@universidad.edu.pe"
+    nombre: "Nombre del Coordinador(a)",
+    cargo: "Coordinador(a) Académico",
+    correo: "coordinacion.academica@universidad.edu.pe"
   },
   {
-    nombre: "Dra. Ing. Patricia Salinas Vega",
-    cargo: "Coordinadora de Investigación",
-    correo: "investiga.ambiental@universidad.edu.pe"
+    nombre: "Nombre del Coordinador(a)",
+    cargo: "Coordinador(a) de Investigación",
+    correo: "coordinacion.investigacion@universidad.edu.pe"
   },
   {
-    nombre: "Mg. Ing. Luis Fernando Gómez",
-    cargo: "Coordinador de Prácticas Preprofesionales",
-    correo: "practicas.ambiental@universidad.edu.pe"
+    nombre: "Nombre del Coordinador(a)",
+    cargo: "Coordinador(a) de Prácticas Preprofesionales",
+    correo: "coordinacion.practicas@universidad.edu.pe"
   }
 ];
 
 export const organigrama = {
   nombre: "Dirección de Escuela",
-  cargo: "Dr. Ing. Carlos Alberto Mendoza",
+  cargo: "Nombre del Director(a)",
   hijos: [
     {
       nombre: "Coordinación Académica",
-      cargo: "Mg. Ing. Roberto Carlos Salazar",
+      cargo: "Nombre del Coordinador(a)",
       hijos: [
-        { nombre: "Comité de Currículo", cargo: "" },
-        { nombre: "Tutoría y Asesoría", cargo: "" }
+        { nombre: "Comité 1", cargo: "" },
+        { nombre: "Comité 2", cargo: "" }
       ]
     },
     {
       nombre: "Coordinación de Investigación",
-      cargo: "Dra. Ing. Patricia Salinas"
+      cargo: "Nombre del Coordinador(a)"
     },
     {
       nombre: "Prácticas Preprofesionales",
-      cargo: "Mg. Ing. Luis Fernando Gómez"
+      cargo: "Nombre del Coordinador(a)"
     }
   ]
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import CompetenciaItem from '../../components/academico/CompetenciaItem';
 import { perfilEgresado } from '@profile/content/academico';
+import { site } from '@/profile';
 
 export default function PerfilEgresado() {
   return (
@@ -11,7 +12,7 @@ export default function PerfilEgresado() {
           <SectionTitle
             title="Perfil del Egresado"
             center
-            subtitle="Al término de la carrera, el estudiante de Ingeniería Ambiental de la Universidad Nacional de Trujillo (UNT) tendrá las siguientes cualidades:"
+            subtitle={`Al término de la carrera, el estudiante de la ${site.programa.nombreCorto} de la ${site.universidad.nombre} (${site.universidad.siglas}) tendrá las siguientes cualidades:`}
           />
           <div className="mt-8 grid gap-4">
             {perfilEgresado.map((comp, idx) => (

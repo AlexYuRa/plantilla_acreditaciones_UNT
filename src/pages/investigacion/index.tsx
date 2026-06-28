@@ -6,7 +6,7 @@ export default function InvestigacionIndex() {
   return (
     <SectionLayout
       title="Investigación"
-      subtitle="Nuestros aportes al conocimiento pedagógico y científico de la educación."
+      subtitle="Nuestros aportes al conocimiento científico y al desarrollo de la disciplina."
       icon={FlaskConical}
       basePath="/investigacion"
       breadcrumbs={[{ label: 'Investigación' }]}

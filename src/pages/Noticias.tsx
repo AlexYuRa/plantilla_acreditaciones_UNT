@@ -5,6 +5,7 @@ import PageWrapper from '../components/layout/PageWrapper';
 import PageHero from '../components/layout/PageHero';
 import { Card } from '../components/ui/Card';
 import { noticias } from '@profile/content/noticias';
+import { site } from '@/profile';
 import { Newspaper, Calendar, ArrowRight } from 'lucide-react';
 
 export default function Noticias() {
@@ -12,7 +13,7 @@ export default function Noticias() {
     <PageWrapper>
       <PageHero
         title="Noticias y Actualidad"
-        subtitle="Eventos, convocatorias y logros de la Escuela Profesional de Ingeniería Ambiental."
+        subtitle={`Eventos, convocatorias y logros de la ${site.programa.nombre}.`}
         icon={Newspaper}
         breadcrumbs={[{ label: 'Noticias' }]}
       />

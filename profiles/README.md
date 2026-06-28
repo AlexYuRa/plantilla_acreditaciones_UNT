@@ -7,19 +7,23 @@ el sitio de tu escuela **solo editas la carpeta `profiles/escuela/`**. No toques
 ```
 profiles/
   escuela/     ← TU escuela: edita aquí
-  _template/   ← referencia en blanco (no se compila)
+  _template/   ← referencia en blanco (no se publica)
 ```
 
 ## Qué editar en `profiles/escuela/`
 
 | Carpeta | Qué pones |
 |---|---|
-| `config/site.ts` | Nombre, universidad, wordmark, hero, decana, cifras, sello, enlaces |
+| `config/site.ts` | Nombre, universidad (y `dominio` del buscador), wordmark, hero, decana, cifras, sello, enlaces |
 | `config/branding.ts` | Referencias a tus logos e imágenes |
 | `config/seo.ts` | Título y descripción para buscadores |
 | `config/navigation.ts` | Etiquetas del menú (las rutas no se cambian) |
-| `content/` | Malla, docentes, noticias, investigación, autoridades, misión/visión, home |
+| `content/` | Malla, docentes, noticias, investigación, autoridades, misión/visión, home, **avisos** (banner), **admisión** (panel lateral) |
+| `content/contacto.ts` | Teléfono/correo (también del navbar), dirección, redes y **mapa** (`mapaEmbedUrl`) |
 | `assets/` | Tus logos e imágenes (ver `escuela/assets/` y nómbralos igual) |
+
+> Todo el texto visible se arma desde tu perfil; no queda nada de otra escuela
+> escrito dentro de `src/`. Editas `profiles/escuela/` y el sitio entero se actualiza.
 
 ## Colores de tu escuela
 

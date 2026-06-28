@@ -47,7 +47,13 @@ export interface DecanaConfig {
 
 export interface SiteConfig {
   programa: { nombre: string; nombreCorto: string };
-  universidad: { nombre: string; siglas: string; url?: string };
+  universidad: {
+    nombre: string;
+    siglas: string;
+    url?: string;
+    /** Dominio para acotar el buscador del navbar (site:dominio). Vacío = búsqueda general. */
+    dominio?: string;
+  };
   facultad?: string;
   /** Marca tipográfica del navbar, a dos líneas (azul / dorado). */
   wordmark: { linea1: string; linea2: string };

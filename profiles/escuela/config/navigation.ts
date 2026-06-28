@@ -147,7 +147,7 @@ export const NAV_LINKS: NavSection[] = [
             path: '/organizacion/comites',
             navAs: [
               { name: 'Calidad (Autoevaluación / Acreditación)', path: '/organizacion/comites#calidad' },
-              { name: 'Coteccu', path: '/organizacion/comites#coteccu' },
+              { name: 'Comité de Currículo', path: '/organizacion/comites#coteccu' },
               { name: 'Consejería y tutoría', path: '/organizacion/comites#consejeria' },
               { name: 'Comité de Investigación', path: '/organizacion/comites#investigacion' },
               { name: 'Comisión', path: '/organizacion/comites#comision' },

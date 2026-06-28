@@ -1,57 +1,57 @@
-export const mision = "Formar ingenieros ambientales con sólida base científica y tecnológica, capaces de prevenir, controlar y remediar la contaminación, gestionar de manera sostenible los recursos naturales y aportar soluciones de ingeniería al desarrollo sostenible del país, con compromiso ético y responsabilidad social.";
+export const mision = "Misión de la escuela: el propósito formativo del programa, qué profesionales forma y con qué fin. Reemplaza este texto por la misión de tu escuela.";
 
-export const vision = "Ser una Escuela Profesional líder a nivel nacional e internacional en la formación de ingenieros ambientales, reconocida por su calidad académica, su investigación aplicada en gestión ambiental y su contribución a la sostenibilidad y la resiliencia frente al cambio climático.";
+export const vision = "Visión de la escuela: hacia dónde se proyecta el programa a futuro y por qué busca ser reconocido. Reemplaza este texto por la visión de tu escuela.";
 
 export const valores = [
   {
-    nombre: "Sostenibilidad",
-    descripcion: "Compromiso con el uso responsable de los recursos y el equilibrio entre desarrollo, sociedad y ambiente."
+    nombre: "Valor 1",
+    descripcion: "Descripción breve del primer valor institucional de la escuela."
   },
   {
-    nombre: "Rigor científico",
-    descripcion: "Búsqueda de la excelencia académica e investigación basada en evidencia y método."
+    nombre: "Valor 2",
+    descripcion: "Descripción breve del segundo valor institucional de la escuela."
   },
   {
-    nombre: "Ética",
-    descripcion: "Actuación con integridad, transparencia y responsabilidad en el ejercicio profesional de la ingeniería."
+    nombre: "Valor 3",
+    descripcion: "Descripción breve del tercer valor institucional de la escuela."
   },
   {
-    nombre: "Innovación",
-    descripcion: "Desarrollo y aplicación de tecnologías limpias y soluciones creativas a los problemas ambientales."
+    nombre: "Valor 4",
+    descripcion: "Descripción breve del cuarto valor institucional de la escuela."
   },
   {
-    nombre: "Responsabilidad social",
-    descripcion: "Vocación de servicio orientada a mejorar la calidad de vida y el ambiente de las comunidades."
+    nombre: "Valor 5",
+    descripcion: "Descripción breve del quinto valor institucional de la escuela."
   },
   {
-    nombre: "Trabajo en equipo",
-    descripcion: "Colaboración multidisciplinaria para abordar retos ambientales complejos."
+    nombre: "Valor 6",
+    descripcion: "Descripción breve del sexto valor institucional de la escuela."
   }
 ];
 
 export const historia = {
-  fundacion: 2008,
-  resena: "La Escuela Profesional de Ingeniería Ambiental fue creada para responder a la creciente necesidad de profesionales capaces de enfrentar los desafíos ambientales del país. Desde su fundación ha formado ingenieros comprometidos con la prevención y el control de la contaminación, la gestión de recursos naturales y el desarrollo sostenible, adaptándose continuamente a los avances tecnológicos y a la normativa ambiental vigente.",
+  fundacion: 2000,
+  resena: "Reseña histórica de la escuela: cuándo y por qué se creó el programa, y cómo ha evolucionado. Reemplaza este texto por la historia de tu escuela.",
   hitos: [
     {
-      año: 2008,
-      descripcion: "Creación de la Escuela Profesional de Ingeniería Ambiental, con su primera promoción de estudiantes."
+      año: 2000,
+      descripcion: "Descripción del primer hito de la historia de la escuela."
     },
     {
-      año: 2012,
-      descripcion: "Implementación de los laboratorios de calidad de agua, aire y suelos para la formación práctica."
+      año: 2005,
+      descripcion: "Descripción del segundo hito de la historia de la escuela."
     },
     {
-      año: 2016,
-      descripcion: "Primer rediseño curricular orientado a la gestión integrada de recursos hídricos y residuos sólidos."
+      año: 2010,
+      descripcion: "Descripción del tercer hito de la historia de la escuela."
     },
     {
-      año: 2019,
-      descripcion: "Egreso de la primera generación de titulados y consolidación de las líneas de investigación ambiental."
+      año: 2015,
+      descripcion: "Descripción del cuarto hito de la historia de la escuela."
     },
     {
-      año: 2023,
-      descripcion: "Proceso de autoevaluación con fines de acreditación de la calidad del programa ante el SINEACE."
+      año: 2020,
+      descripcion: "Descripción del quinto hito de la historia de la escuela."
     }
   ]
 };

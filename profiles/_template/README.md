@@ -1,14 +1,16 @@
 # Perfil en blanco (_template)
 
-Punto de partida para una escuela nueva. No se compila ni se incluye en el build
-(está excluido en `tsconfig.json`); es solo un esqueleto para copiar.
+Punto de partida para una escuela nueva. No se publica en el sitio (el build solo
+incluye el perfil activo), pero TypeScript sí lo valida para que el esqueleto se
+mantenga correcto. Es la base que copias al crear una escuela.
 
 Estructura:
 
 ```
 config/      site.ts · branding.ts · seo.ts · navigation.ts   (Configuración)
 content/     identidad · academico · autoridades · investigacion
-             docentes · noticias · contacto · home · malla     (Contenido)
+             docentes · noticias · contacto · home · malla
+             avisos · admision                                  (Contenido)
 assets/      logos e imágenes de la escuela                     (Recursos)
 index.ts     compone el perfil (no tocar la estructura)
 ```

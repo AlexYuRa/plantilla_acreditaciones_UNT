@@ -1,8 +1,8 @@
 import type { SeoConfig } from '@/profile-types';
 
 export const seo: SeoConfig = {
-  title: 'Escuela Profesional de Ingeniería Ambiental',
+  title: 'Nombre de la Escuela Profesional UNT',
   description:
-    'Escuela Profesional de Ingeniería Ambiental de la Universidad Nacional de Trujillo. Formación de ingenieros ambientales con rigor científico y compromiso con la sostenibilidad.',
+    'Descripción de la escuela para buscadores (meta description). Resume en una o dos frases qué es la escuela y a quién forma.',
   lang: 'es',
 };

@@ -4,8 +4,8 @@ import { branding } from './config/branding';
 import { seo } from './config/seo';
 
 /**
- * Perfil "Ingeniería Ambiental" (UNT).
- * Perfil de ejemplo por defecto de la plantilla.
+ * Perfil activo por defecto de la plantilla (carpeta `escuela`).
+ * Edita los archivos de `config/` y `content/` para tu escuela.
  */
 const profile: Profile = { site, branding, seo };
 
