@@ -1,4 +1,4 @@
-import { BookOpen, Users, FlaskConical, GraduationCap, Handshake } from 'lucide-react';
+import { BookOpen, Users, FlaskConical, GraduationCap, Handshake, UserCheck } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 // Contenido de la página de Inicio (accesos rápidos + ambientes destacados).
@@ -8,15 +8,15 @@ export interface AccesoRapido {
   descripcion: string;
   icono: LucideIcon;
   link: string;
-  imagen: string;
 }
 
 export const accesosRapidos: AccesoRapido[] = [
-  { titulo: 'Plan de Estudios', descripcion: 'Malla curricular actualizada por ciclos.', icono: BookOpen, link: '/academico/malla-curricular', imagen: 'https://picsum.photos/seed/malla-plan-estudios/600/400' },
-  { titulo: 'Plana Docente', descripcion: 'Profesores e investigadores comprometidos.', icono: Users, link: '/organizacion/docentes', imagen: 'https://picsum.photos/seed/plana-docente/600/400' },
-  { titulo: 'Investigación', descripcion: 'Líneas, proyectos y publicaciones activas.', icono: FlaskConical, link: '/investigacion/proyectos', imagen: 'https://picsum.photos/seed/investigacion-ambiental/600/400' },
-  { titulo: 'Grados y Títulos', descripcion: 'Pasos y requisitos para tu titulación.', icono: GraduationCap, link: '/academico/titulacion', imagen: 'https://picsum.photos/seed/grados-titulos/600/400' },
-  { titulo: 'Convenios', descripcion: 'Alianzas con entidades del sector ambiental.', icono: Handshake, link: '/academico/convenios', imagen: 'https://picsum.photos/seed/convenios-alianzas/600/400' },
+  { titulo: 'Perfiles Académicos', descripcion: 'Perfil de ingreso y de egreso de la escuela.', icono: UserCheck, link: '/academico/perfiles' },
+  { titulo: 'Plan de Estudios', descripcion: 'Malla curricular actualizada por ciclos.', icono: BookOpen, link: '/academico/malla-curricular' },
+  { titulo: 'Plana Docente', descripcion: 'Profesores e investigadores comprometidos.', icono: Users, link: '/organizacion/docentes' },
+  { titulo: 'Investigación', descripcion: 'Líneas, proyectos y publicaciones activas.', icono: FlaskConical, link: '/investigacion/proyectos' },
+  { titulo: 'Grados y Títulos', descripcion: 'Pasos y requisitos para tu titulación.', icono: GraduationCap, link: '/academico/titulacion' },
+  { titulo: 'Convenios', descripcion: 'Alianzas con instituciones y empresas aliadas.', icono: Handshake, link: '/academico/convenios' },
 ];
 
 export interface Ambiente {

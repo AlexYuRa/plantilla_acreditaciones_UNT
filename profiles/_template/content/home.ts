@@ -7,7 +7,6 @@ export interface AccesoRapido {
   descripcion: string;
   icono: LucideIcon;
   link: string;
-  imagen: string;
 }
 export const accesosRapidos: AccesoRapido[] = [];
 

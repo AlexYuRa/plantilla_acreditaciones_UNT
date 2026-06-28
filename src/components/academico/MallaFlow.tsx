@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import ReactFlow, {
   Background,
   Controls,
@@ -10,7 +10,6 @@ import ReactFlow, {
   type Edge,
   type NodeProps,
   type NodeTypes,
-  type NodeMouseHandler,
 } from 'reactflow';
 import { Download, BookOpen, Clock, Award, X, HelpCircle } from 'lucide-react';
 
@@ -32,9 +31,25 @@ const AREA_STYLES: Record<AreaType, string> = {
   especialidad: 'border-l-sky-400 bg-white text-sky-950 hover:bg-sky-100/70',
 };
 
-function CourseNode({ data }: NodeProps<CourseData>) {
+// El nodo lleva un callback `onOpen` para abrir su detalle por clic o teclado.
+type CourseNodeData = CourseData & { onOpen: (course: CourseData) => void };
+
+function CourseNode({ data }: NodeProps<CourseNodeData>) {
+  const open = () => data.onOpen(data);
   return (
-    <div className={`w-64 p-3 shadow-md rounded border border-slate-200 border-l-4 transition-colors ${AREA_STYLES[data.type]}`}>
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={`Ver detalle del curso ${data.name} (${data.cycle}, ${data.credits} créditos)`}
+      onClick={open}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open();
+        }
+      }}
+      className={`w-64 p-3 shadow-md rounded border border-slate-200 border-l-4 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${AREA_STYLES[data.type]}`}
+    >
       <Handle type="target" position={Position.Left} className="opacity-40 !bg-slate-400" />
 
       <div className="flex justify-between items-center mb-1.5">
@@ -71,6 +86,7 @@ export default function MallaFlow() {
   const [selectedCourse, setSelectedCourse] = useState<CourseData | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
   const [showHelp, setShowHelp] = useState(true);
+  const modalCloseRef = useRef<HTMLButtonElement>(null);
 
   // ≥1024px (lg): panel lateral. Por debajo: modal (no hay ancho para el panel).
   useEffect(() => {
@@ -93,6 +109,15 @@ export default function MallaFlow() {
     credits: CURRICULUM_DATA.reduce((sum, c) => sum + c.credits, 0),
   }), []);
 
+  // Orden de ciclos por primera aparición (para la vista de texto accesible).
+  const cyclesOrdered = useMemo(() => {
+    const seen: string[] = [];
+    CURRICULUM_DATA.forEach((c) => {
+      if (!seen.includes(c.cycle)) seen.push(c.cycle);
+    });
+    return seen;
+  }, []);
+
   // Cierra el modal de detalle con Escape.
   useEffect(() => {
     if (!selectedCourse) return;
@@ -101,8 +126,15 @@ export default function MallaFlow() {
     return () => window.removeEventListener('keydown', onKey);
   }, [selectedCourse]);
 
+  // Al abrir el modal (móvil), lleva el foco a su botón de cierre (gestión de foco en diálogos).
+  useEffect(() => {
+    if (selectedCourse && !isDesktop) modalCloseRef.current?.focus();
+  }, [selectedCourse, isDesktop]);
+
   // Las aristas animadas se desactivan si el sistema pide menos movimiento.
-  const initialNodes = useMemo<Node<CourseData>[]>(() => {
+  const openCourse = useCallback((course: CourseData) => setSelectedCourse(course), []);
+
+  const initialNodes = useMemo<Node<CourseNodeData>[]>(() => {
     return CURRICULUM_DATA.map((course) => {
       const sameCycle = CURRICULUM_DATA.filter((c) => c.cycle === course.cycle);
       const orderInCycle = sameCycle.indexOf(course);
@@ -110,10 +142,10 @@ export default function MallaFlow() {
         id: course.id,
         type: 'courseNode',
         position: { x: CYCLE_COLUMNS[course.cycle] ?? 0, y: orderInCycle * 110 },
-        data: course,
+        data: { ...course, onOpen: openCourse },
       };
     });
-  }, []);
+  }, [openCourse]);
 
   const initialEdges = useMemo<Edge[]>(() => {
     const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -122,10 +154,6 @@ export default function MallaFlow() {
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-
-  const onNodeClick = useCallback<NodeMouseHandler>((_event, node) => {
-    setSelectedCourse(node.data as CourseData);
-  }, []);
 
   // Detalle de un curso (se reutiliza en el panel lateral y en el modal móvil).
   const detail = (course: CourseData) => (
@@ -215,6 +243,34 @@ export default function MallaFlow() {
 
   return (
     <div>
+      {/* Vista de texto accesible del plan (lector de pantalla). El grafo de abajo
+          es la versión interactiva equivalente; para impresión está el PDF. */}
+      <table className="sr-only">
+        <caption>
+          Plan de estudios por ciclos: {stats.cycles} ciclos, {stats.courses} cursos, {stats.credits} créditos.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Ciclo</th>
+            <th scope="col">Curso</th>
+            <th scope="col">Créditos</th>
+            <th scope="col">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cyclesOrdered.map((cycle) =>
+            CURRICULUM_DATA.filter((c) => c.cycle === cycle).map((c) => (
+              <tr key={c.id}>
+                <td>{cycle}</td>
+                <td>{c.name}</td>
+                <td>{c.credits}</td>
+                <td>{c.isElective ? 'Electivo' : 'Obligatorio'}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+
       <div className="lg:flex lg:items-stretch rounded-xl border border-slate-200 overflow-hidden shadow-sm bg-white">
         {/* Grafo */}
         <div className="relative w-full lg:flex-1 h-[70svh] min-h-[460px] md:h-[720px] bg-slate-50 overflow-hidden lg:border-r lg:border-slate-200">
@@ -242,14 +298,14 @@ export default function MallaFlow() {
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             nodeTypes={nodeTypes}
-            onNodeClick={onNodeClick}
             fitView={isDesktop}
             defaultViewport={isDesktop ? undefined : { x: 16, y: 16, zoom: 0.85 }}
             minZoom={0.3}
             maxZoom={1.5}
             nodesDraggable={false}
             nodesConnectable={false}
-            elementsSelectable
+            nodesFocusable={false}
+            elementsSelectable={false}
             zoomOnScroll={true}
             zoomActivationKeyCode="Control"
             panOnScroll={false}
@@ -258,7 +314,10 @@ export default function MallaFlow() {
             attributionPosition="bottom-right"
           >
             <Background color="#cbd5e1" gap={20} size={1} />
-            <Controls className="!bg-white !shadow-lg !border-slate-100 !rounded-lg" showInteractive={false} />
+            <Controls
+              className="!bg-white !shadow-lg !border-slate-100 !rounded-lg [&_.react-flow__controls-button]:!w-10 [&_.react-flow__controls-button]:!h-10"
+              showInteractive={false}
+            />
           </ReactFlow>
         </div>
 
@@ -304,6 +363,7 @@ export default function MallaFlow() {
           <div className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-100 p-5 max-h-[85svh] overflow-y-auto">
             <button
               type="button"
+              ref={modalCloseRef}
               onClick={() => setSelectedCourse(null)}
               aria-label="Cerrar"
               className="absolute top-3 right-3 z-10 h-11 w-11 flex items-center justify-center text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-200 transition-colors"

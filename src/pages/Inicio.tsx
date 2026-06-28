@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Card } from '../components/ui/Card';
-import { GraduationCap, ArrowRight, Calendar, ShieldCheck, PlayCircle } from 'lucide-react';
+import { GraduationCap, ArrowRight, Calendar, ShieldCheck, User, Play } from 'lucide-react';
 import { site, branding } from '@/profile';
 import { noticias } from '@profile/content/noticias';
 import { accesosRapidos, ambientes } from '@profile/content/home';
@@ -288,10 +288,20 @@ export default function Inicio() {
                   allowFullScreen
                 ></iframe>
               ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-primary/5 text-primary/70 text-center px-6">
-                  <PlayCircle className="w-12 h-12" aria-hidden="true" />
-                  <p className="font-display font-bold text-sm">Aquí va el video de bienvenida</p>
-                  <p className="text-xs text-primary/50">Agrega el ID de YouTube del video en el perfil (site.decana.video).</p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-primary/5 text-primary text-center px-6">
+                  {/* Retrato silueta + sello de video: transmite "aquí te da la bienvenida una persona" aun sin datos */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-full bg-white border border-primary/10 shadow-sm flex items-end justify-center overflow-hidden">
+                      <User className="w-20 h-20 text-primary/20 -mb-1" aria-hidden="true" />
+                    </div>
+                    <span className="absolute -bottom-1 -right-1 w-9 h-9 rounded-full bg-gold flex items-center justify-center shadow-md">
+                      <Play className="w-4 h-4 text-primary fill-primary translate-x-[1px]" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-sm">Mensaje de bienvenida del decano(a)</p>
+                    <p className="text-xs text-primary/80 mt-1">Agrega su foto o el video en el perfil (site.decana.video).</p>
+                  </div>
                 </div>
               )}
             </motion.div>
@@ -366,7 +376,7 @@ export default function Inicio() {
 
 
       {/* ══════════════════════════════════════════
-          ACCESOS RÁPIDOS — Cards premium numeradas
+          ACCESOS RÁPIDOS — Índice editorial (rompe la cadencia de tarjetas)
           ══════════════════════════════════════════ */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
@@ -376,50 +386,34 @@ export default function Inicio() {
             center
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-12">
+          <div className="mt-12 max-w-4xl mx-auto grid sm:grid-cols-2 gap-x-12">
             {accesosRapidos.map((acceso, idx) => {
               const IconComp = acceso.icono;
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08, duration: 0.45 }}
-                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ delay: idx * 0.06, duration: 0.4 }}
                 >
-                  <Link to={acceso.link} className="block h-full group">
-                    <div className="h-full rounded-2xl overflow-hidden bg-white border border-gray-100 hover:border-gold/40 transition duration-300 hover:shadow-[0_12px_40px_rgba(230,173,9,0.15)] flex flex-col">
-                      
-                      {/* Imagen de Portada */}
-                      <div className="h-32 w-full relative overflow-hidden shrink-0">
-                        <div className="absolute inset-0 bg-primary/40 z-10 group-hover:bg-primary/20 transition-colors duration-500" />
-                        <img
-                          src={acceso.imagen}
-                          alt={acceso.titulo}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        {/* Ícono de categoría */}
-                        <div className="absolute bottom-2 left-2 z-20 w-9 h-9 rounded-lg bg-gold flex items-center justify-center shadow-md">
-                          <IconComp className="w-5 h-5 text-primary" />
-                        </div>
-                      </div>
-
-                      {/* Contenido */}
-                      <div className="p-6 flex flex-col flex-1 relative bg-white">
-                        <h3 className="text-lg font-display font-black text-primary mb-2 leading-tight group-hover:text-gold transition-colors">
+                  <Link
+                    to={acceso.link}
+                    className="group flex items-start gap-4 py-5 border-t border-gray-100 hover:border-gold/50 transition-colors"
+                  >
+                    <span className="shrink-0 mt-0.5 w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                      <IconComp className="w-5 h-5 text-primary" />
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="font-display font-bold text-primary text-lg leading-tight group-hover:text-gold transition-colors">
                           {acceso.titulo}
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed flex-1">
-                          {acceso.descripcion}
-                        </p>
-
-                        {/* CTA flecha */}
-                        <div className="mt-4 flex items-center gap-1 text-gold text-xs font-bold group-hover:gap-2 transition-[gap]">
-                          Ver más <ArrowRight className="w-3.5 h-3.5" />
-                        </div>
+                        <ArrowRight className="w-4 h-4 text-gold shrink-0 transition-transform group-hover:translate-x-1" />
                       </div>
+                      <p className="text-gray-600 text-sm leading-relaxed mt-1">
+                        {acceso.descripcion}
+                      </p>
                     </div>
                   </Link>
                 </motion.div>

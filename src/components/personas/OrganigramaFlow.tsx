@@ -39,6 +39,12 @@ interface OrgData {
 const NODE_W = 240;
 const NODE_H = 96;
 
+// ReactFlow exige color literal en JS (no acepta clases de Tailwind). Estas
+// constantes son el espejo de los tokens: `primary` de tailwind.config.js y el
+// gris de cuadrícula de la malla. Excepción documentada, igual criterio que MallaFlow.
+const EDGE_COLOR = 'rgba(18,55,123,0.25)'; // primary @ 25%
+const GRID_COLOR = '#cbd5e1'; // slate-300
+
 // ── Nodo on‑brand: raíz en azul (cargo dorado); resto blanco con franja superior ──
 function OrgNode({ data }: NodeProps<OrgData>) {
   const isRoot = data.level === 0;
@@ -82,7 +88,7 @@ function buildGraph(root: NodoOrg) {
         source: parentId,
         target: id,
         type: 'smoothstep',
-        style: { stroke: 'rgba(18,55,123,0.25)', strokeWidth: 2 },
+        style: { stroke: EDGE_COLOR, strokeWidth: 2 },
       });
     }
     nodo.hijos?.forEach((h) => walk(h, level + 1, id));
@@ -155,16 +161,24 @@ export default function OrganigramaFlow() {
           fitView
           nodesConnectable={false}
           elementsSelectable={false}
+          // El grafo es decorativo: su equivalente accesible es la lista `sr-only`
+          // de arriba. Por eso el lienzo va `aria-hidden` y aquí se quita todo
+          // tab‑stop (nodos, aristas y atribución), para no enfocar contenido oculto.
+          nodesFocusable={false}
+          edgesFocusable={false}
+          proOptions={{ hideAttribution: true }}
           minZoom={0.3}
           maxZoom={1.5}
           zoomOnScroll
           zoomActivationKeyCode="Control"
           panOnScroll={false}
           preventScrolling={false}
-          attributionPosition="bottom-right"
         >
-          <Background color="#cbd5e1" gap={20} size={1} />
-          <Controls className="!bg-white !shadow-lg !border-slate-100 !rounded-lg" showInteractive={false} />
+          <Background color={GRID_COLOR} gap={20} size={1} />
+          <Controls
+            className="!bg-white !shadow-lg !border-slate-100 !rounded-lg [&_.react-flow__controls-button]:!w-10 [&_.react-flow__controls-button]:!h-10"
+            showInteractive={false}
+          />
         </ReactFlow>
       </div>
 
