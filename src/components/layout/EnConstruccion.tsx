@@ -26,7 +26,7 @@ export default function EnConstruccion({ titulo, descripcion, bg = 'bg-white' }:
         </div>
         <SectionTitle
           title={titulo}
-          subtitle={descripcion || 'Espacio reservado para esta sección. Aquí va el contenido de tu escuela.'}
+          subtitle={descripcion || 'Espacio reservado para esta sección. Aquí va el contenido de tu programa.'}
           center
         />
       </div>

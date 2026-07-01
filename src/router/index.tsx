@@ -39,6 +39,7 @@ const Lineas = lazy(() => import('../pages/investigacion/Lineas'));
 const Publicaciones = lazy(() => import('../pages/investigacion/Publicaciones'));
 const ProyectosGrupo = lazy(() => import('../pages/investigacion/ProyectosGrupo')); // proyectos + tesis
 const Convenios = lazy(() => import('../pages/investigacion/convenios'));            // reutilizado en Académico
+const Movilidad = lazy(() => import('../pages/academico/Movilidad'));
 
 // Páginas reutilizadas
 const Docentes = lazy(() => import('../pages/autoridades/Docentes'));       // Organización › Docentes
@@ -99,7 +100,7 @@ export default function AppRouter() {
               <Route path="laboratorios" element={<EnConstruccion titulo="Laboratorios" />} />
               <Route path="responsabilidad-social" element={<EnConstruccion titulo="Responsabilidad **Social**" />} />
               <Route path="convenios" element={<Convenios />} />
-              <Route path="movilidad" element={<EnConstruccion titulo="Movilidad" />} />
+              <Route path="movilidad" element={<Movilidad />} />
               {/* Ruta conservada (Titulación), fuera del menú */}
               <Route path="titulacion" element={<Titulacion />} />
             </Route>

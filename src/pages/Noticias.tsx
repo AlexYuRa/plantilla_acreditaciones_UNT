@@ -13,7 +13,7 @@ export default function Noticias() {
     <PageWrapper>
       <PageHero
         title="Noticias y Actualidad"
-        subtitle={`Eventos, convocatorias y logros de la ${site.programa.nombre}.`}
+        subtitle={`Eventos, convocatorias y logros del ${site.programa.nombre}.`}
         icon={Newspaper}
         breadcrumbs={[{ label: 'Noticias' }]}
       />

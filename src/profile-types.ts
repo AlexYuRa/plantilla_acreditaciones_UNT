@@ -55,6 +55,8 @@ export interface SiteConfig {
     dominio?: string;
   };
   facultad?: string;
+  /** Denominación del tipo de unidad académica (p. ej. "Programa de Estudios"). */
+  denominacion: string;
   /** Marca tipográfica del navbar, a dos líneas (azul / dorado). */
   wordmark: { linea1: string; linea2: string };
   /** Frase breve de identidad (footer). */

@@ -1,16 +1,16 @@
 import type { SiteConfig } from '@/profile-types';
 
 /**
- * Identidad de la escuela. Editar este archivo (y `branding.ts`) cubre la mayor
- * parte de la re-tematización para una escuela nueva.
+ * Identidad del programa de estudios. Editar este archivo (y `branding.ts`) cubre
+ * la mayor parte de la re-tematización para un programa nuevo.
  *
  * Los textos de abajo son PLANTILLA: describen qué va en cada campo. Reemplázalos
- * por los datos de tu escuela.
+ * por los datos de tu programa.
  */
 export const site: SiteConfig = {
   programa: {
-    nombre: 'Nombre de la Escuela Profesional',
-    nombreCorto: 'Nombre de la Escuela',
+    nombre: 'Programa de Estudios de la Carrera',
+    nombreCorto: 'Programa de Estudios',
   },
   universidad: {
     nombre: 'Nombre de la Universidad',
@@ -22,24 +22,27 @@ export const site: SiteConfig = {
   },
   facultad: 'Nombre de la Facultad',
 
+  // Denominación del tipo de unidad académica. Se usa en subtítulos genéricos.
+  denominacion: 'Programa de Estudios',
+
   // Wordmark del navbar: se muestra en dos líneas (línea 1 en azul, línea 2 en dorado).
-  wordmark: { linea1: 'Nombre', linea2: 'Escuela' },
+  wordmark: { linea1: 'Nombre', linea2: 'Programa' },
 
   tagline:
-    'Lema o frase que resume el propósito de la escuela en una línea. Reemplázalo por el de tu escuela.',
+    'Lema o frase que resume el propósito del programa de estudios en una línea. Reemplázalo por el de tu programa.',
 
   hero: {
-    eyebrow: 'Escuela Profesional de',
-    titulo: { linea1: 'Nombre De', linea2: 'La Escuela' },
+    eyebrow: 'Programa de Estudios de',
+    titulo: { linea1: 'Nombre de la', linea2: 'Carrera' },
     descripcion:
-      'Descripción breve de la escuela para el hero: a quién forma y con qué enfoque. Reemplaza este texto por el de tu escuela.',
+      'Descripción breve del programa de estudios para el hero: a quién forma y con qué enfoque. Reemplaza este texto por el de tu programa.',
     ctas: {
       primary: { label: 'Ver Plan de Estudios', to: '/academico/malla-curricular' },
       secondary: { label: 'Perfiles académicos', to: '/academico/perfiles' },
     },
   },
 
-  // Sello de acreditación (badge del hero). Si tu escuela no está acreditada,
+  // Sello de acreditación (badge del hero). Si tu programa no está acreditado,
   // pon `mostrarSello: false` y ajusta `estado`.
   acreditacion: {
     entidad: 'Entidad Acreditadora',
@@ -57,11 +60,11 @@ export const site: SiteConfig = {
 
   decana: {
     nombre: 'Nombre del Decano(a)',
-    cargo: 'Decano(a) de la Escuela Profesional',
+    cargo: 'Decano(a) del Programa de Estudios',
     mensaje:
-      'Mensaje de bienvenida del decano(a). Aquí va un párrafo que recibe a los visitantes y resume el espíritu del programa. Reemplaza este texto por el de tu escuela.',
+      'Mensaje de bienvenida del decano(a). Aquí va un párrafo que recibe a los visitantes y resume el espíritu del programa. Reemplaza este texto por el de tu programa.',
     // ID del video de YouTube para el mensaje de bienvenida. Déjalo vacío hasta
-    // tener el video de tu escuela; al ponerlo, el reproductor aparece solo.
+    // tener el video de tu programa; al ponerlo, el reproductor aparece solo.
     video: { youtubeId: '', start: 0 },
   },
 

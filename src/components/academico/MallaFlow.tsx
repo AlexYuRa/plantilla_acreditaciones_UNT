@@ -41,7 +41,6 @@ function CourseNode({ data }: NodeProps<CourseNodeData>) {
       role="button"
       tabIndex={0}
       aria-label={`Ver detalle del curso ${data.name} (${data.cycle}, ${data.credits} créditos)`}
-      onClick={open}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -244,8 +243,12 @@ export default function MallaFlow() {
   return (
     <div>
       {/* Vista de texto accesible del plan (lector de pantalla). El grafo de abajo
-          es la versión interactiva equivalente; para impresión está el PDF. */}
-      <table className="sr-only">
+          es la versión interactiva equivalente; para impresión está el PDF.
+          Se envuelve en un <div sr-only>: aplicar `sr-only` directamente a un
+          <table> no lo colapsa (las tablas tratan height como mínimo e ignoran
+          el recorte), lo que en Chrome extendía el scroll del documento. */}
+      <div className="sr-only">
+      <table>
         <caption>
           Plan de estudios por ciclos: {stats.cycles} ciclos, {stats.courses} cursos, {stats.credits} créditos.
         </caption>
@@ -270,6 +273,7 @@ export default function MallaFlow() {
           )}
         </tbody>
       </table>
+      </div>
 
       <div className="lg:flex lg:items-stretch rounded-xl border border-slate-200 overflow-hidden shadow-sm bg-white">
         {/* Grafo */}
@@ -297,6 +301,7 @@ export default function MallaFlow() {
             edges={edges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
+            onNodeClick={(_, node) => openCourse(node.data as CourseNodeData)}
             nodeTypes={nodeTypes}
             fitView={isDesktop}
             defaultViewport={isDesktop ? undefined : { x: 16, y: 16, zoom: 0.85 }}

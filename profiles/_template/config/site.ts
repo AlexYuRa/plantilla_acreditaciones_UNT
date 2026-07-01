@@ -7,6 +7,8 @@ export const site: SiteConfig = {
   universidad: { nombre: '[Universidad]', siglas: '[SIGLAS]', url: 'https://', dominio: '' },
   facultad: 'Facultad de [Facultad]',
 
+  denominacion: 'Programa de Estudios',
+
   wordmark: { linea1: '[Palabra 1]', linea2: '[Palabra 2]' },
 
   tagline: '[Frase breve de identidad para el footer].',

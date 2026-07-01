@@ -7,6 +7,11 @@ import { fileURLToPath, URL } from 'node:url'
 // (outDir/base) es independiente del perfil y se mantiene fijo.
 const PROFILE = process.env.PROFILE ?? 'escuela';
 
+// Slug del theme de WordPress donde se publica el build (carpeta dist).
+// Cámbialo aquí (o vía `THEME_SLUG=<slug> npm run build`) si tu programa se
+// publica en otro theme. Es independiente del PROFILE.
+const THEME_SLUG = process.env.THEME_SLUG ?? 'educacion-primaria';
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   const isVercel = process.env.VERCEL === '1';
@@ -19,9 +24,9 @@ export default defineConfig(({ command }) => {
         '@profile': fileURLToPath(new URL(`./profiles/${PROFILE}`, import.meta.url)),
       },
     },
-    base: isVercel || command === 'serve' ? '/' : '/wp-content/themes/educacion-primaria/dist/',
+    base: isVercel || command === 'serve' ? '/' : `/wp-content/themes/${THEME_SLUG}/dist/`,
     build: {
-      outDir: isVercel ? 'dist' : '../wp-content/themes/educacion-primaria/dist',
+      outDir: isVercel ? 'dist' : `../wp-content/themes/${THEME_SLUG}/dist`,
       emptyOutDir: true,
       cssCodeSplit: true,
       rollupOptions: {

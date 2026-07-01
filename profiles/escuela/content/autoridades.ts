@@ -1,8 +1,8 @@
 export const director = {
   nombre: "Nombre del Director(a)",
-  cargo: "Director(a) de la Escuela Profesional",
+  cargo: "Director(a) de Escuela",
   correo: "direccion@universidad.edu.pe",
-  bio: "Breve reseña del director(a): grado académico, especialidad y experiencia. Reemplaza este texto por la del director(a) de tu escuela.",
+  bio: "Breve reseña del director(a): grado académico, especialidad y experiencia. Reemplaza este texto por la del director(a) de tu programa.",
   foto: null // Reemplaza por la ruta de la foto o deja null para la silueta
 };
 
@@ -24,25 +24,17 @@ export const coordinadores = [
   }
 ];
 
+// Estructura según el Estatuto UNT vigente (2021, pág. 18): una Facultad se
+// compone de Escuela Profesional, Departamentos Académicos, Unidad de Segunda
+// Especialidad, Unidad de Investigación y Unidad de Posgrado.
 export const organigrama = {
-  nombre: "Dirección de Escuela",
-  cargo: "Nombre del Director(a)",
+  nombre: "Facultad",
+  cargo: "Decano(a)",
   hijos: [
-    {
-      nombre: "Coordinación Académica",
-      cargo: "Nombre del Coordinador(a)",
-      hijos: [
-        { nombre: "Comité 1", cargo: "" },
-        { nombre: "Comité 2", cargo: "" }
-      ]
-    },
-    {
-      nombre: "Coordinación de Investigación",
-      cargo: "Nombre del Coordinador(a)"
-    },
-    {
-      nombre: "Prácticas Preprofesionales",
-      cargo: "Nombre del Coordinador(a)"
-    }
+    { nombre: "Escuela Profesional", cargo: "Director(a) de Escuela" },
+    { nombre: "Departamentos Académicos", cargo: "Jefe(s) de Departamento" },
+    { nombre: "Unidad de Segunda Especialidad", cargo: "" },
+    { nombre: "Unidad de Investigación", cargo: "" },
+    { nombre: "Unidad de Posgrado", cargo: "" }
   ]
 };

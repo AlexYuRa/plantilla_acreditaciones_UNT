@@ -6,7 +6,7 @@ export const noticias = [
     categoriaColor: 'bg-[#12377B] text-white',
     titulo: 'Título de la noticia 1',
     resumen:
-      'Resumen breve de la noticia 1. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu escuela.',
+      'Resumen breve de la noticia 1. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu programa.',
     fecha: '2025-01-01',
     fechaFormateada: '01 Ene 2025',
     link: '/noticias',
@@ -18,7 +18,7 @@ export const noticias = [
     categoriaColor: 'bg-gold text-ink',
     titulo: 'Título de la noticia 2',
     resumen:
-      'Resumen breve de la noticia 2. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu escuela.',
+      'Resumen breve de la noticia 2. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu programa.',
     fecha: '2025-01-01',
     fechaFormateada: '01 Ene 2025',
     link: '/noticias',
@@ -30,7 +30,7 @@ export const noticias = [
     categoriaColor: 'bg-primary text-white',
     titulo: 'Título de la noticia 3',
     resumen:
-      'Resumen breve de la noticia 3. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu escuela.',
+      'Resumen breve de la noticia 3. Aquí va una o dos frases que describen la novedad. Reemplaza este texto por el de tu programa.',
     fecha: '2025-01-01',
     fechaFormateada: '01 Ene 2025',
     link: '/noticias',

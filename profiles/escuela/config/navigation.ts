@@ -51,8 +51,8 @@ export const NAV_LINKS: NavSection[] = [
             name: 'Objetivos',
             path: '/academico/objetivos',
             navAs: [
-              { name: 'Objetivos educativos', path: '/academico/objetivos#educativos' },
               { name: 'Objetivos académicos', path: '/academico/objetivos#academicos' },
+              { name: 'Objetivos educacionales', path: '/academico/objetivos#educativos' },
             ],
           },
           {
@@ -146,11 +146,12 @@ export const NAV_LINKS: NavSection[] = [
             name: 'Comités',
             path: '/organizacion/comites',
             navAs: [
-              { name: 'Calidad (Autoevaluación / Acreditación)', path: '/organizacion/comites#calidad' },
-              { name: 'Comité de Currículo', path: '/organizacion/comites#coteccu' },
-              { name: 'Consejería y tutoría', path: '/organizacion/comites#consejeria' },
+              { name: 'Comité de Calidad', path: '/organizacion/comites#calidad' },
+              { name: 'Comité Técnico de Currículo', path: '/organizacion/comites#curriculo' },
+              { name: 'Comité de Tutoría y Consejería', path: '/organizacion/comites#tutoria' },
+              { name: 'Comité de Seguimiento al Egresado', path: '/organizacion/comites#egresado' },
               { name: 'Comité de Investigación', path: '/organizacion/comites#investigacion' },
-              { name: 'Comisión', path: '/organizacion/comites#comision' },
+              { name: 'Comité de Responsabilidad Social', path: '/organizacion/comites#responsabilidad' },
             ],
           },
         ],

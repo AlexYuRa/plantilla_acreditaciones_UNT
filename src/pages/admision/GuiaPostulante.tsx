@@ -14,7 +14,7 @@ export default function GuiaPostulante() {
     <PageWrapper>
       <PageHero
         title="Guía del postulante"
-        subtitle={`Todo lo que necesitas saber para postular a la ${site.programa.nombre}.`}
+        subtitle={`Todo lo que necesitas saber para postular al ${site.programa.nombre}.`}
         icon={GraduationCap}
         breadcrumbs={[{ label: 'Admisión' }, { label: 'Guía del postulante' }]}
       />

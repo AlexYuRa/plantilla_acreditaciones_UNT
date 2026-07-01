@@ -9,11 +9,11 @@ import EnConstruccion from '../../components/layout/EnConstruccion';
 export default function Objetivos() {
   return (
     <>
-      <AnchoredSection id="educativos">
-        <EnConstruccion titulo="Objetivos **educativos**" />
-      </AnchoredSection>
       <AnchoredSection id="academicos">
-        <EnConstruccion titulo="Objetivos **académicos**" bg="bg-gray-50" />
+        <EnConstruccion titulo="Objetivos **Académicos**" />
+      </AnchoredSection>
+      <AnchoredSection id="educativos">
+        <EnConstruccion titulo="Objetivos **Educacionales**" bg="bg-gray-50" />
       </AnchoredSection>
     </>
   );

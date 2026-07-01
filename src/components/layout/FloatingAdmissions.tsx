@@ -54,7 +54,7 @@ export default function FloatingAdmissions() {
         </div>
 
         <p className="text-sm md:text-base leading-tight mb-4 text-white/95 shrink-0">
-          Descubre las modalidades de ingreso para formar parte de la {site.programa.nombre}.
+          Descubre las modalidades de ingreso para formar parte del {site.programa.nombre}.
         </p>
 
         <div className="flex-1 overflow-y-auto overscroll-contain pr-2 space-y-3 custom-scrollbar">

@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
 import DocenteCard from '../../components/personas/DocenteCard';
 import { docentes } from '@profile/content/docentes';
+import { Search } from 'lucide-react';
 
 export default function Docentes() {
+  const [depto, setDepto] = useState('Todos');
+  const [query, setQuery] = useState('');
+
+  // Departamentos disponibles (derivados del perfil) para los filtros.
+  const departamentos = useMemo(() => {
+    const set = new Set(docentes.map((d) => d.departamento).filter(Boolean));
+    return ['Todos', ...set];
+  }, []);
+
+  const filtrados = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return docentes.filter((d) => {
+      const okDepto = depto === 'Todos' || d.departamento === depto;
+      const okQuery = !q || d.nombre.toLowerCase().includes(q) || d.cursoPrincipal.toLowerCase().includes(q);
+      return okDepto && okQuery;
+    });
+  }, [depto, query]);
+
   return (
     <div className="bg-gray-50 py-16 md:py-20">
       <div className="container mx-auto px-4 md:px-8">
@@ -12,11 +31,51 @@ export default function Docentes() {
           subtitle="Profesores, investigadores y especialistas comprometidos con tu formación de calidad."
           center
         />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-12 max-w-7xl mx-auto">
-          {docentes.map((docente, idx) => (
-            <DocenteCard key={idx} docente={docente} />
-          ))}
+
+        {/* Filtros: departamento + búsqueda */}
+        <div className="mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 max-w-7xl mx-auto">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por departamento">
+            {departamentos.map((dep) => (
+              <button
+                key={dep}
+                type="button"
+                onClick={() => setDepto(dep)}
+                aria-pressed={depto === dep}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
+                  depto === dep
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-primary border border-gray-200 hover:border-gold/50'
+                }`}
+              >
+                {dep}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full lg:w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" aria-hidden="true" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Buscar por nombre o curso..."
+              aria-label="Buscar docente"
+              className="w-full pl-9 pr-3 py-2 text-base rounded-lg border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors"
+            />
+          </div>
         </div>
+
+        {filtrados.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-10 max-w-7xl mx-auto">
+            {filtrados.map((docente, idx) => (
+              <DocenteCard key={`${docente.nombre}-${idx}`} docente={docente} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-600 mt-12">
+            No se encontraron docentes con esos criterios. Prueba con otro departamento o búsqueda.
+          </p>
+        )}
       </div>
     </div>
   );

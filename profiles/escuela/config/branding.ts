@@ -21,7 +21,7 @@ export const branding: BrandingConfig = {
   heroImages: [hero1, hero2, hero3],
   alt: {
     universidad: 'Nombre de la Universidad',
-    escuela: 'Nombre de la Escuela Profesional',
+    escuela: 'Nombre del Programa de Estudios',
     bolsaTrabajo: 'Bolsa de trabajo',
   },
 };

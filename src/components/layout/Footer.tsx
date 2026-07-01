@@ -57,7 +57,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {[
                   { label: 'Misión y Visión', to: '/nosotros/mision-vision' },
-                  { label: 'Historia de la Escuela', to: '/nosotros/historia' },
+                  { label: 'Historia del Programa', to: '/nosotros/historia' },
                   { label: 'Plan de Estudios', to: '/academico/malla-curricular' },
                   { label: 'Perfil del Egresado', to: '/academico/perfiles#egreso' },
                   { label: 'Líneas de Investigación', to: '/investigacion/lineas' },
@@ -118,7 +118,7 @@ export default function Footer() {
                 </p>
                 {site.enlacesInstitucionales.map(({ label, url }) => (
                   <a
-                    key={url}
+                    key={label}
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"

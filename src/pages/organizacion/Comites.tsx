@@ -3,15 +3,17 @@ import AnchoredSection from '../../components/layout/AnchoredSection';
 import EnConstruccion from '../../components/layout/EnConstruccion';
 
 /**
- * Página agrupada "Comités". El navbar muestra los 5 comités por separado; todos
- * llevan aquí, a su ancla correspondiente.
+ * Página agrupada "Comités". El navbar muestra los comités por separado; todos
+ * llevan aquí, a su ancla correspondiente. Las denominaciones son las oficiales;
+ * pueden variar por facultad, se priorizan las principales.
  */
 const COMITES = [
   { id: 'calidad', titulo: 'Comité de **Calidad**', descripcion: 'Autoevaluación y acreditación de la calidad del programa.' },
-  { id: 'coteccu', titulo: 'Comité de **Currículo**' },
-  { id: 'consejeria', titulo: 'Consejería y **tutoría**' },
+  { id: 'curriculo', titulo: 'Comité Técnico de **Currículo**' },
+  { id: 'tutoria', titulo: 'Comité de **Tutoría y Consejería**' },
+  { id: 'egresado', titulo: 'Comité de **Seguimiento al Egresado**' },
   { id: 'investigacion', titulo: 'Comité de **Investigación**' },
-  { id: 'comision', titulo: 'Comisión' },
+  { id: 'responsabilidad', titulo: 'Comité de **Responsabilidad Social**' },
 ];
 
 export default function Comites() {

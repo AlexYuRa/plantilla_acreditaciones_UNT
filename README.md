@@ -1,6 +1,6 @@
-# Sitio institucional de Escuela Profesional (plantilla multi‑escuela)
+# Sitio institucional de Programa de Estudios (plantilla multi‑escuela)
 
-Sitio web institucional para una **Escuela Profesional** universitaria, construido
+Sitio web institucional para un **Programa de Estudios** universitario, construido
 como **plantilla reutilizable**: el diseño y el código son compartidos, y los datos
 de cada escuela viven en un *perfil* aparte. Así, cada persona del equipo clona el
 repo, edita **solo el perfil de su escuela** y publica, sin tocar `src/`.

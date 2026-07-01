@@ -1,5 +1,5 @@
-export const gradoAcademico = "Grado de Bachiller de la Escuela Profesional";
-export const tituloProfesional = "Título Profesional de la Escuela Profesional";
+export const gradoAcademico = "Grado de Bachiller del Programa de Estudios";
+export const tituloProfesional = "Título Profesional del Programa de Estudios";
 
 export const perfilIngresante = [
   { area: "Competencia de ingreso 1", descripcion: "Descripción breve de la primera competencia esperada en el postulante." },
@@ -74,4 +74,21 @@ export const tramites = [
     ],
     pdfUrl: `${import.meta.env.BASE_URL}Requisitos_Titulo.pdf`
   }
+];
+
+// Oportunidades de movilidad e intercambio (estudiantil y docente).
+// Misma forma que `convenios`: se muestran como tarjetas.
+export const movilidad = [
+  {
+    institucion: "Universidad o institución de destino",
+    tipo: "Movilidad estudiantil",
+    descripcion: "Descripción breve de la oportunidad de movilidad para estudiantes: destino, qué cubre y requisitos.",
+    modalidad: "Semestral",
+  },
+  {
+    institucion: "Universidad o institución de destino",
+    tipo: "Movilidad docente",
+    descripcion: "Descripción breve de la oportunidad de movilidad para docentes: estancias, intercambio o investigación.",
+    modalidad: "Estancia corta",
+  },
 ];
