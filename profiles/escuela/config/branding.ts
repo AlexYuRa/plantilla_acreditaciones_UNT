@@ -7,7 +7,7 @@ import logoUniversidad from '../assets/logo-universidad.png';
 import logoEscuela from '../assets/logo-escuela.png';
 import logoBolsa from '../assets/logo-bolsa-trabajo.png';
 import libroReclamaciones from '../assets/libro-reclamaciones.svg';
-import hero1 from '../assets/hero/hero-1.webp';
+import hero1 from '../assets/hero/hero-1.jpeg';
 import hero2 from '../assets/hero/hero-2.jpg';
 import hero3 from '../assets/hero/hero-3.jpg';
 
