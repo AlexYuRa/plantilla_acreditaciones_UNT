@@ -13,7 +13,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [schoolLogoOk, setSchoolLogoOk] = useState(false);
   // Sección con el mega-menú abierto (hover/foco). Solo para semántica ARIA:
   // la visibilidad sigue siendo CSS (group-hover / group-focus-within).
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -25,9 +24,6 @@ export default function Navbar() {
     setIsOpen(false);
     menuButtonRef.current?.focus();
   };
-
-  // Logo de la Escuela (definido en el branding del perfil activo).
-  const schoolLogoUrl = branding.logos.escuela;
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => {
     if (('key' in e && e.key === 'Enter') || e.type === 'click') {
@@ -120,28 +116,14 @@ export default function Navbar() {
           {/* Logo / Marca */}
           <Link to="/" className="flex items-center gap-3 md:gap-4 group py-3">
             <div className="flex items-center gap-3 md:gap-4">
-              {/* Logo de la Universidad */}
+              {/* Isologo de la Universidad */}
               <img
                 src={branding.logos.universidad}
                 alt={branding.alt.universidad}
                 className="h-16 sm:h-20 md:h-[112px] w-auto object-contain"
               />
-              {/* Separador (solo si existe el logo de la escuela) */}
-              {schoolLogoOk && (
-                <span className="block w-px h-10 sm:h-12 md:h-20 bg-gray-300" aria-hidden="true" />
-              )}
-              {/* Logo de la Escuela: colocar la imagen en public/logos/logo-escuela.png.
-                  Si no existe, no se muestra (ni el logo ni el separador). */}
-              <img
-                src={schoolLogoUrl}
-                alt={branding.alt.escuela}
-                onLoad={() => setSchoolLogoOk(true)}
-                onError={() => setSchoolLogoOk(false)}
-                className={clsx(
-                  'h-16 sm:h-20 md:h-[112px] w-auto object-contain',
-                  !schoolLogoOk && 'hidden'
-                )}
-              />
+              {/* Separador entre el isologo y el nombre del programa */}
+              <span className="block w-px h-10 sm:h-12 md:h-20 bg-gray-300" aria-hidden="true" />
             </div>
             <div className="flex flex-col ml-1 md:ml-3">
               <span className="font-display font-black tracking-tight leading-[0.95] text-base sm:text-lg md:text-3xl flex flex-col">

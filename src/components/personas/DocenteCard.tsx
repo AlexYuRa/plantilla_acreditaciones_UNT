@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Check } from 'lucide-react';
+import { User, Check, FlaskConical, BadgeCheck } from 'lucide-react';
 
 /**
  * DocenteCard — Tarjeta con volteo 3D (flip).
@@ -15,6 +15,9 @@ interface Docente {
   cursoPrincipal: string;
   foto?: string | null;
   especialidades?: string[];
+  investigador?: boolean;
+  categoriaInvestigacion?: string | null;
+  condicion?: string | null;
 }
 
 export default function DocenteCard({ docente }: { docente: Docente }) {
@@ -77,6 +80,30 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
             <h4 className="font-display font-bold text-sm leading-tight mt-1">
               {docente.nombre}
             </h4>
+
+            {/* Etiquetas: condición (nombrado/contratado), investigador y su categoría */}
+            {(docente.condicion || docente.investigador) && (
+              <div className="flex flex-wrap justify-center gap-1.5 mt-2.5">
+                {docente.condicion && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/15 border border-white/25 text-white text-[9px] font-black uppercase tracking-wide px-2 py-0.5">
+                    <BadgeCheck className="w-3 h-3" aria-hidden="true" />
+                    {docente.condicion}
+                  </span>
+                )}
+                {docente.investigador && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-gold text-primary text-[9px] font-black uppercase tracking-wide px-2 py-0.5">
+                    <FlaskConical className="w-3 h-3" aria-hidden="true" />
+                    Investigador
+                  </span>
+                )}
+                {docente.investigador && docente.categoriaInvestigacion && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/10 border border-gold/40 text-gold text-[9px] font-bold px-2 py-0.5">
+                    {docente.categoriaInvestigacion}
+                  </span>
+                )}
+              </div>
+            )}
+
             <div className="border-t border-white/20 my-3" />
             <p className="text-gold text-[10px] font-black uppercase tracking-[0.18em] mb-2">
               Especialidades

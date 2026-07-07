@@ -26,6 +26,7 @@ const Perfiles = lazy(() => import('../pages/nosotros/Perfiles'));          // i
 // Módulo: Organización
 const OrganizacionIndex = lazy(() => import('../pages/organizacion/index'));
 const OrganizacionDireccion = lazy(() => import('../pages/organizacion/Direccion')); // escuela + departamento
+const OrganosGobierno = lazy(() => import('../pages/organizacion/OrganosGobierno')); // consejo de facultad + consejeros + representantes
 const Comites = lazy(() => import('../pages/organizacion/Comites'));                 // los 5 comités
 
 // Módulo: Académico
@@ -48,6 +49,7 @@ const Organigrama = lazy(() => import('../pages/autoridades/Organigrama')); // O
 // Módulo: Admisión (enlazado desde el panel lateral)
 const GuiaPostulante = lazy(() => import('../pages/admision/GuiaPostulante'));
 const Resoluciones = lazy(() => import('../pages/admision/Resoluciones'));
+const GestionFormacionPregrado = lazy(() => import('../pages/admision/GestionFormacionPregrado'));
 
 // Fallback mientras llega el chunk de la ruta. Reserva alto para evitar saltos.
 function RouteFallback() {
@@ -83,6 +85,7 @@ export default function AppRouter() {
             <Route path="/organizacion" element={<OrganizacionIndex />}>
               <Route index element={<OrganizacionDireccion />} />
               <Route path="direccion" element={<OrganizacionDireccion />} />
+              <Route path="organos-gobierno" element={<OrganosGobierno />} />
               <Route path="docentes" element={<Docentes />} />
               <Route path="administrativos" element={<EnConstruccion titulo="Administrativos" />} />
               <Route path="comites" element={<Comites />} />
@@ -117,6 +120,7 @@ export default function AppRouter() {
             {/* ── Admisión (panel lateral) ── */}
             <Route path="/admision/guia" element={<GuiaPostulante />} />
             <Route path="/admision/resoluciones" element={<Resoluciones />} />
+            <Route path="/admision/gestion-formacion-pregrado" element={<GestionFormacionPregrado />} />
 
             {/* Conservadas fuera del menú */}
             <Route path="/noticias" element={<Noticias />} />

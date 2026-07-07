@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../components/ui/SectionTitle';
-import OrganigramaFlow from '../../components/personas/OrganigramaFlow';
 import { site } from '@/profile';
+import mapaProcesos from '@profile/assets/organigrama/mapa-procesos.png';
 
 export default function Organigrama() {
   return (
@@ -10,7 +10,23 @@ export default function Organigrama() {
         <SectionTitle title="Organigrama **Estructural**" center subtitle={`Estructura jerárquica y organizacional del ${site.denominacion}.`} />
 
         <div className="mt-12">
-          <OrganigramaFlow />
+          <a
+            href={mapaProcesos}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-xl border border-slate-200 shadow-sm overflow-hidden bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            title="Abrir el organigrama en tamaño completo"
+          >
+            <img
+              src={mapaProcesos}
+              alt={`Organigrama estructural del ${site.denominacion}`}
+              loading="lazy"
+              className="w-full h-auto object-contain"
+            />
+          </a>
+          <p className="text-center text-xs text-slate-500 mt-3">
+            Haz clic en la imagen para verla en tamaño completo.
+          </p>
         </div>
       </div>
     </div>
