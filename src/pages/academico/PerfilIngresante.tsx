@@ -14,7 +14,7 @@ export default function PerfilIngresante() {
             center
             subtitle={`Competencias del ingresante del ${site.programa.nombre}.`}
           />
-          <div className="mt-8 bg-white p-6 md:p-8 rounded-xl shadow-md border-t-4 border-t-primary">
+          <div className="mt-8 bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100">
             <ul className="space-y-4">
               {perfilIngresante.map((comp, idx) => (
                 <li key={idx} className="flex gap-3 items-start">

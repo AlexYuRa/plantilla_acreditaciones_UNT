@@ -79,6 +79,8 @@ El modelo habitual del equipo es más simple: cada quien edita directamente
 
 Son **globales** (iguales para todas las escuelas) y están en
 **`tailwind.config.js`**: `primary` (azul) y `gold` (dorado), entre otros tokens.
+Para **texto** dorado sobre fondos claros usa `gold-ink` (dorado oscuro que sí
+cumple contraste AA); reserva `gold` para el logotipo, íconos, rellenos y bordes.
 Si una escuela necesita otra paleta, se ajustan ahí.
 
 ## Despliegue

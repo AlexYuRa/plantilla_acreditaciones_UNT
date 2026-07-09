@@ -15,7 +15,7 @@ export default function CompetenciaItem({ competencia, index }: CompetenciaItemP
       transition={{ delay: index * 0.1 }}
       className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-slate-50 transition-colors"
     >
-      <div className="flex-shrink-0 w-12 h-12 bg-gold/15 rounded-full flex items-center justify-center text-gold font-bold text-xl">
+      <div className="flex-shrink-0 w-12 h-12 bg-gold/15 rounded-full flex items-center justify-center text-gold-ink font-bold text-xl">
         {index + 1}
       </div>
       <div>
