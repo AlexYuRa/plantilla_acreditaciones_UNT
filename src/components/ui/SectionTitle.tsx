@@ -25,7 +25,7 @@ export function SectionTitle({ title, subtitle, center = false, badge, className
     const parts = text.split(/\*\*(.*?)\*\*/g);
     return parts.map((part, i) =>
       i % 2 === 1
-        ? <span key={i} className="text-gold">{part}</span>
+        ? <span key={i} className="text-gold-ink">{part}</span>
         : part
     );
   };
@@ -40,7 +40,7 @@ export function SectionTitle({ title, subtitle, center = false, badge, className
     >
       {/* Badge opcional */}
       {badge && (
-        <span className="inline-block mb-3 text-xs font-black uppercase tracking-[0.18em] text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+        <span className="inline-block mb-3 text-xs font-black uppercase tracking-[0.18em] text-gold-ink bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
           {badge}
         </span>
       )}

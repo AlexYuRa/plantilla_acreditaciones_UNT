@@ -58,7 +58,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
 
           {/* Cargo · línea separadora · nombre · curso principal */}
           <div className="flex flex-col flex-1 p-5 text-center justify-center">
-            <p className="text-gold text-[10px] font-black uppercase tracking-[0.2em]">
+            <p className="text-gold-ink text-[10px] font-black uppercase tracking-[0.2em]">
               {docente.grado}
             </p>
             <div className="border-t border-gray-100 my-3" />

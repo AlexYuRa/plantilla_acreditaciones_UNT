@@ -28,7 +28,8 @@ profiles/
 ## Colores de tu escuela
 
 Los colores son **globales** y están en **`tailwind.config.js`** (raíz del repo):
-azul `primary` y dorado `gold`. Si tu escuela quiere otros, agrega esos valores ahí.
+azul `primary` y dorado `gold` (más `gold-ink`, el dorado oscuro para texto sobre
+fondo claro). Si tu escuela quiere otros, agrega esos valores ahí.
 
 ## Probar y construir
 
