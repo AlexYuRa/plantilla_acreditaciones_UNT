@@ -13,7 +13,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [schoolLogoOk, setSchoolLogoOk] = useState(false);
   // Sección con el mega-menú abierto (hover/foco). Solo para semántica ARIA:
   // la visibilidad sigue siendo CSS (group-hover / group-focus-within).
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -25,9 +24,6 @@ export default function Navbar() {
     setIsOpen(false);
     menuButtonRef.current?.focus();
   };
-
-  // Logo de la Escuela (definido en el branding del perfil activo).
-  const schoolLogoUrl = branding.logos.escuela;
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => {
     if (('key' in e && e.key === 'Enter') || e.type === 'click') {
@@ -120,28 +116,14 @@ export default function Navbar() {
           {/* Logo / Marca */}
           <Link to="/" className="flex items-center gap-3 md:gap-4 group py-3">
             <div className="flex items-center gap-3 md:gap-4">
-              {/* Logo de la Universidad */}
+              {/* Isologo de la Universidad */}
               <img
                 src={branding.logos.universidad}
                 alt={branding.alt.universidad}
                 className="h-16 sm:h-20 md:h-[112px] w-auto object-contain"
               />
-              {/* Separador (solo si existe el logo de la escuela) */}
-              {schoolLogoOk && (
-                <span className="block w-px h-10 sm:h-12 md:h-20 bg-gray-300" aria-hidden="true" />
-              )}
-              {/* Logo de la Escuela: colocar la imagen en public/logos/logo-escuela.png.
-                  Si no existe, no se muestra (ni el logo ni el separador). */}
-              <img
-                src={schoolLogoUrl}
-                alt={branding.alt.escuela}
-                onLoad={() => setSchoolLogoOk(true)}
-                onError={() => setSchoolLogoOk(false)}
-                className={clsx(
-                  'h-16 sm:h-20 md:h-[112px] w-auto object-contain',
-                  !schoolLogoOk && 'hidden'
-                )}
-              />
+              {/* Separador entre el isologo y el nombre del programa */}
+              <span className="block w-px h-10 sm:h-12 md:h-20 bg-gray-300" aria-hidden="true" />
             </div>
             <div className="flex flex-col ml-1 md:ml-3">
               <span className="font-display font-black tracking-tight leading-[0.95] text-base sm:text-lg md:text-3xl flex flex-col">
@@ -198,7 +180,7 @@ export default function Navbar() {
                     <div className="flex flex-wrap gap-x-2 gap-y-4 p-4 max-w-[min(720px,90vw)]">
                       {link.groups.map((grupo) => (
                         <div key={grupo.label} className="min-w-[200px] flex-1">
-                          <p className="px-3 pb-2 mb-1 text-[11px] font-black uppercase tracking-wider text-gold border-b border-gray-100">
+                          <p className="px-3 pb-2 mb-1 text-[11px] font-black uppercase tracking-wider text-gold-ink border-b border-gray-100">
                             {grupo.label}
                           </p>
                           <div className="flex flex-col">
@@ -305,7 +287,7 @@ export default function Navbar() {
                       end={link.path === '/'}
                       className={({ isActive }) => clsx(
                         'font-display font-bold py-1',
-                        isActive ? 'text-gold' : 'text-primary'
+                        isActive ? 'text-gold-ink' : 'text-primary'
                       )}
                     >
                       {link.name}
@@ -314,7 +296,7 @@ export default function Navbar() {
                       <div className="mt-2 ml-1 pl-4 border-l border-gray-200 flex flex-col gap-3">
                         {link.groups.map((grupo) => (
                           <div key={grupo.label} className="flex flex-col">
-                            <p className="text-[10px] font-black uppercase tracking-wider text-gold mb-1">
+                            <p className="text-[10px] font-black uppercase tracking-wider text-gold-ink mb-1">
                               {grupo.label}
                             </p>
                             <div className="flex flex-col">

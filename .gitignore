@@ -40,6 +40,10 @@ Desktop.ini
 *.tsbuildinfo
 .eslintcache
 
+# Skills de agentes / herramientas de desarrollo (no forman parte del sitio)
+.agents/
+skills-lock.json
+
 # Artefactos de impeccable (documentación de proceso, no se publican)
 .impeccable/
 DESIGN.md

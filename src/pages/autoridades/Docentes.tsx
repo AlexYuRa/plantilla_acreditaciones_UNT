@@ -4,24 +4,31 @@ import DocenteCard from '../../components/personas/DocenteCard';
 import { docentes } from '@profile/content/docentes';
 import { Search } from 'lucide-react';
 
+// Etiqueta del filtro que muestra solo investigadores (un filtro más, como los
+// departamentos). Es un valor "virtual" que no corresponde a un departamento real.
+const FILTRO_INVESTIGADORES = 'Investigadores';
+
 export default function Docentes() {
-  const [depto, setDepto] = useState('Todos');
+  const [filtro, setFiltro] = useState('Todos');
   const [query, setQuery] = useState('');
 
-  // Departamentos disponibles (derivados del perfil) para los filtros.
-  const departamentos = useMemo(() => {
-    const set = new Set(docentes.map((d) => d.departamento).filter(Boolean));
-    return ['Todos', ...set];
+  // Filtros disponibles: "Todos" + departamentos + (si hay) "Investigadores".
+  const filtros = useMemo(() => {
+    const departamentos = new Set(docentes.map((d) => d.departamento).filter(Boolean));
+    const base = ['Todos', ...departamentos];
+    return docentes.some((d) => d.investigador) ? [...base, FILTRO_INVESTIGADORES] : base;
   }, []);
 
   const filtrados = useMemo(() => {
     const q = query.trim().toLowerCase();
     return docentes.filter((d) => {
-      const okDepto = depto === 'Todos' || d.departamento === depto;
+      const okFiltro =
+        filtro === 'Todos' ||
+        (filtro === FILTRO_INVESTIGADORES ? d.investigador : d.departamento === filtro);
       const okQuery = !q || d.nombre.toLowerCase().includes(q) || d.cursoPrincipal.toLowerCase().includes(q);
-      return okDepto && okQuery;
+      return okFiltro && okQuery;
     });
-  }, [depto, query]);
+  }, [filtro, query]);
 
   return (
     <div className="bg-gray-50 py-16 md:py-20">
@@ -34,20 +41,20 @@ export default function Docentes() {
 
         {/* Filtros: departamento + búsqueda */}
         <div className="mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por departamento">
-            {departamentos.map((dep) => (
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar docentes">
+            {filtros.map((f) => (
               <button
-                key={dep}
+                key={f}
                 type="button"
-                onClick={() => setDepto(dep)}
-                aria-pressed={depto === dep}
+                onClick={() => setFiltro(f)}
+                aria-pressed={filtro === f}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
-                  depto === dep
+                  filtro === f
                     ? 'bg-primary text-white'
                     : 'bg-white text-primary border border-gray-200 hover:border-gold/50'
                 }`}
               >
-                {dep}
+                {f}
               </button>
             ))}
           </div>

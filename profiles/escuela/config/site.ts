@@ -33,7 +33,7 @@ export const site: SiteConfig = {
 
   hero: {
     eyebrow: 'Programa de Estudios de',
-    titulo: { linea1: 'Ingenieria', linea2: 'Ambiental' },
+    titulo: { linea1: 'Nombre', linea2: 'Escuela' },
     descripcion:
       'Descripción breve del programa de estudios para el hero: a quién forma y con qué enfoque. Reemplaza este texto por el de tu programa.',
     ctas: {

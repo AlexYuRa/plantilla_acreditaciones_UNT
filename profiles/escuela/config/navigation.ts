@@ -89,33 +89,6 @@ export const NAV_LINKS: NavSection[] = [
     ],
   },
   {
-    name: 'Investigación',
-    path: '/investigacion',
-    groups: [
-      {
-        label: 'Producción',
-        items: [
-          { name: 'Líneas de investigación', path: '/investigacion/lineas' },
-          { name: 'Publicaciones', path: '/investigacion/publicaciones' },
-          { name: 'Revistas', path: '/investigacion/revistas' },
-        ],
-      },
-      {
-        label: 'Proyectos',
-        items: [
-          {
-            name: 'Proyectos',
-            path: '/investigacion/proyectos',
-            navAs: [
-              { name: 'Proyectos de investigación', path: '/investigacion/proyectos#investigacion' },
-              { name: 'Proyectos y tesis', path: '/investigacion/proyectos#tesis' },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
     name: 'Organización',
     path: '/organizacion',
     groups: [
@@ -128,6 +101,20 @@ export const NAV_LINKS: NavSection[] = [
             navAs: [
               { name: 'Director de escuela', path: '/organizacion/direccion#escuela' },
               { name: 'Director de departamento', path: '/organizacion/direccion#departamento' },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Órganos de Gobierno',
+        items: [
+          {
+            name: 'Órganos de Gobierno',
+            path: '/organizacion/organos-gobierno',
+            navAs: [
+              { name: 'Consejo de Facultad', path: '/organizacion/organos-gobierno#consejo-facultad' },
+              { name: 'Consejeros', path: '/organizacion/organos-gobierno#consejeros' },
+              { name: 'Centro Federado', path: '/organizacion/organos-gobierno#representantes' },
             ],
           },
         ],
@@ -164,6 +151,33 @@ export const NAV_LINKS: NavSection[] = [
       },
     ],
   },
+  {
+    name: 'Investigación',
+    path: '/investigacion',
+    groups: [
+      {
+        label: 'Producción',
+        items: [
+          { name: 'Líneas de investigación', path: '/investigacion/lineas' },
+          { name: 'Publicaciones', path: '/investigacion/publicaciones' },
+          { name: 'Revistas', path: '/investigacion/revistas' },
+        ],
+      },
+      {
+        label: 'Proyectos',
+        items: [
+          {
+            name: 'Proyectos',
+            path: '/investigacion/proyectos',
+            navAs: [
+              { name: 'Proyectos de investigación', path: '/investigacion/proyectos#investigacion' },
+              { name: 'Proyectos y tesis', path: '/investigacion/proyectos#tesis' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   { name: 'Contacto', path: '/contacto' },
 ];
 
@@ -191,6 +205,12 @@ export const ADMISION_GROUPS: NavGroup[] = [
     label: 'Documentos',
     items: [
       { name: 'Resoluciones', path: '/admision/resoluciones' },
+      {
+        name: 'Política de Gestión de Calidad',
+        path: 'https://drive.google.com/file/d/1frtwwoFOHq9FcjUr88d5axbL-abLF2Ik/view?usp=drive_link',
+        external: true,
+      },
+      { name: 'Gestión de la Formación en Pregrado', path: '/admision/gestion-formacion-pregrado' },
     ],
   },
 ];

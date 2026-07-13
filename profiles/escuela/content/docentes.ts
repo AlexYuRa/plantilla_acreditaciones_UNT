@@ -4,6 +4,11 @@
 //   - cursoPrincipal: el curso/área principal que aparece en el FRENTE de la card
 //   - especialidades: lista que aparece al voltear la card (reverso). Agrega 2-3 por docente.
 //   - foto: ruta de la foto o null (muestra silueta placeholder)
+//   - investigador: true si el docente es investigador (habilita el filtro "Investigadores")
+//   - categoriaInvestigacion: categoría/nivel de investigación (p. ej. RENACYT). Solo aplica
+//     si investigador === true; se muestra como distintivo en la card.
+//   - condicion: régimen laboral del docente, "Nombrado" o "Contratado". Se muestra como
+//     etiqueta en la card.
 export const docentes = [
   {
     nombre: "Nombre del Docente 1",
@@ -11,7 +16,10 @@ export const docentes = [
     departamento: "Departamento Académico 1",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2", "Especialidad 3"],
-    foto: null
+    foto: null,
+    investigador: true,
+    categoriaInvestigacion: "RENACYT · Nivel I",
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 2",
@@ -19,7 +27,10 @@ export const docentes = [
     departamento: "Departamento Académico 1",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 3",
@@ -27,7 +38,10 @@ export const docentes = [
     departamento: "Departamento Académico 1",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
   },
   {
     nombre: "Nombre del Docente 4",
@@ -35,7 +49,10 @@ export const docentes = [
     departamento: "Departamento Académico 1",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: true,
+    categoriaInvestigacion: "RENACYT · Nivel II",
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 5",
@@ -43,7 +60,10 @@ export const docentes = [
     departamento: "Departamento Académico 2",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
   },
   {
     nombre: "Nombre del Docente 6",
@@ -51,7 +71,10 @@ export const docentes = [
     departamento: "Departamento Académico 2",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2", "Especialidad 3"],
-    foto: null
+    foto: null,
+    investigador: true,
+    categoriaInvestigacion: "RENACYT · Nivel III",
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 7",
@@ -59,7 +82,10 @@ export const docentes = [
     departamento: "Departamento Académico 2",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
   },
   {
     nombre: "Nombre del Docente 8",
@@ -67,7 +93,10 @@ export const docentes = [
     departamento: "Departamento Académico 2",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: true,
+    categoriaInvestigacion: "RENACYT · Nivel I",
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 9",
@@ -75,7 +104,10 @@ export const docentes = [
     departamento: "Departamento Académico 2",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: true,
+    categoriaInvestigacion: "RENACYT · Nivel IV",
+    condicion: "Nombrado"
   },
   {
     nombre: "Nombre del Docente 10",
@@ -83,6 +115,9 @@ export const docentes = [
     departamento: "Departamento Académico 1",
     cursoPrincipal: "Curso o área principal",
     especialidades: ["Especialidad 1", "Especialidad 2"],
-    foto: null
+    foto: null,
+    investigador: false,
+    categoriaInvestigacion: null,
+    condicion: "Contratado"
   }
 ];
