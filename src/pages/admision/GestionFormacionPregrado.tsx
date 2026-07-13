@@ -79,13 +79,13 @@ export default function GestionFormacionPregrado() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-5xl mx-auto">
             {/* Meta derivada de los datos */}
-            <p className="mb-5 text-sm text-slate-500">
-              <strong className="font-semibold text-slate-700">{GRUPOS.length}</strong> procesos
-              <span className="mx-1.5 text-slate-300" aria-hidden="true">·</span>
-              <strong className="font-semibold text-slate-700">{TOTAL_SUBPROCESOS}</strong> subprocesos
+            <p className="mb-5 text-sm text-gray-500">
+              <strong className="font-semibold text-gray-700">{GRUPOS.length}</strong> procesos
+              <span className="mx-1.5 text-gray-300" aria-hidden="true">·</span>
+              <strong className="font-semibold text-gray-700">{TOTAL_SUBPROCESOS}</strong> subprocesos
             </p>
 
-            <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+            <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
               <table className="w-full border-collapse text-sm min-w-[720px]">
                 <caption className="sr-only">
                   M01.01 Gestión de la Formación en Pregrado: niveles 1, 2 y 3 del proceso.
@@ -107,8 +107,8 @@ export default function GestionFormacionPregrado() {
                         <tr
                           key={`${grupo.nivel2}-${fIdx}`}
                           className={clsx(
-                            'transition-colors hover:bg-slate-50',
-                            nuevoGrupo && 'border-t-2 border-slate-200',
+                            'transition-colors hover:bg-gray-50',
+                            nuevoGrupo && 'border-t-2 border-gray-200',
                           )}
                         >
                           {/* Nivel 1 — macroproceso (una sola celda, centrada verticalmente) */}
@@ -123,7 +123,7 @@ export default function GestionFormacionPregrado() {
                                 aria-hidden="true"
                               />
                               <div className="relative flex flex-col items-center">
-                                <span className="inline-block rounded-md bg-gold/20 border border-gold/30 text-gold px-2.5 py-1 font-mono text-xs font-bold">
+                                <span className="inline-block rounded-md bg-gold/20 border border-gold/30 text-gold px-2.5 py-1 text-xs font-bold">
                                   {n1cod}
                                 </span>
                                 <p className="mt-3 font-display font-black text-base leading-snug">{n1nom}</p>
@@ -136,9 +136,9 @@ export default function GestionFormacionPregrado() {
                           {fIdx === 0 && (
                             <td
                               rowSpan={grupo.filas.length}
-                              className="align-middle border-l border-slate-100 bg-slate-50/40 p-5"
+                              className="align-middle border-l border-gray-100 bg-gray-50/40 p-5"
                             >
-                              <span className="block font-mono text-[11px] font-medium text-slate-400">{n2cod}</span>
+                              <span className="block text-[11px] font-medium text-gray-500">{n2cod}</span>
                               <span className="mt-1 block font-display font-bold text-primary leading-snug">{n2nom}</span>
                             </td>
                           )}
@@ -146,17 +146,17 @@ export default function GestionFormacionPregrado() {
                           {/* Nivel 3 — subproceso */}
                           <td
                             className={clsx(
-                              'align-middle border-l border-slate-100 px-5 py-4',
-                              fIdx > 0 && 'border-t border-slate-100',
+                              'align-middle border-l border-gray-100 px-5 py-4',
+                              fIdx > 0 && 'border-t border-gray-100',
                             )}
                           >
                             {n3nom ? (
                               <>
-                                <span className="block font-mono text-[11px] font-medium text-slate-400">{n3cod}</span>
-                                <span className="mt-0.5 block text-slate-800 font-medium leading-snug">{n3nom}</span>
+                                <span className="block text-[11px] font-medium text-gray-500">{n3cod}</span>
+                                <span className="mt-0.5 block text-gray-800 font-medium leading-snug">{n3nom}</span>
                               </>
                             ) : (
-                              <span className="text-xs italic text-slate-400">Sin subprocesos definidos</span>
+                              <span className="text-xs italic text-gray-500">Sin subprocesos definidos</span>
                             )}
                           </td>
                         </tr>

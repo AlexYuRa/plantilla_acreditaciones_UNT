@@ -39,7 +39,7 @@ export default function CurriculumVersionSwitch({
               type="button"
               onClick={() => onChange(version)}
               aria-pressed={active}
-              className={`px-7 py-2 text-sm font-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset ${
+              className={`px-7 py-2.5 text-sm font-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset ${
                 active
                   ? 'bg-primary text-gold'
                   : 'bg-transparent text-primary hover:bg-primary/5'

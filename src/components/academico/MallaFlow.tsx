@@ -25,18 +25,12 @@ import {
 
 
 // ── Nodo de curso (colores por área, definidos por el usuario) ───────────────
-// Mismo criterio que la leyenda del panel (swatch cuadrado + texto): el área se
-// distingue con el punto de color junto al ciclo, no con una franja lateral.
+// El área se codifica con una franja lateral de color; el fondo es blanco en
+// reposo y se tiñe con el color del área al pasar el puntero.
 const AREA_STYLES: Record<AreaType, string> = {
-  general: 'bg-emerald-50/60 text-emerald-950 hover:bg-emerald-100/70',
-  especifico: 'bg-orange-50/60 text-orange-950 hover:bg-orange-100/70',
-  especialidad: 'bg-sky-50/60 text-sky-950 hover:bg-sky-100/70',
-};
-
-const AREA_DOT: Record<AreaType, string> = {
-  general: 'bg-emerald-500',
-  especifico: 'bg-orange-400',
-  especialidad: 'bg-sky-400',
+  general: 'border-l-emerald-500 bg-white text-emerald-950 hover:bg-emerald-100/70',
+  especifico: 'border-l-orange-400 bg-white text-orange-950 hover:bg-orange-100/70',
+  especialidad: 'border-l-sky-400 bg-white text-sky-950 hover:bg-sky-100/70',
 };
 
 // El nodo lleva un callback `onOpen` para abrir su detalle por clic o teclado.
@@ -55,15 +49,12 @@ function CourseNode({ data }: NodeProps<CourseNodeData>) {
           open();
         }
       }}
-      className={`w-64 p-3 shadow-md rounded border border-slate-200 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${AREA_STYLES[data.type]}`}
+      className={`w-64 p-3 shadow-md rounded border border-slate-200 border-l-4 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${AREA_STYLES[data.type]}`}
     >
       <Handle type="target" position={Position.Left} className="opacity-40 !bg-slate-400" />
 
       <div className="flex justify-between items-center mb-1.5">
-        <span className="flex items-center gap-1.5 text-[9px] font-bold tracking-wider uppercase opacity-60">
-          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${AREA_DOT[data.type]}`} aria-hidden="true" />
-          {data.cycle}
-        </span>
+        <span className="text-[9px] font-bold tracking-wider uppercase opacity-60">{data.cycle}</span>
         <div className="flex gap-1">
           {data.isElective && (
             <span className="bg-purple-100 text-purple-800 text-[8px] px-1 font-bold rounded">ELECTIVO</span>

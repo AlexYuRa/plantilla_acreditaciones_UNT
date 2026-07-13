@@ -48,7 +48,7 @@ export default function Docentes() {
                 type="button"
                 onClick={() => setFiltro(f)}
                 aria-pressed={filtro === f}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
+                className={`px-4 py-2.5 rounded-full text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
                   filtro === f
                     ? 'bg-primary text-white'
                     : 'bg-white text-primary border border-gray-200 hover:border-gold/50'
@@ -67,7 +67,7 @@ export default function Docentes() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar por nombre o curso..."
               aria-label="Buscar docente"
-              className="w-full pl-9 pr-3 py-2 text-base rounded-lg border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors"
+              className="w-full pl-9 pr-3 py-2.5 text-base rounded-lg border border-gray-200 bg-white placeholder:text-gray-500 focus:outline-none focus:border-gold transition-colors"
             />
           </div>
         </div>

@@ -180,7 +180,7 @@ export default function Navbar() {
                     <div className="flex flex-wrap gap-x-2 gap-y-4 p-4 max-w-[min(720px,90vw)]">
                       {link.groups.map((grupo) => (
                         <div key={grupo.label} className="min-w-[200px] flex-1">
-                          <p className="px-3 pb-2 mb-1 text-[11px] font-black uppercase tracking-wider text-gold-ink border-b border-gray-100">
+                          <p className="px-3 pb-2 mb-1 text-[11px] font-black uppercase tracking-wider text-gold border-b border-gray-100">
                             {grupo.label}
                           </p>
                           <div className="flex flex-col">
@@ -287,7 +287,7 @@ export default function Navbar() {
                       end={link.path === '/'}
                       className={({ isActive }) => clsx(
                         'font-display font-bold py-1',
-                        isActive ? 'text-gold-ink' : 'text-primary'
+                        isActive ? 'text-gold' : 'text-primary'
                       )}
                     >
                       {link.name}
@@ -296,7 +296,7 @@ export default function Navbar() {
                       <div className="mt-2 ml-1 pl-4 border-l border-gray-200 flex flex-col gap-3">
                         {link.groups.map((grupo) => (
                           <div key={grupo.label} className="flex flex-col">
-                            <p className="text-[10px] font-black uppercase tracking-wider text-gold-ink mb-1">
+                            <p className="text-[10px] font-black uppercase tracking-wider text-gold mb-1">
                               {grupo.label}
                             </p>
                             <div className="flex flex-col">

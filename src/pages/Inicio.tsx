@@ -316,7 +316,7 @@ export default function Inicio() {
             <SectionTitle title="Noticias y **Actualidad**" subtitle={`Últimas novedades, eventos y comunicados del ${site.denominacion}.`} />
             <Link
               to="/noticias"
-              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-gold-ink transition-colors whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-gold transition-colors whitespace-nowrap shrink-0"
             >
               Ver todas <ArrowRight className="w-4 h-4" />
             </Link>
@@ -355,13 +355,13 @@ export default function Inicio() {
                           {noticia.fechaFormateada}
                         </span>
                       </div>
-                      <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold-ink transition-colors flex-1">
+                      <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold transition-colors flex-1">
                         {noticia.titulo}
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed mb-4">
                         {noticia.resumen}
                       </p>
-                      <span className="mt-auto inline-flex items-center gap-1 text-gold-ink text-sm font-bold group-hover:gap-2 transition-[gap]">
+                      <span className="mt-auto inline-flex items-center gap-1 text-gold text-sm font-bold group-hover:gap-2 transition-[gap]">
                         Leer más <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
@@ -406,7 +406,7 @@ export default function Inicio() {
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-3">
-                        <h3 className="font-display font-bold text-primary text-lg leading-tight group-hover:text-gold-ink transition-colors">
+                        <h3 className="font-display font-bold text-primary text-lg leading-tight group-hover:text-gold transition-colors">
                           {acceso.titulo}
                         </h3>
                         <ArrowRight className="w-4 h-4 text-gold shrink-0 transition-transform group-hover:translate-x-1" />

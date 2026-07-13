@@ -40,7 +40,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
         {/* ── FRENTE ── */}
         <div className="absolute inset-0 [backface-visibility:hidden] bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
           {/* Franja superior con avatar */}
-          <div className="relative bg-gradient-to-br from-primary to-primary pt-8 pb-12 flex justify-center items-end shrink-0">
+          <div className="relative bg-primary pt-8 pb-12 flex justify-center items-end shrink-0">
             <div className="absolute inset-0 opacity-[0.06]"
               style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }}
             />
@@ -58,7 +58,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
 
           {/* Cargo · línea separadora · nombre · curso principal */}
           <div className="flex flex-col flex-1 p-5 text-center justify-center">
-            <p className="text-gold-ink text-[10px] font-black uppercase tracking-[0.2em]">
+            <p className="text-gold text-[10px] font-black uppercase tracking-[0.2em]">
               {docente.grado}
             </p>
             <div className="border-t border-gray-100 my-3" />
@@ -72,7 +72,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
         </div>
 
         {/* ── REVERSO ── */}
-        <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-gradient-to-br from-primary to-primary rounded-2xl shadow-lg overflow-hidden flex flex-col p-5 text-white">
+        <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-primary rounded-2xl shadow-lg overflow-hidden flex flex-col p-5 text-white">
           <div className="text-center shrink-0">
             <p className="text-gold text-[10px] font-black uppercase tracking-[0.2em]">
               {docente.grado}

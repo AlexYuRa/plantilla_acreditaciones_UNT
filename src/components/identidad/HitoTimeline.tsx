@@ -33,7 +33,7 @@ export default function HitoTimeline({ hitos }: { hitos?: Hito[] }) {
             <div className="flex-1 bg-white rounded-2xl border border-gray-100 hover:border-gold/30 hover:shadow-md transition duration-300 p-5 flex gap-4 items-start">
               {/* Año destacado */}
               <div className="shrink-0 text-right">
-                <span className="text-2xl font-display font-black text-gold-ink leading-none">
+                <span className="text-2xl font-display font-black text-gold leading-none">
                   {hito.año}
                 </span>
               </div>

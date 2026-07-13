@@ -48,7 +48,7 @@ export default function ProyectoCard({ proyecto }: { proyecto: Proyecto }) {
           </div>
 
           {/* Título */}
-          <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold-ink transition-colors">
+          <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold transition-colors">
             {proyecto.titulo}
           </h3>
 

@@ -14,7 +14,7 @@ export default function Organigrama() {
             href={mapaProcesos}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-xl border border-slate-200 shadow-sm overflow-hidden bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            className="block rounded-xl border border-gray-200 shadow-sm overflow-hidden bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             title="Abrir el organigrama en tamaño completo"
           >
             <img
@@ -24,7 +24,7 @@ export default function Organigrama() {
               className="w-full h-auto object-contain"
             />
           </a>
-          <p className="text-center text-xs text-slate-500 mt-3">
+          <p className="text-center text-xs text-gray-500 mt-3">
             Haz clic en la imagen para verla en tamaño completo.
           </p>
         </div>

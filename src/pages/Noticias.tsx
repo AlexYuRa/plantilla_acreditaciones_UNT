@@ -53,13 +53,13 @@ export default function Noticias() {
                           {noticia.fechaFormateada}
                         </span>
                       </div>
-                      <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold-ink transition-colors flex-1">
+                      <h3 className="font-display font-bold text-primary text-base leading-snug mb-3 group-hover:text-gold transition-colors flex-1">
                         {noticia.titulo}
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed mb-4">
                         {noticia.resumen}
                       </p>
-                      <span className="mt-auto inline-flex items-center gap-1 text-gold-ink text-sm font-bold group-hover:gap-2 transition-[gap]">
+                      <span className="mt-auto inline-flex items-center gap-1 text-gold text-sm font-bold group-hover:gap-2 transition-[gap]">
                         Leer más <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>

@@ -24,7 +24,7 @@ export default function ValorItem({ valor, index }: ValorItemProps) {
           </span>
         </div>
         <div>
-          <h4 className="font-display font-bold text-primary text-base mb-1 group-hover:text-gold-ink transition-colors">
+          <h4 className="font-display font-bold text-primary text-base mb-1 group-hover:text-gold transition-colors">
             {valor.nombre}
           </h4>
           <p className="text-gray-500 text-sm leading-relaxed">
